@@ -1,35 +1,113 @@
 import React, { Component } from "react";
-import { intialState } from "./_variables";
+import { intialState, buildAbogado, buildModalAbogado } from "./_variables";
 import DataTable from "app/core/components/datatable";
 import Card from "@material-ui/core/Card";
 import FormBuscar from "./components/forms/form-buscar";
 import PageTitle from "app/core/components/page-title";
+import FormGestionAbogado from "./components/forms/form-gestion-abogado";
+import update from 'immutability-helper';
+import GridActionButtons from "./components/buttons/grid-action-buttons";
+import { FORM_TYPE } from "app/core/enums/enums";
 
 export default class AbogadoContainer extends Component {
-  state = { ...intialState };
+	state = { ...intialState };
 
-  componentDidMount() {
-    console.log("componente monto");
-  }
+	componentDidMount() {
+		this.buildGridButtons();
+	}
 
-  render() {
-    const { tableDef, pagination } = this.state;
-    //console.log(pagination);
-    return (
-      <div>
-        <PageTitle text={"Titulo"}>asdasd</PageTitle>
-        <FormBuscar />
+	buildGridButtons = () => {
 
-        <Card elevation={8}>
-          <DataTable
-            tableDef={tableDef}
-            pagination={pagination}
-            onLoadData={e => {
-              console.log(e);
-            }}
-          />
-        </Card>
-      </div>
-    );
-  }
+		const newColumn = {
+			label: 'Acciones',
+			render: (item, loading) => <GridActionButtons
+				item={item}
+				disabled={loading}
+				onClickShow={this.handleOpenModalShow}
+				onClickEdit={this.handleOpenModalUpdate}>
+			</GridActionButtons>
+		};
+
+		this.setState(update(this.state, {
+			tableDef: {
+				columns: { $push: [newColumn] }
+			}
+		}));
+	}
+
+	handleOpenModalNew = () => {
+
+		const { modalGestionAbogado } = this.state;
+
+		this.setState({ modalGestionAbogado: { ...modalGestionAbogado, open: true } });
+
+	}
+
+	handleOpenModalShow = (id) => {
+
+		this.setState(update(this.state, {
+			modalGestionAbogado: {
+				title: { $set: 'Ver Abogado' },
+				formType: { $set: FORM_TYPE.CONSULTAR },
+				idAbogado: { $set: id },
+				open: { $set: true }
+			}
+		}));
+
+	}
+
+	handleOpenModalUpdate = (id) => {
+
+		this.setState(update(this.state, {
+			modalGestionAbogado: {
+				title: { $set: 'Editar Abogado' },
+				formType: { $set: FORM_TYPE.EDITAR },
+				idAbogado: { $set: id },
+				open: { $set: true }
+			}
+		}));
+
+	}
+
+	handleCloseModal = () => {
+		this.setState({ modalGestionAbogado: { ...this.state.modalGestionAbogado, open: false } });
+	}
+
+	resetModal = () => {
+		this.setState({ modalGestionAbogado: buildModalAbogado() });
+	}
+
+	render() {
+		const { tableDef, pagination, modalGestionAbogado } = this.state;
+
+		return (
+			<div>
+				<PageTitle text={"Titulo"}>asdasd</PageTitle>
+
+				<FormBuscar
+					onSearch={(form) => { console.log(form) }}
+					onClear={(form) => { console.log(form) }}
+					onClickNew={this.handleOpenModalNew}
+				/>
+
+				<Card elevation={8}>
+					<DataTable
+						tableDef={tableDef}
+						pagination={pagination}
+						onLoadData={e => {
+							console.log(e);
+						}}
+					/>
+				</Card>
+				
+				<FormGestionAbogado
+					open={modalGestionAbogado.open}
+					title={modalGestionAbogado.title}
+					onClose={this.handleCloseModal}
+					onReset={this.resetModal}
+				>
+				</FormGestionAbogado>
+			</div>
+		);
+	}
 }

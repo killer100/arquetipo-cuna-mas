@@ -9,7 +9,7 @@
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, ".App {\n  text-align: center;\n}\n\n.App-logo {\n  animation: App-logo-spin infinite 20s linear;\n  height: 40vmin;\n  pointer-events: none;\n}\n\n.App-header {\n  background-color: #282c34;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: calc(10px + 2vmin);\n  color: white;\n}\n\n.App-link {\n  color: #61dafb;\n}\n\n@keyframes App-logo-spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n", ""]);
+exports.push([module.i, ".App {\r\n  text-align: center;\r\n}\r\n\r\n.App-logo {\r\n  animation: App-logo-spin infinite 20s linear;\r\n  height: 40vmin;\r\n  pointer-events: none;\r\n}\r\n\r\n.App-header {\r\n  background-color: #282c34;\r\n  min-height: 100vh;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-size: calc(10px + 2vmin);\r\n  color: white;\r\n}\r\n\r\n.App-link {\r\n  color: #61dafb;\r\n}\r\n\r\n@keyframes App-logo-spin {\r\n  from {\r\n    transform: rotate(0deg);\r\n  }\r\n  to {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n", ""]);
 
 
 
@@ -28,7 +28,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Rob
 exports.push([module.i, "@import url(https://fonts.googleapis.com/icon?family=Material+Icons);", ""]);
 
 // Module
-exports.push([module.i, "\nhtml {\n  height: 100%;\n}\n\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\",\n    \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\",\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  padding: 0;\n  height: 100%;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, \"Courier New\",\n    monospace;\n}\n", ""]);
+exports.push([module.i, "\r\nhtml {\r\n  height: 100%;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\",\r\n    \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\",\r\n    sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  padding: 0;\r\n  height: 100%;\r\n}\r\n\r\ncode {\r\n  font-family: source-code-pro, Menlo, Monaco, Consolas, \"Courier New\",\r\n    monospace;\r\n}\r\n", ""]);
 
 
 
@@ -73,8 +73,8 @@ if(false) {}
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
-/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App.css */ "./src/app/App.css");
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_core_components_layout_layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/core/components/layout/layout */ "./src/app/core/components/layout/layout.jsx");
 
 
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\App.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\App.js";
 
 
 
@@ -98,7 +98,7 @@ function App({
   classes
 }) {
   const _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(initialState),
-        _useState2 = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
+        _useState2 = Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
         state = _useState2[0],
         setState = _useState2[1];
 
@@ -112,12 +112,12 @@ function App({
     appName: "SISPAD",
     sidebarOpen: state.sidebarOpen,
     openSidebar: () => {
-      setState(Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+      setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         sidebarOpen: true
       }));
     },
     closeSidebar: () => {
-      setState(Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+      setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
         sidebarOpen: false
       }));
     },
@@ -152,6 +152,325 @@ function App({
 
 /***/ }),
 
+/***/ "./src/app/core/components/autocomplete/index.js":
+/*!*******************************************************!*\
+  !*** ./src/app/core/components/autocomplete/index.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_autosuggest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-autosuggest */ "./node_modules/react-autosuggest/dist/index.js");
+/* harmony import */ var react_autosuggest__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_autosuggest__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var autosuggest_highlight_match__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! autosuggest-highlight/match */ "./node_modules/autosuggest-highlight/match/index.js");
+/* harmony import */ var autosuggest_highlight_match__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(autosuggest_highlight_match__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var autosuggest_highlight_parse__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! autosuggest-highlight/parse */ "./node_modules/autosuggest-highlight/parse/index.js");
+/* harmony import */ var autosuggest_highlight_parse__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(autosuggest_highlight_parse__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "./node_modules/@material-ui/core/esm/MenuItem/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/InputAdornment */ "./node_modules/@material-ui/core/esm/InputAdornment/index.js");
+/* harmony import */ var _material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/esm/CircularProgress/index.js");
+
+
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\autocomplete\\index.js";
+
+
+
+
+
+
+
+
+
+
+
+
+
+function renderInput(inputProps) {
+  const classes = inputProps.classes,
+        ref = inputProps.ref,
+        loading = inputProps.loading,
+        other = Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(inputProps, ["classes", "ref", "loading"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    fullWidth: true,
+    InputProps: Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      inputRef: ref,
+      classes: {
+        input: classes.input
+      },
+      endAdornment: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_InputAdornment__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        position: "end",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        },
+        __self: this
+      }, loading && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_CircularProgress__WEBPACK_IMPORTED_MODULE_13__["default"], {
+        size: 20,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }))
+    }, other),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
+  });
+}
+
+const renderSuggestion = (labelProp, complexLabel) => (suggestion, {
+  query,
+  isHighlighted
+}) => {
+  const _suggest = typeof complexLabel === 'function' ? complexLabel(suggestion) : suggestion[labelProp];
+
+  const matches = autosuggest_highlight_match__WEBPACK_IMPORTED_MODULE_5___default()(_suggest, query);
+  const parts = autosuggest_highlight_parse__WEBPACK_IMPORTED_MODULE_6___default()(_suggest, matches);
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    selected: isHighlighted,
+    component: "div",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, parts.map((part, index) => {
+    return part.highlight ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+      key: String(index),
+      style: {
+        fontWeight: 700
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 48
+      },
+      __self: undefined
+    }, part.text) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("strong", {
+      key: String(index),
+      style: {
+        fontWeight: 300
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      },
+      __self: undefined
+    }, part.text);
+  })));
+};
+
+function renderSuggestionsContainer(options) {
+  const containerProps = options.containerProps,
+        children = options.children;
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_8__["default"], Object.assign({}, containerProps, {
+    square: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: this
+  }), children);
+}
+
+const getSuggestionValue = (labelProp, complexLabel) => suggestion => {
+  return typeof complexLabel === 'function' ? complexLabel(suggestion) : suggestion[labelProp];
+}; // function getSuggestions(value) {
+// 	const inputValue = value.trim().toLowerCase();
+// 	const inputLength = inputValue.length;
+// 	let count = 0;
+// 	return inputLength === 0
+// 		? []
+// 		: suggestions.filter(suggestion => {
+// 			const keep =
+// 				count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
+// 			if (keep) {
+// 				count += 1;
+// 			}
+// 			return keep;
+// 		});
+// }
+
+
+const styles = theme => ({
+  container: {
+    flexGrow: 1,
+    position: 'relative'
+  },
+  suggestionsContainerOpen: {
+    //display: 'inline-block',
+    position: 'absolute',
+    zIndex: 1,
+    //marginTop: theme.spacing.unit,
+    left: 0,
+    right: 0
+  },
+  suggestion: {
+    display: 'block'
+  },
+  suggestionsList: {
+    margin: 0,
+    padding: 0,
+    listStyleType: 'none'
+  }
+});
+
+class Autocomplete extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      value: '',
+      suggestions: [],
+      loading: false
+    };
+    this.timeout = 0;
+
+    this.makeRequest = () => {};
+
+    this.handleSuggestionsFetchRequested = ({
+      value
+    }) => {
+      if (this.timeout) clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        this.setState({
+          loading: true
+        });
+        axios__WEBPACK_IMPORTED_MODULE_11___default.a.get(this.props.url, {
+          params: {
+            term: value
+          }
+        }).then(response => {
+          this.setState({
+            suggestions: eval('response.data.' + this.props.suggestionsProp),
+            loading: false
+          });
+        }).catch(err => {
+          this.setState({
+            loading: false
+          });
+          console.log(err);
+        });
+      }, 400);
+    };
+
+    this.handleSuggestionsClearRequested = () => {
+      this.setState({
+        suggestions: []
+      });
+    };
+
+    this.handleChange = (event, {
+      newValue
+    }) => {
+      this.setState({
+        value: newValue
+      });
+    };
+
+    this.handleSuggestionSelected = (event, {
+      suggestion,
+      suggestionValue,
+      suggestionIndex,
+      sectionIndex,
+      method
+    }) => {
+      if (this.props.clearOnSelect) this.setState({
+        value: ''
+      }); //console.log(suggestion);
+      //console.log(suggestionValue);
+
+      if (typeof this.props.onSelect === 'function') {
+        this.props.onSelect(suggestion);
+      }
+    };
+  }
+
+  render() {
+    const _this$props = this.props,
+          classes = _this$props.classes,
+          placeholder = _this$props.placeholder,
+          labelProp = _this$props.labelProp,
+          complexLabel = _this$props.complexLabel,
+          disabled = _this$props.disabled;
+    const loading = this.state.loading;
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_autosuggest__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      theme: {
+        container: classes.container,
+        suggestionsContainerOpen: classes.suggestionsContainerOpen,
+        suggestionsList: classes.suggestionsList,
+        suggestion: classes.suggestion
+      },
+      renderInputComponent: renderInput,
+      suggestions: this.state.suggestions,
+      onSuggestionsFetchRequested: this.handleSuggestionsFetchRequested,
+      onSuggestionsClearRequested: this.handleSuggestionsClearRequested,
+      onSuggestionSelected: this.handleSuggestionSelected,
+      renderSuggestionsContainer: renderSuggestionsContainer,
+      getSuggestionValue: getSuggestionValue(labelProp, complexLabel),
+      renderSuggestion: renderSuggestion(labelProp, complexLabel),
+      inputProps: {
+        classes,
+        placeholder: placeholder,
+        value: this.state.value,
+        onChange: this.handleChange,
+        loading: loading,
+        disabled: disabled
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 178
+      },
+      __self: this
+    });
+  }
+
+}
+
+Autocomplete.defaultProps = {
+  placeholder: 'Término a buscar',
+  labelProp: 'label',
+  clearOnSelect: false,
+  url: '',
+  suggestionsProp: '',
+  complexLabel: null,
+  disabled: false
+};
+Autocomplete.propTypes = {
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+  placeholder: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  onSelect: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+  labelProp: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  clearOnSelect: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+  url: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  suggestionsProp: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  complexLabel: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_10__["withStyles"])(styles)(Autocomplete));
+
+/***/ }),
+
 /***/ "./src/app/core/components/datatable/datatable-body.js":
 /*!*************************************************************!*\
   !*** ./src/app/core/components/datatable/datatable-body.js ***!
@@ -175,7 +494,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_colors_grey__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_colors_grey__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _datatable_column__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./datatable-column */ "./src/app/core/components/datatable/datatable-column.js");
 /* harmony import */ var _datatable_default_column__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./datatable-default-column */ "./src/app/core/components/datatable/datatable-default-column.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-body.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-body.js";
 
 
 
@@ -302,7 +621,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 /* harmony import */ var _moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../moment */ "./src/app/core/components/moment/index.js");
 /* harmony import */ var _material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/TableCell */ "./node_modules/@material-ui/core/esm/TableCell/index.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-column.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-column.js";
 
 
 
@@ -372,7 +691,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 /* harmony import */ var _material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TableCell */ "./node_modules/@material-ui/core/esm/TableCell/index.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-default-column.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-default-column.js";
 
 
 
@@ -461,7 +780,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TableHead */ "./node_modules/@material-ui/core/esm/TableHead/index.js");
 /* harmony import */ var _material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TableRow */ "./node_modules/@material-ui/core/esm/TableRow/index.js");
 /* harmony import */ var _datatable_header_column__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datatable-header-column */ "./src/app/core/components/datatable/datatable-header-column.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-header.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-header.js";
 
 
 
@@ -517,7 +836,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 /* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/IconButton */ "./node_modules/@material-ui/core/esm/IconButton/index.js");
 /* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Icon */ "./node_modules/@material-ui/core/esm/Icon/index.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-paginator-actions.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable-paginator-actions.js";
 
 
 
@@ -688,7 +1007,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _datatable_default_column__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./datatable-default-column */ "./src/app/core/components/datatable/datatable-default-column.js");
 /* harmony import */ var _datatable_header__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./datatable-header */ "./src/app/core/components/datatable/datatable-header.js");
 /* harmony import */ var _datatable_body__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./datatable-body */ "./src/app/core/components/datatable/datatable-body.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\datatable.js";
 
 
 
@@ -871,7 +1190,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core_TablePagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TablePagination */ "./node_modules/@material-ui/core/esm/TablePagination/index.js");
 /* harmony import */ var _datatable_paginator_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./datatable-paginator-actions */ "./src/app/core/components/datatable/datatable-paginator-actions.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\paginator.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\datatable\\paginator.js";
 
 
 
@@ -919,6 +1238,196 @@ const DataTablePaginator = ({
 
 /***/ }),
 
+/***/ "./src/app/core/components/form-search-container/index.js":
+/*!****************************************************************!*\
+  !*** ./src/app/core/components/form-search-container/index.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Icon */ "./node_modules/@material-ui/core/esm/Icon/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\form-search-container\\index.js";
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["makeStyles"])(theme => ({
+  button: {
+    margin: theme.spacing(1)
+  },
+  buttonsContainer: {
+    textAlign: 'center'
+  }
+}));
+
+const FormSearchContainer = ({
+  onSearch,
+  onClear,
+  children
+}) => {
+  const classes = useStyles();
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    noValidate: true,
+    autoComplete: "off",
+    onSubmit: e => {
+      e.preventDefault();
+      onSearch();
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    container: true,
+    spacing: 1,
+    alignItems: "center",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: undefined
+  }, children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    item: true,
+    xs: 12,
+    className: classes.buttonsContainer,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    type: "submit",
+    variant: "contained",
+    color: "primary",
+    className: classes.button,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: undefined
+  }, "search"), "Buscar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    type: "button",
+    variant: "contained",
+    className: classes.button,
+    onClick: onClear,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }, "clear_all"), "Limpiar"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FormSearchContainer);
+
+/***/ }),
+
+/***/ "./src/app/core/components/grid-toolbar/index.js":
+/*!*******************************************************!*\
+  !*** ./src/app/core/components/grid-toolbar/index.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Icon */ "./node_modules/@material-ui/core/esm/Icon/index.js");
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\grid-toolbar\\index.js";
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["makeStyles"])(theme => ({
+  container: {
+    display: 'flex',
+    marginBottom: theme.spacing(2)
+  },
+  leftSection: {
+    flex: 1
+  },
+  rightSection: {}
+}));
+
+const GridToolbar = ({
+  hideNew,
+  rightSection,
+  leftSection,
+  onClickNew
+}) => {
+  const classes = useStyles();
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.container,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.leftSection,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: undefined
+  }, leftSection), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.rightSection,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: undefined
+  }, rightSection, !hideNew && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    type: "button",
+    variant: "contained",
+    color: "primary",
+    className: classes.button,
+    onClick: onClickNew,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: undefined
+  }, "add_circle"), "Nuevo")));
+};
+
+GridToolbar.defaultProps = {
+  hideNew: false
+};
+/* harmony default export */ __webpack_exports__["default"] = (GridToolbar);
+
+/***/ }),
+
 /***/ "./src/app/core/components/layout/header/toolbar.jsx":
 /*!***********************************************************!*\
   !*** ./src/app/core/components/layout/header/toolbar.jsx ***!
@@ -942,7 +1451,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 /* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Icon */ "./node_modules/@material-ui/core/esm/Icon/index.js");
 /* harmony import */ var _sidebar_sidebar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../sidebar/sidebar */ "./src/app/core/components/layout/sidebar/sidebar.jsx");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\layout\\header\\toolbar.jsx";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\layout\\header\\toolbar.jsx";
 
 
 
@@ -1166,7 +1675,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main */ "./src/app/core/components/layout/main/index.jsx");
 /* harmony import */ var _sidebar_sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sidebar/sidebar */ "./src/app/core/components/layout/sidebar/sidebar.jsx");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\layout\\layout.jsx";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\layout\\layout.jsx";
 
 
 
@@ -1238,12 +1747,12 @@ const Layout = ({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\layout\\main\\index.jsx";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\layout\\main\\index.jsx";
 
 
 
@@ -1259,7 +1768,7 @@ const styles = theme => ({
       paddingRight: 0
     }
   },
-  toolbar: Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  toolbar: Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
@@ -1293,7 +1802,7 @@ const MainContent = ({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawerWidth", function() { return drawerWidth; });
-/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
@@ -1310,7 +1819,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Collapse */ "./node_modules/@material-ui/core/esm/Collapse/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\layout\\sidebar\\sidebar.jsx";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\layout\\sidebar\\sidebar.jsx";
 
 
 
@@ -1371,7 +1880,7 @@ const styles = theme => ({
       width: theme.spacing(9) + 1
     }
   },
-  toolbar: Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  toolbar: Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
@@ -1568,6 +2077,89 @@ const Sidebar = ({
 
 /***/ }),
 
+/***/ "./src/app/core/components/modal-form-container/index.js":
+/*!***************************************************************!*\
+  !*** ./src/app/core/components/modal-form-container/index.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_Dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Dialog */ "./node_modules/@material-ui/core/esm/Dialog/index.js");
+/* harmony import */ var _material_ui_core_DialogActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/DialogActions */ "./node_modules/@material-ui/core/esm/DialogActions/index.js");
+/* harmony import */ var _material_ui_core_DialogContent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/DialogContent */ "./node_modules/@material-ui/core/esm/DialogContent/index.js");
+/* harmony import */ var _material_ui_core_DialogTitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/DialogTitle */ "./node_modules/@material-ui/core/esm/DialogTitle/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\modal-form-container\\index.js";
+
+
+
+
+
+
+
+const ModalFormContainer = ({
+  open,
+  onSubmit,
+  onClose,
+  onExited,
+  title,
+  children
+}) => {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Dialog__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    open: open,
+    onClose: onClose,
+    onExited: onExited,
+    "aria-labelledby": "form-dialog-title",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_DialogTitle__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: undefined
+  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_DialogContent__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: undefined
+  }, children), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_DialogActions__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    onClick: onClose,
+    color: "default",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: undefined
+  }, "Cancelar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    onClick: onClose,
+    color: "primary",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: undefined
+  }, "Guardar")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ModalFormContainer);
+
+/***/ }),
+
 /***/ "./src/app/core/components/moment/index.js":
 /*!*************************************************!*\
   !*** ./src/app/core/components/moment/index.js ***!
@@ -1583,7 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\moment\\index.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\moment\\index.js";
 
 
 
@@ -1636,7 +2228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
 /* harmony import */ var _material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Toolbar */ "./node_modules/@material-ui/core/esm/Toolbar/index.js");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\page-title\\index.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\core\\components\\page-title\\index.js";
 
 
 
@@ -1689,16 +2281,51 @@ const PageTitle = ({
 
 /***/ }),
 
-/***/ "./src/app/modules/datos-maestros/abogado/_variables.js":
-/*!**************************************************************!*\
-  !*** ./src/app/modules/datos-maestros/abogado/_variables.js ***!
-  \**************************************************************/
-/*! exports provided: intialState */
+/***/ "./src/app/core/enums/enums.js":
+/*!*************************************!*\
+  !*** ./src/app/core/enums/enums.js ***!
+  \*************************************/
+/*! exports provided: FORM_TYPE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_TYPE", function() { return FORM_TYPE; });
+const FORM_TYPE = {
+  REGISTRAR: 1,
+  CONSULTAR: 2,
+  EDITAR: 3
+};
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/abogado/_variables.js":
+/*!**************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/abogado/_variables.js ***!
+  \**************************************************************/
+/*! exports provided: buildAbogado, buildModalAbogado, intialState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildAbogado", function() { return buildAbogado; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildModalAbogado", function() { return buildModalAbogado; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "intialState", function() { return intialState; });
+/* harmony import */ var app_core_enums_enums__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/core/enums/enums */ "./src/app/core/enums/enums.js");
+
+const buildAbogado = () => ({
+  dniAbogado: '',
+  nombres: '',
+  primerApellido: '',
+  segundoApellido: ''
+});
+const buildModalAbogado = () => ({
+  open: false,
+  title: 'Registrar Abogado',
+  formType: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_0__["FORM_TYPE"].REGISTRAR,
+  idAbogado: null,
+  abogado: buildAbogado()
+});
 const intialState = {
   tableDef: {
     columns: [{
@@ -1714,16 +2341,20 @@ const intialState = {
     page: 1,
     pageSize: 10,
     items: [{
+      idAbogado: 1,
       name: "Juan",
       age: 23
     }, {
+      idAbogado: 2,
       name: "Mateo",
       age: 32
     }, {
+      idAbogado: 3,
       name: "Lucas",
       age: 25
     }]
-  }
+  },
+  modalGestionAbogado: buildModalAbogado()
 };
 
 /***/ }),
@@ -1738,7 +2369,7 @@ const intialState = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AbogadoContainer; });
-/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_variables */ "./src/app/modules/datos-maestros/abogado/_variables.js");
@@ -1746,8 +2377,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
 /* harmony import */ var _components_forms_form_buscar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/forms/form-buscar */ "./src/app/modules/datos-maestros/abogado/components/forms/form-buscar.js");
 /* harmony import */ var app_core_components_page_title__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/core/components/page-title */ "./src/app/core/components/page-title/index.js");
+/* harmony import */ var _components_forms_form_gestion_abogado__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/forms/form-gestion-abogado */ "./src/app/modules/datos-maestros/abogado/components/forms/form-gestion-abogado.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _components_buttons_grid_action_buttons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/buttons/grid-action-buttons */ "./src/app/modules/datos-maestros/abogado/components/buttons/grid-action-buttons.js");
+/* harmony import */ var app_core_enums_enums__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/core/enums/enums */ "./src/app/core/enums/enums.js");
 
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\abogado\\abogado.container.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\abogado\\abogado.container.js";
+
+
+
+
 
 
 
@@ -1757,42 +2397,134 @@ var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\Arquetipo
 class AbogadoContainer extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   constructor(...args) {
     super(...args);
-    this.state = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _variables__WEBPACK_IMPORTED_MODULE_2__["intialState"]);
+    this.state = Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _variables__WEBPACK_IMPORTED_MODULE_2__["intialState"]);
+
+    this.buildGridButtons = () => {
+      const newColumn = {
+        label: 'Acciones',
+        render: (item, loading) => react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_buttons_grid_action_buttons__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          item: item,
+          disabled: loading,
+          onClickShow: this.handleOpenModalShow,
+          onClickEdit: this.handleOpenModalUpdate,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 23
+          },
+          __self: this
+        })
+      };
+      this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_8___default()(this.state, {
+        tableDef: {
+          columns: {
+            $push: [newColumn]
+          }
+        }
+      }));
+    };
+
+    this.handleOpenModalNew = () => {
+      const modalGestionAbogado = this.state.modalGestionAbogado;
+      this.setState({
+        modalGestionAbogado: Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, modalGestionAbogado, {
+          open: true
+        })
+      });
+    };
+
+    this.handleOpenModalShow = id => {
+      this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_8___default()(this.state, {
+        modalGestionAbogado: {
+          title: {
+            $set: 'Ver Abogado'
+          },
+          formType: {
+            $set: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_10__["FORM_TYPE"].CONSULTAR
+          },
+          idAbogado: {
+            $set: id
+          },
+          open: {
+            $set: true
+          }
+        }
+      }));
+    };
+
+    this.handleOpenModalUpdate = id => {
+      this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_8___default()(this.state, {
+        modalGestionAbogado: {
+          title: {
+            $set: 'Editar Abogado'
+          },
+          formType: {
+            $set: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_10__["FORM_TYPE"].EDITAR
+          },
+          idAbogado: {
+            $set: id
+          },
+          open: {
+            $set: true
+          }
+        }
+      }));
+    };
+
+    this.handleCloseModal = () => {
+      this.setState({
+        modalGestionAbogado: Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.state.modalGestionAbogado, {
+          open: false
+        })
+      });
+    };
+
+    this.resetModal = () => {
+      this.setState({
+        modalGestionAbogado: Object(_variables__WEBPACK_IMPORTED_MODULE_2__["buildModalAbogado"])()
+      });
+    };
   }
 
   componentDidMount() {
-    console.log("componente monto");
+    this.buildGridButtons();
   }
 
   render() {
     const _this$state = this.state,
           tableDef = _this$state.tableDef,
-          pagination = _this$state.pagination; //console.log(pagination);
-
+          pagination = _this$state.pagination,
+          modalGestionAbogado = _this$state.modalGestionAbogado;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 84
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(app_core_components_page_title__WEBPACK_IMPORTED_MODULE_6__["default"], {
       text: "Titulo",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 85
       },
       __self: this
     }, "asdasd"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_forms_form_buscar__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      onSearch: form => {
+        console.log(form);
+      },
+      onClear: form => {
+        console.log(form);
+      },
+      onClickNew: this.handleOpenModalNew,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 87
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
       elevation: 8,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 93
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(app_core_components_datatable__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -1803,13 +2535,98 @@ class AbogadoContainer extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 94
       },
       __self: this
-    })));
+    })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_forms_form_gestion_abogado__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      open: modalGestionAbogado.open,
+      title: modalGestionAbogado.title,
+      onClose: this.handleCloseModal,
+      onReset: this.resetModal,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 103
+      },
+      __self: this
+    }));
   }
 
 }
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/abogado/components/buttons/grid-action-buttons.js":
+/*!******************************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/abogado/components/buttons/grid-action-buttons.js ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/IconButton */ "./node_modules/@material-ui/core/esm/IconButton/index.js");
+/* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Icon */ "./node_modules/@material-ui/core/esm/Icon/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\abogado\\components\\buttons\\grid-action-buttons.js";
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(theme => ({
+  margin: {
+    margin: theme.spacing(0),
+    padding: 2
+  }
+}));
+
+const GridActionButtons = ({
+  item,
+  disabled,
+  onClickShow,
+  onClickEdit,
+  onClickDelete
+}) => {
+  const classes = useStyles();
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    "aria-label": "Show",
+    disabled: disabled,
+    className: classes.margin,
+    onClick: () => onClickShow(item.idAbogado),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fontSize: "small",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: undefined
+  }, "remove_red_eye")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    "aria-label": "Edit",
+    disabled: disabled,
+    className: classes.margin,
+    onClick: () => onClickEdit(item.idAbogado),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fontSize: "small",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: undefined
+  }, "edit")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (GridActionButtons);
 
 /***/ }),
 
@@ -1822,12 +2639,24 @@ class AbogadoContainer extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
-/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\abogado\\components\\forms\\form-buscar.js";
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
+/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var app_core_components_form_search_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/core/components/form-search-container */ "./src/app/core/components/form-search-container/index.js");
+/* harmony import */ var app_core_components_grid_toolbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/core/components/grid-toolbar */ "./src/app/core/components/grid-toolbar/index.js");
+
+
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\abogado\\components\\forms\\form-buscar.js";
+
+
+
+
 
 
 
@@ -1836,29 +2665,259 @@ var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\Arquetipo
 const styles = theme => ({
   root: {
     marginBottom: theme.spacing(2)
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: '100%'
+  },
+  dense: {
+    marginTop: 19
+  },
+  menu: {
+    width: 200
   }
 });
 
+const initialState = {
+  dniAbogado: '',
+  nombres: '',
+  primerApellido: '',
+  segundoApellido: ''
+};
+
 const FormBuscar = ({
-  classes
+  classes,
+  onSearch,
+  onClear,
+  onClickNew
 }) => {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  const _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(initialState),
+        _useState2 = Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
+        state = _useState2[0],
+        setState = _useState2[1];
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: classes.root,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 40
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 41
     },
     __self: undefined
-  }, "assad"));
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_form_search_container__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onSearch: () => {
+      onSearch(state);
+    },
+    onClear: () => {
+      setState(initialState);
+      onClear(initialState);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    item: true,
+    xs: 12,
+    sm: 4,
+    md: 3,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: "DNI",
+    className: classes.textField,
+    value: state.dniAbogado,
+    onChange: e => setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+      dniAbogado: e.target.value
+    })),
+    margin: "normal",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: undefined
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    item: true,
+    xs: 12,
+    sm: 4,
+    md: 3,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: "Nombres",
+    className: classes.textField,
+    value: state.nombres,
+    onChange: e => setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+      nombres: e.target.value
+    })),
+    margin: "normal",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58
+    },
+    __self: undefined
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    item: true,
+    xs: 12,
+    sm: 4,
+    md: 3,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: "Primer apellido",
+    className: classes.textField,
+    value: state.primerApellido,
+    onChange: e => setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+      primerApellido: e.target.value
+    })),
+    margin: "normal",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: undefined
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    item: true,
+    xs: 12,
+    sm: 4,
+    md: 3,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: "Segundo apellido",
+    className: classes.textField,
+    value: state.segundoApellido,
+    onChange: e => setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+      segundoApellido: e.target.value
+    })),
+    margin: "normal",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78
+    },
+    __self: undefined
+  }))))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_grid_toolbar__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    onClickNew: onClickNew,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(styles)(FormBuscar));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(styles)(FormBuscar));
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/abogado/components/forms/form-gestion-abogado.js":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/abogado/components/forms/form-gestion-abogado.js ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/core/components/modal-form-container */ "./src/app/core/components/modal-form-container/index.js");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_variables */ "./src/app/modules/datos-maestros/abogado/_variables.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var app_core_components_autocomplete__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/core/components/autocomplete */ "./src/app/core/components/autocomplete/index.js");
+
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\abogado\\components\\forms\\form-gestion-abogado.js";
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["makeStyles"])(theme => ({
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: '100%'
+  }
+}));
+
+const FormGestionAbogado = ({
+  open,
+  onClose,
+  onReset,
+  title
+}) => {
+  const _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(Object(_variables__WEBPACK_IMPORTED_MODULE_3__["buildAbogado"])()),
+        _useState2 = Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+        state = _useState2[0],
+        setState = _useState2[1];
+
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    open: open,
+    onClose: onClose,
+    title: title,
+    onExited: onReset,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    container: true,
+    spacing: 1,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(app_core_components_autocomplete__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    disabled: false,
+    placeholder: "Buscar Resoluci\xF3n",
+    clearOnSelect: true,
+    labelProp: "nro_resol",
+    onSelect: () => {},
+    url: "/api/sitradoc/resoluciones",
+    suggestionsProp: "data.resoluciones",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: undefined
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FormGestionAbogado);
 
 /***/ }),
 
@@ -1895,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var app_modules_datos_maestros_routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/modules/datos-maestros/routes */ "./src/app/modules/datos-maestros/routes.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\route-config.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\route-config.js";
 
 
 
@@ -1964,7 +3023,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _app_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/App */ "./src/app/App.js");
 /* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./serviceWorker */ "./src/serviceWorker.js");
-var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\index.js";
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\index.js";
 
 
 
@@ -2088,10 +3147,10 @@ function unregister() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Mario\source\repos\ArquetipoCunaMas\ArquetipoCunaMas.Web\ClientApp\src\index.js */"./src/index.js");
+module.exports = __webpack_require__(/*! D:\_proyectos\React\arquetipo-cuna-mas\ArquetipoCunaMas.Web\ClientApp\src\index.js */"./src/index.js");
 
 
 /***/ })
 
-},[[0,"runtime~main",0]]]);
+},[[0,"runtime~main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
