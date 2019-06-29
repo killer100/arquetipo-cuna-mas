@@ -13,6 +13,10 @@ const styles = theme => ({
       paddingRight: 0
     }
   },
+  container: {
+    maxWidth: 1500,
+    margin: '0 auto'
+  },
   toolbar: {
     display: "flex",
     alignItems: "center",
@@ -24,8 +28,10 @@ const styles = theme => ({
 
 const MainContent = ({ classes, children }) => (
   <main className={classes.content}>
-    {/* <div className={classes.toolbar} /> */}
-    {children}
+    <div className={classes.container}>
+      {/* <div className={classes.toolbar} /> */}
+      {children}
+    </div>
   </main>
 );
 

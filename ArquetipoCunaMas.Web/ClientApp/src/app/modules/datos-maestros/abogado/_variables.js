@@ -12,7 +12,8 @@ export const buildModalAbogado = () => ({
 	title: 'Registrar Abogado',
 	formType: FORM_TYPE.REGISTRAR,
 	idAbogado: null,
-	abogado: buildAbogado()
+	abogado: buildAbogado(),
+	loading: false
 });
 
 export const intialState = {
