@@ -1,16 +1,27 @@
 import React, { Component } from "react";
-import { intialState, buildAbogado, buildModalAbogado } from "./_variables";
+import { intialState } from "./store/_initial-state";
 import DataTable from "app/core/components/datatable";
 import Card from "@material-ui/core/Card";
 import FormBuscar from "./components/forms/form-buscar";
 import PageTitle from "app/core/components/page-title";
 import FormGestionAbogado from "./components/forms/form-gestion-abogado";
-import update from "immutability-helper";
 import GridActionButtons from "./components/buttons/grid-action-buttons";
-import { FORM_TYPE } from "app/core/enums/enums";
+import { abogadoStore } from "./store/abogado.store";
 
 export default class AbogadoContainer extends Component {
+  //=============================================
+  // Configuracion del estado y el store
+  //=============================================
   state = { ...intialState };
+
+  store = abogadoStore(
+    () => this.state,
+
+    state => {
+      this.setState(state);
+    }
+  );
+  //=============================================
 
   componentDidMount() {
     this.buildGridButtons();
@@ -23,71 +34,18 @@ export default class AbogadoContainer extends Component {
         <GridActionButtons
           item={item}
           disabled={loading}
-          onClickShow={this.handleOpenModalShow}
-          onClickEdit={this.handleOpenModalUpdate}
+          onClickShow={this.store.modalGestionAbogadoActions.openModalShow}
+          onClickEdit={this.store.modalGestionAbogadoActions.openModalUpdate}
         />
       )
     };
 
-    this.setState(
-      update(this.state, {
-        tableDef: {
-          columns: { $push: [newColumn] }
-        }
-      })
-    );
-  };
-
-  handleOpenModalNew = () => {
-    const { modalGestionAbogado } = this.state;
-
-    this.setState({
-      modalGestionAbogado: { ...modalGestionAbogado, open: true }
-    });
-  };
-
-  handleOpenModalShow = id => {
-    this.setState(
-      update(this.state, {
-        modalGestionAbogado: {
-          title: { $set: "Ver Abogado" },
-          formType: { $set: FORM_TYPE.CONSULTAR },
-          idAbogado: { $set: id },
-          open: { $set: true }
-        }
-      })
-    );
-  };
-
-  handleOpenModalUpdate = id => {
-    this.setState(
-      update(this.state, {
-        modalGestionAbogado: {
-          title: { $set: "Editar Abogado" },
-          formType: { $set: FORM_TYPE.EDITAR },
-          idAbogado: { $set: id },
-          open: { $set: true }
-        }
-      })
-    );
-  };
-
-  handleCloseModal = () => {
-    this.setState({
-      modalGestionAbogado: { ...this.state.modalGestionAbogado, open: false }
-    });
-  };
-
-  resetModal = () => {
-    this.setState({ modalGestionAbogado: buildModalAbogado() });
-  };
-
-  setModal = newModalState => {
-    this.setState({ modalGestionAbogado: newModalState });
+    this.store.buscadorAbogadoActions.setGridButtons(newColumn);
   };
 
   render() {
-    const { tableDef, pagination, modalGestionAbogado } = this.state;
+    const { buscadorAbogados, modalGestionAbogado } = this.state;
+    const { modalGestionAbogadoActions } = this.store;
 
     return (
       <>
@@ -100,25 +58,20 @@ export default class AbogadoContainer extends Component {
           onClear={form => {
             console.log(form);
           }}
-          onClickNew={this.handleOpenModalNew}
+          onClickNew={modalGestionAbogadoActions.openModalNew}
         />
 
         <Card elevation={8}>
           <DataTable
-            tableDef={tableDef}
-            pagination={pagination}
+            tableDef={buscadorAbogados.tableDef}
+            pagination={buscadorAbogados.pagination}
             onLoadData={e => {
               console.log(e);
             }}
           />
         </Card>
 
-        <FormGestionAbogado
-          modal={modalGestionAbogado}
-          setModal={this.setModal}
-          onClose={this.handleCloseModal}
-          onReset={this.resetModal}
-        />
+        <FormGestionAbogado modal={modalGestionAbogado} store={this.store} />
       </>
     );
   }

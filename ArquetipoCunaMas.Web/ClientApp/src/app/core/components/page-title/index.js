@@ -16,6 +16,7 @@ const styles = theme => ({
   },
   typography: {
     flex: "1"
+    
   }
 });
 

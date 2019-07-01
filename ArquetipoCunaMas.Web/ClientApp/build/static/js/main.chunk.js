@@ -1964,7 +1964,7 @@ const PageTitle = ({
   className: classes.toolbar,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 23
+    lineNumber: 24
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1972,13 +1972,13 @@ const PageTitle = ({
   className: classes.typography,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 24
+    lineNumber: 25
   },
   __self: undefined
 }, text), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 27
+    lineNumber: 28
   },
   __self: undefined
 }, children));
@@ -2005,67 +2005,6 @@ const FORM_TYPE = {
 
 /***/ }),
 
-/***/ "./src/app/modules/datos-maestros/abogado/_variables.js":
-/*!**************************************************************!*\
-  !*** ./src/app/modules/datos-maestros/abogado/_variables.js ***!
-  \**************************************************************/
-/*! exports provided: buildAbogado, buildModalAbogado, intialState */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildAbogado", function() { return buildAbogado; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildModalAbogado", function() { return buildModalAbogado; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "intialState", function() { return intialState; });
-/* harmony import */ var app_core_enums_enums__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/core/enums/enums */ "./src/app/core/enums/enums.js");
-
-const buildAbogado = () => ({
-  dniAbogado: '',
-  nombres: '',
-  primerApellido: '',
-  segundoApellido: ''
-});
-const buildModalAbogado = () => ({
-  open: false,
-  title: 'Registrar Abogado',
-  formType: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_0__["FORM_TYPE"].REGISTRAR,
-  idAbogado: null,
-  abogado: buildAbogado(),
-  loading: false
-});
-const intialState = {
-  tableDef: {
-    columns: [{
-      label: "Nombre",
-      property: "name"
-    }, {
-      label: "Edad",
-      property: "age"
-    }]
-  },
-  pagination: {
-    total: 5,
-    page: 1,
-    pageSize: 10,
-    items: [{
-      idAbogado: 1,
-      name: "Juan",
-      age: 23
-    }, {
-      idAbogado: 2,
-      name: "Mateo",
-      age: 32
-    }, {
-      idAbogado: 3,
-      name: "Lucas",
-      age: 25
-    }]
-  },
-  modalGestionAbogado: buildModalAbogado()
-};
-
-/***/ }),
-
 /***/ "./src/app/modules/datos-maestros/abogado/abogado.container.js":
 /*!*********************************************************************!*\
   !*** ./src/app/modules/datos-maestros/abogado/abogado.container.js ***!
@@ -2079,19 +2018,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_variables */ "./src/app/modules/datos-maestros/abogado/_variables.js");
+/* harmony import */ var _store_initial_state__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/_initial-state */ "./src/app/modules/datos-maestros/abogado/store/_initial-state.js");
 /* harmony import */ var app_core_components_datatable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/core/components/datatable */ "./src/app/core/components/datatable/index.js");
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
 /* harmony import */ var _components_forms_form_buscar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/forms/form-buscar */ "./src/app/modules/datos-maestros/abogado/components/forms/form-buscar.js");
 /* harmony import */ var app_core_components_page_title__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/core/components/page-title */ "./src/app/core/components/page-title/index.js");
 /* harmony import */ var _components_forms_form_gestion_abogado__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/forms/form-gestion-abogado */ "./src/app/modules/datos-maestros/abogado/components/forms/form-gestion-abogado.js");
-/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
-/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _components_buttons_grid_action_buttons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/buttons/grid-action-buttons */ "./src/app/modules/datos-maestros/abogado/components/buttons/grid-action-buttons.js");
-/* harmony import */ var app_core_enums_enums__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/core/enums/enums */ "./src/app/core/enums/enums.js");
+/* harmony import */ var _components_buttons_grid_action_buttons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/buttons/grid-action-buttons */ "./src/app/modules/datos-maestros/abogado/components/buttons/grid-action-buttons.js");
+/* harmony import */ var _store_abogado_store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store/abogado.store */ "./src/app/modules/datos-maestros/abogado/store/abogado.store.js");
 
 var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\abogado\\abogado.container.js";
-
 
 
 
@@ -2104,114 +2040,45 @@ var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\Arquetipo
 class AbogadoContainer extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   constructor(...args) {
     super(...args);
-    this.state = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _variables__WEBPACK_IMPORTED_MODULE_2__["intialState"]);
+    this.state = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _store_initial_state__WEBPACK_IMPORTED_MODULE_2__["intialState"]);
+    this.store = Object(_store_abogado_store__WEBPACK_IMPORTED_MODULE_9__["abogadoStore"])(() => this.state, state => {
+      this.setState(state);
+    });
 
     this.buildGridButtons = () => {
       const newColumn = {
         label: "Acciones",
-        render: (item, loading) => react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_buttons_grid_action_buttons__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        render: (item, loading) => react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_buttons_grid_action_buttons__WEBPACK_IMPORTED_MODULE_8__["default"], {
           item: item,
           disabled: loading,
-          onClickShow: this.handleOpenModalShow,
-          onClickEdit: this.handleOpenModalUpdate,
+          onClickShow: this.store.modalGestionAbogadoActions.openModalShow,
+          onClickEdit: this.store.modalGestionAbogadoActions.openModalUpdate,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 34
           },
           __self: this
         })
       };
-      this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_8___default()(this.state, {
-        tableDef: {
-          columns: {
-            $push: [newColumn]
-          }
-        }
-      }));
-    };
-
-    this.handleOpenModalNew = () => {
-      const modalGestionAbogado = this.state.modalGestionAbogado;
-      this.setState({
-        modalGestionAbogado: Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, modalGestionAbogado, {
-          open: true
-        })
-      });
-    };
-
-    this.handleOpenModalShow = id => {
-      this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_8___default()(this.state, {
-        modalGestionAbogado: {
-          title: {
-            $set: "Ver Abogado"
-          },
-          formType: {
-            $set: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_10__["FORM_TYPE"].CONSULTAR
-          },
-          idAbogado: {
-            $set: id
-          },
-          open: {
-            $set: true
-          }
-        }
-      }));
-    };
-
-    this.handleOpenModalUpdate = id => {
-      this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_8___default()(this.state, {
-        modalGestionAbogado: {
-          title: {
-            $set: "Editar Abogado"
-          },
-          formType: {
-            $set: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_10__["FORM_TYPE"].EDITAR
-          },
-          idAbogado: {
-            $set: id
-          },
-          open: {
-            $set: true
-          }
-        }
-      }));
-    };
-
-    this.handleCloseModal = () => {
-      this.setState({
-        modalGestionAbogado: Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.state.modalGestionAbogado, {
-          open: false
-        })
-      });
-    };
-
-    this.resetModal = () => {
-      this.setState({
-        modalGestionAbogado: Object(_variables__WEBPACK_IMPORTED_MODULE_2__["buildModalAbogado"])()
-      });
-    };
-
-    this.setModal = newModalState => {
-      this.setState({
-        modalGestionAbogado: newModalState
-      });
+      this.store.buscadorAbogadoActions.setGridButtons(newColumn);
     };
   }
 
+  //=============================================
   componentDidMount() {
     this.buildGridButtons();
   }
 
   render() {
     const _this$state = this.state,
-          tableDef = _this$state.tableDef,
-          pagination = _this$state.pagination,
+          buscadorAbogados = _this$state.buscadorAbogados,
           modalGestionAbogado = _this$state.modalGestionAbogado;
+    const modalGestionAbogadoActions = this.store.modalGestionAbogadoActions;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(app_core_components_page_title__WEBPACK_IMPORTED_MODULE_6__["default"], {
       text: "Titulo",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 52
       },
       __self: this
     }, "asdasd"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_forms_form_buscar__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -2221,38 +2088,36 @@ class AbogadoContainer extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       onClear: form => {
         console.log(form);
       },
-      onClickNew: this.handleOpenModalNew,
+      onClickNew: modalGestionAbogadoActions.openModalNew,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96
+        lineNumber: 54
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
       elevation: 8,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 106
+        lineNumber: 64
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(app_core_components_datatable__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      tableDef: tableDef,
-      pagination: pagination,
+      tableDef: buscadorAbogados.tableDef,
+      pagination: buscadorAbogados.pagination,
       onLoadData: e => {
         console.log(e);
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 65
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_forms_form_gestion_abogado__WEBPACK_IMPORTED_MODULE_7__["default"], {
       modal: modalGestionAbogado,
-      setModal: this.setModal,
-      onClose: this.handleCloseModal,
-      onReset: this.resetModal,
+      store: this.store,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 116
+        lineNumber: 74
       },
       __self: this
     }));
@@ -2554,7 +2419,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/core/components/modal-form-container */ "./src/app/core/components/modal-form-container/index.js");
-/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_variables */ "./src/app/modules/datos-maestros/abogado/_variables.js");
+/* harmony import */ var _store_initial_state__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../store/_initial-state */ "./src/app/modules/datos-maestros/abogado/store/_initial-state.js");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 /* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
 /* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Icon */ "./node_modules/@material-ui/core/esm/Icon/index.js");
@@ -2579,23 +2444,21 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["
 /**
  *
  * @param {{
- * 	modal: {title: string, open: boolean, loading: boolean, formType: number, abogado: any },
- *  setModal: (modal: {title: string, open: boolean, loading: boolean, formType: number, abogado: any }) => void
+ * 	modal: import('../../_variables').modalGestionAbogado,
+ *  store: import('../../store/abogado.store').abogadoStoreType
  * }} param0
  */
 
 const FormGestionAbogado = ({
   modal,
-  setModal,
-  onClose,
-  onReset
+  store
 }) => {
   const _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(false),
         _useState2 = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
         foundPerson = _useState2[0],
         setFoundPerson = _useState2[1];
 
-  const _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(Object(_variables__WEBPACK_IMPORTED_MODULE_4__["buildAbogado"])()),
+  const _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(Object(_store_initial_state__WEBPACK_IMPORTED_MODULE_4__["buildAbogado"])()),
         _useState4 = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState3, 2),
         form = _useState4[0],
         setForm = _useState4[1];
@@ -2603,9 +2466,9 @@ const FormGestionAbogado = ({
   const classes = useStyles();
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
     open: modal.open,
-    onClose: onClose,
+    onClose: store.modalGestionAbogadoActions.closeModal,
     title: modal.title,
-    onExited: onReset,
+    onExited: store.modalGestionAbogadoActions.resetModal,
     onSubmit: () => {
       console.log(form);
     },
@@ -2741,6 +2604,277 @@ const FormGestionAbogado = ({
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FormGestionAbogado);
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/abogado/store/_initial-state.js":
+/*!************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/abogado/store/_initial-state.js ***!
+  \************************************************************************/
+/*! exports provided: buildAbogado, buildModalAbogado, buscadorAbogados, modalGestionAbogado, intialState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildAbogado", function() { return buildAbogado; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildModalAbogado", function() { return buildModalAbogado; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buscadorAbogados", function() { return buscadorAbogados; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modalGestionAbogado", function() { return modalGestionAbogado; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "intialState", function() { return intialState; });
+/* harmony import */ var app_core_enums_enums__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/core/enums/enums */ "./src/app/core/enums/enums.js");
+
+const buildAbogado = () => ({
+  dniAbogado: "",
+  nombres: "",
+  primerApellido: "",
+  segundoApellido: ""
+});
+const buildModalAbogado = () => ({
+  open: false,
+  title: "Registrar Abogado",
+  formType: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_0__["FORM_TYPE"].REGISTRAR,
+  idAbogado: null,
+  abogado: buildAbogado(),
+  loading: false
+});
+const buscadorAbogados = {
+  tableDef: {
+    columns: [{
+      label: "Nombre",
+      property: "name"
+    }, {
+      label: "Edad",
+      property: "age"
+    }]
+  },
+  pagination: {
+    total: 5,
+    page: 1,
+    pageSize: 10,
+    items: [{
+      idAbogado: 1,
+      name: "Juan",
+      age: 23
+    }, {
+      idAbogado: 2,
+      name: "Mateo",
+      age: 32
+    }, {
+      idAbogado: 3,
+      name: "Lucas",
+      age: 25
+    }]
+  }
+};
+const modalGestionAbogado = buildModalAbogado();
+const intialState = {
+  buscadorAbogados,
+  modalGestionAbogado
+};
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/abogado/store/abogado.store.js":
+/*!***********************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/abogado/store/abogado.store.js ***!
+  \***********************************************************************/
+/*! exports provided: abogadoStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "abogadoStore", function() { return abogadoStore; });
+/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var _buscador_abogados_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./buscador-abogados.action */ "./src/app/modules/datos-maestros/abogado/store/buscador-abogados.action.js");
+/* harmony import */ var _modal_gestion_abogado_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal-gestion-abogado.action */ "./src/app/modules/datos-maestros/abogado/store/modal-gestion-abogado.action.js");
+
+
+
+/**
+ * @typedef {{
+ *  buscadorAbogadoActions: BuscadorAbogadoActions
+ *  modalGestionAbogadoActions: ModalGestionAbogadoActions
+ * }} abogadoStoreType
+ * @param {() => import('./_initial-state').intialState} getState
+ * @param {(state:import('./_initial-state').intialState ) => void} setState
+ * @returns {abogadoStoreType}
+ */
+
+function abogadoStore(getState, setState) {
+  /**
+   * helper que devuelve un metodo "getState" para ser
+   * utilizado por las clases "Acciones" que solo devolverá
+   * el contexto que se defina por la variable "prop"
+   * @param {string} prop
+   */
+  const buildScopedGetState = prop => () => getState()[prop];
+  /**
+   * helper que devuelve un metodo "setState" para ser
+   * utilizado por las clases "Acciones" que solo asignará
+   * el estado del contexto que se defina por la variable "prop"
+   * @param {string} prop
+   */
+
+
+  const buildScopedSetState = prop => newState => {
+    setState(Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, getState(), {
+      [prop]: newState
+    }));
+  }; //===============================================
+  // Configurando las acciones del store
+  //===============================================
+
+
+  return {
+    /**
+     * Se instancia la accion acotando su stado a la
+     * propiedad "buscadorAbogados" que debe existir en
+     * el estado inicial
+     */
+    buscadorAbogadoActions: new _buscador_abogados_action__WEBPACK_IMPORTED_MODULE_1__["BuscadorAbogadoActions"](buildScopedGetState("buscadorAbogados"), buildScopedSetState("buscadorAbogados")),
+
+    /**
+     * Se instancia la accion acotando su stado a la
+     * propiedad "modalGestionAbogado" que debe existir en
+     * el estado inicial
+     */
+    modalGestionAbogadoActions: new _modal_gestion_abogado_action__WEBPACK_IMPORTED_MODULE_2__["ModalGestionAbogadoActions"](buildScopedGetState("modalGestionAbogado"), buildScopedSetState("modalGestionAbogado"))
+  };
+}
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/abogado/store/buscador-abogados.action.js":
+/*!**********************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/abogado/store/buscador-abogados.action.js ***!
+  \**********************************************************************************/
+/*! exports provided: BuscadorAbogadoActions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BuscadorAbogadoActions", function() { return BuscadorAbogadoActions; });
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * Acciones que gestionarán el contexto del buscador dentro del estado
+ */
+
+class BuscadorAbogadoActions {
+  /**
+   * @param {() => import('./_initial-state').buscadorAbogados} getState
+   * @param {(state:import('./_initial-state').buscadorAbogados ) => void} setState
+   */
+  constructor(getState, setState) {
+    this.setGridButtons = newColumn => {
+      this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_0___default()(this.getState(), {
+        tableDef: {
+          columns: {
+            $push: [newColumn]
+          }
+        }
+      }));
+    };
+
+    this.getState = getState;
+    this.setState = setState;
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/abogado/store/modal-gestion-abogado.action.js":
+/*!**************************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/abogado/store/modal-gestion-abogado.action.js ***!
+  \**************************************************************************************/
+/*! exports provided: ModalGestionAbogadoActions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalGestionAbogadoActions", function() { return ModalGestionAbogadoActions; });
+/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var app_core_enums_enums__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/core/enums/enums */ "./src/app/core/enums/enums.js");
+/* harmony import */ var _initial_state__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_initial-state */ "./src/app/modules/datos-maestros/abogado/store/_initial-state.js");
+
+
+
+
+/**
+ * Acciones que gestionarán el contexto del Modal de gestión de abogados
+ * dentro del estado
+ */
+
+class ModalGestionAbogadoActions {
+  /**
+   * @param {() => import('./_initial-state').modalGestionAbogado} getState
+   * @param {(state:import('./_initial-state').modalGestionAbogado ) => void} setState
+   */
+  constructor(getState, setState) {
+    this.openModalNew = () => {
+      this.setState(Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        open: true
+      }));
+    };
+
+    this.openModalShow = id => {
+      const state = this.getState();
+      this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_1___default()(state, {
+        title: {
+          $set: "Ver Abogado"
+        },
+        formType: {
+          $set: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_2__["FORM_TYPE"].CONSULTAR
+        },
+        idAbogado: {
+          $set: id
+        },
+        open: {
+          $set: true
+        }
+      }));
+    };
+
+    this.openModalUpdate = id => {
+      this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_1___default()(this.getState(), {
+        title: {
+          $set: "Editar Abogado"
+        },
+        formType: {
+          $set: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_2__["FORM_TYPE"].EDITAR
+        },
+        idAbogado: {
+          $set: id
+        },
+        open: {
+          $set: true
+        }
+      }));
+    };
+
+    this.closeModal = () => {
+      this.setState(Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        open: false
+      }));
+    };
+
+    this.resetModal = () => {
+      this.setState(Object(_initial_state__WEBPACK_IMPORTED_MODULE_3__["buildModalAbogado"])());
+    };
+
+    this.setModal = newModalState => {
+      this.setState(newModalState);
+    };
+
+    this.getState = getState;
+    this.setState = setState;
+  }
+
+}
 
 /***/ }),
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ModalFormContainer from "app/core/components/modal-form-container";
-import { buildAbogado } from "../../_variables";
+import { buildAbogado } from "../../store/_initial-state";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Icon from "@material-ui/core/Icon";
@@ -13,12 +13,12 @@ const useStyles = makeStyles(theme => ({}));
 /**
  *
  * @param {{
- * 	modal: {title: string, open: boolean, loading: boolean, formType: number, abogado: any },
- *  setModal: (modal: {title: string, open: boolean, loading: boolean, formType: number, abogado: any }) => void
+ * 	modal: import('../../_variables').modalGestionAbogado,
+ *  store: import('../../store/abogado.store').abogadoStoreType
  * }} param0
  */
 
-const FormGestionAbogado = ({ modal, setModal, onClose, onReset }) => {
+const FormGestionAbogado = ({ modal, store }) => {
   const [foundPerson, setFoundPerson] = useState(false);
   const [form, setForm] = useState(buildAbogado());
   const classes = useStyles();
@@ -26,9 +26,9 @@ const FormGestionAbogado = ({ modal, setModal, onClose, onReset }) => {
   return (
     <ModalFormContainer
       open={modal.open}
-      onClose={onClose}
+      onClose={store.modalGestionAbogadoActions.closeModal}
       title={modal.title}
-      onExited={onReset}
+      onExited={store.modalGestionAbogadoActions.resetModal}
       onSubmit={() => {
         console.log(form);
       }}
