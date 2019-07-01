@@ -1,9 +1,10 @@
-import React from "react";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Button from "@material-ui/core/Button";
+import React from 'react'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import Button from '@material-ui/core/Button'
+import LinearProgress from '@material-ui/core/LinearProgress'
 
 const ModalFormContainer = ({
   open,
@@ -11,7 +12,8 @@ const ModalFormContainer = ({
   onClose,
   onExited,
   title,
-  children
+  children,
+  loading
 }) => {
   return (
     <Dialog
@@ -19,29 +21,30 @@ const ModalFormContainer = ({
       open={open}
       onClose={onClose}
       onExited={onExited}
-      aria-labelledby="form-dialog-title"
+      aria-labelledby='form-dialog-title'
     >
+      {loading && <LinearProgress />}
       <form
         noValidate
-        autoComplete="off"
+        autoComplete='off'
         onSubmit={e => {
-          e.preventDefault();
-          onSubmit();
+          e.preventDefault()
+          onSubmit()
         }}
       >
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>{children}</DialogContent>
         <DialogActions>
-          <Button type="button" onClick={onClose} color="default">
+          <Button type='button' onClick={onClose} color='default'>
             Cancelar
           </Button>
-          <Button type="submit" color="primary">
+          <Button type='submit' color='primary'>
             Guardar
           </Button>
         </DialogActions>
       </form>
     </Dialog>
-  );
-};
+  )
+}
 
-export default ModalFormContainer;
+export default ModalFormContainer

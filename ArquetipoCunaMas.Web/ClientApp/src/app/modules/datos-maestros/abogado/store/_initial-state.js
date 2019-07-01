@@ -1,44 +1,53 @@
-import { FORM_TYPE } from "app/core/enums/enums";
+import { FORM_TYPE } from 'app/core/enums/enums'
 
 export const buildAbogado = () => ({
-  dniAbogado: "",
-  nombres: "",
-  primerApellido: "",
-  segundoApellido: ""
-});
+  idAbogado: null,
+  dniAbogado: '',
+  nombres: '',
+  primerApellido: '',
+  segundoApellido: ''
+})
 
 export const buildModalAbogado = () => ({
   open: false,
-  title: "Registrar Abogado",
+  title: 'Registrar Abogado',
   formType: FORM_TYPE.REGISTRAR,
   idAbogado: null,
   abogado: buildAbogado(),
   loading: false
-});
+})
 
 export const buscadorAbogados = {
+  loading: false,
+
+  filters: {
+    dniAbogado: '',
+    nombres: '',
+    primerApellido: '',
+    segundoApellido: ''
+  },
+
   tableDef: {
     columns: [
-      { label: "Nombre", property: "name" },
-      { label: "Edad", property: "age" }
+      { label: 'N° DNI', property: 'dniAbogado' },
+      { label: 'Nombres', property: 'nombres' },
+      { label: 'Primer Apellido', property: 'primerApellido' },
+      { label: 'Segundo Apellido', property: 'segundoApellido' },
+      { label: 'Fecha de registro', property: 'fechaRegistro', isDate: true }
     ]
   },
 
   pagination: {
-    total: 5,
+    total: 0,
     page: 1,
     pageSize: 10,
-    items: [
-      { idAbogado: 1, name: "Juan", age: 23 },
-      { idAbogado: 2, name: "Mateo", age: 32 },
-      { idAbogado: 3, name: "Lucas", age: 25 }
-    ]
+    items: []
   }
-};
+}
 
-export const modalGestionAbogado = buildModalAbogado();
+export const modalGestionAbogado = buildModalAbogado()
 
 export const intialState = {
   buscadorAbogados,
   modalGestionAbogado
-};
+}

@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-import { withStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableFooter from "@material-ui/core/TableFooter";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import grey from "@material-ui/core/colors/grey";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import DataTablePaginator from "./paginator";
-import DataTableDefaultColumn from "./datatable-default-column";
-import DataTableHeader from "./datatable-header";
-import DataTableBody from "./datatable-body";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import { withStyles } from '@material-ui/core/styles'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableFooter from '@material-ui/core/TableFooter'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import grey from '@material-ui/core/colors/grey'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import DataTablePaginator from './paginator'
+import DataTableDefaultColumn from './datatable-default-column'
+import DataTableHeader from './datatable-header'
+import DataTableBody from './datatable-body'
 
 const styles = theme => ({
   root: {
-    width: "100%",
+    width: '100%',
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3)
   },
@@ -25,33 +25,33 @@ const styles = theme => ({
     minWidth: 500
   },
   tableWrapper: {
-    overflowX: "auto"
+    overflowX: 'auto'
   },
   loaderContainer: {
     height: 5
   },
   floatLeft: {
-    float: "left"
+    float: 'left'
   }
-});
+})
 
 class DataTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  constructor (props) {
+    super(props)
+    this.state = {}
   }
 
-  calcEmptyRows(pagination) {
+  calcEmptyRows (pagination) {
     return (
       pagination.pageSize -
       Math.min(
         pagination.pageSize,
         pagination.total - (pagination.page - 1) * pagination.pageSize
       )
-    );
+    )
   }
 
-  render() {
+  render () {
     const {
       pagination,
       tableDef,
@@ -61,11 +61,12 @@ class DataTable extends Component {
       error,
       itemsPerPageOptions,
       onLoadData
-    } = this.props;
+    } = this.props
 
     return (
       <div>
         <div className={classes.tableWrapper}>
+          {loading && <LinearProgress />}
           <Table className={classes.table}>
             <DataTableHeader columns={tableDef.columns} />
 
@@ -88,24 +89,24 @@ class DataTable extends Component {
             itemsPerPageOptions={itemsPerPageOptions}
             loading={loading}
             onChangePage={page => {
-              onLoadData({ page, pageSize: pagination.pageSize });
+              onLoadData({ page, pageSize: pagination.pageSize })
             }}
             onChangePageSize={e => {
-              onLoadData({ page: pagination.page, pageSize: e.target.value });
+              onLoadData({ page: 1, pageSize: e.target.value })
             }}
           />
         )}
       </div>
-    );
+    )
   }
 }
 
 DataTable.defaultProps = {
   loading: false,
   error: false,
-  emptyMessage: "No se encontraron registros",
+  emptyMessage: 'No se encontraron registros',
   itemsPerPageOptions: [5, 10, 15, 20, 25]
-};
+}
 
 DataTable.propTypes = {
   itemsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
@@ -123,6 +124,6 @@ DataTable.propTypes = {
       }).isRequired
     ).isRequired
   })
-};
+}
 
-export default withStyles(styles)(DataTable);
+export default withStyles(styles)(DataTable)
