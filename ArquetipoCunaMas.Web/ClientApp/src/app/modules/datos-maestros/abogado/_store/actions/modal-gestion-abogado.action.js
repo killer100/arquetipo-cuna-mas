@@ -1,7 +1,7 @@
 import update from 'immutability-helper'
 import { FORM_TYPE } from 'app/core/enums/enums'
-import { buildModalAbogado } from './_initial-state'
-import { GetAbogado } from '../api/abogado.api'
+import { buildModalAbogado } from '../_initial-state'
+import { GetAbogado } from '../../api/abogado.api'
 
 /**
  * Acciones que gestionarán el contexto del Modal de gestión de abogados
@@ -9,8 +9,8 @@ import { GetAbogado } from '../api/abogado.api'
  */
 export class ModalGestionAbogadoActions {
   /**
-   * @param {() => import('./_initial-state').modalGestionAbogado} getState
-   * @param {(state:import('./_initial-state').modalGestionAbogado ) => void} setState
+   * @param {() => import('../_initial-state').modalGestionAbogado} getState
+   * @param {(state:import('../_initial-state').modalGestionAbogado ) => void} setState
    */
   constructor (getState, setState) {
     this.getState = getState

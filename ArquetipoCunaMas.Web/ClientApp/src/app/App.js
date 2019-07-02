@@ -28,6 +28,11 @@ function App({ classes }) {
             text: "Mantenimiento",
             icon: "settings",
             children: [{ text: "Abogado", url: "/datos-maestros/abogado", icon: "accessibility" }]
+          },
+          {
+            text: "Investigacion",
+            icon: "pageview",
+            children: [{ text: "Bandeja Principal", url: "/investigacion", icon: "inbox" }]
           }
         ]}
       >

@@ -1,32 +1,32 @@
-import React, { Component, useState, useEffect } from 'react'
-import { intialState } from './store/_initial-state'
-import DataTable from 'app/core/components/datatable'
-import Card from '@material-ui/core/Card'
-import FormBuscar from './components/forms/form-buscar'
-import PageTitle from 'app/core/components/page-title'
-import FormGestionAbogado from './components/forms/form-gestion-abogado'
-import GridActionButtons from './components/buttons/grid-action-buttons'
-import { abogadoStore } from './store/abogado.store'
-import confirm from 'app/core/components/confirm'
-import toast from 'app/core/components/toast'
+import React, { Component, useState, useEffect } from "react";
+import { intialState } from "./_store/_initial-state";
+import DataTable from "app/core/components/datatable";
+import Card from "@material-ui/core/Card";
+import FormBuscar from "./components/forms/form-buscar";
+import PageTitle from "app/core/components/page-title";
+import FormGestionAbogado from "./components/forms/form-gestion-abogado";
+import GridActionButtons from "./components/buttons/grid-action-buttons";
+import { abogadoStore, AbogadoStore } from "./_store/abogado.store";
+import confirm from "app/core/components/confirm";
+import toast from "app/core/components/toast";
 
 export default class AbogadoContainer extends Component {
   //= ============================================
   // Configuracion del estado y el store
   //= ============================================
-  state = { ...intialState }
-  store = abogadoStore(() => this.state, this.setState.bind(this))
+  state = { ...intialState };
+  store = new AbogadoStore(() => this.state, this.setState.bind(this));
   //= ============================================
 
-  componentDidMount () {
+  componentDidMount() {
     this.buildGridButtons().then(() => {
-      this.store.buscadorAbogadoActions.asyncFetchAbogados()
-    })
+      this.store.buscadorAbogadoActions.asyncFetchAbogados();
+    });
   }
 
   buildGridButtons = () => {
     const newColumn = {
-      label: 'Acciones',
+      label: "Acciones",
       render: (item, loading) => (
         <GridActionButtons
           item={item}
@@ -36,45 +36,45 @@ export default class AbogadoContainer extends Component {
           onClickDelete={this.handleDelete}
         />
       )
-    }
+    };
 
-    return this.store.buscadorAbogadoActions.setGridButtons(newColumn)
-  }
+    return this.store.buscadorAbogadoActions.setGridButtons(newColumn);
+  };
 
   handleDelete = idAbogado => {
-    confirm('Se va eliminar el abogado. ¿Desea continuar?').then(ok => {
+    confirm("Se va eliminar el abogado. ¿Desea continuar?").then(ok => {
       if (ok) {
         this.store.buscadorAbogadoActions
           .asyncDeleteAbogado(idAbogado)
           .then(response => {
-            toast(response.msg, 'success')
-          })
+            toast(response.msg, "success");
+          });
 
-        this.store.buscadorAbogadoActions.asyncFetchAbogados()
+        this.store.buscadorAbogadoActions.asyncFetchAbogados();
       }
-    })
-  }
+    });
+  };
 
   handleLoadData = e => {
-    this.store.buscadorAbogadoActions.asyncFetchAbogados(e.page, e.pageSize)
-  }
+    this.store.buscadorAbogadoActions.asyncFetchAbogados(e.page, e.pageSize);
+  };
 
   handleSearch = form => {
-    const { pagination } = this.state.buscadorAbogados
+    const { pagination } = this.state.buscadorAbogados;
     this.store.buscadorAbogadoActions.asyncFetchAbogados(
       1,
       pagination.pageSize,
       form
-    )
-  }
+    );
+  };
 
-  render () {
-    const { buscadorAbogados, modalGestionAbogado } = this.state
-    const { modalGestionAbogadoActions } = this.store
+  render() {
+    const { buscadorAbogados, modalGestionAbogado } = this.state;
+    const { modalGestionAbogadoActions } = this.store;
 
     return (
       <>
-        <PageTitle text={'Titulo'}>asdasd</PageTitle>
+        <PageTitle text={"Titulo"}>asdasd</PageTitle>
 
         <FormBuscar
           onSearch={this.handleSearch}
@@ -92,6 +92,6 @@ export default class AbogadoContainer extends Component {
         </Card>
         <FormGestionAbogado modal={modalGestionAbogado} store={this.store} />
       </>
-    )
+    );
   }
 }
