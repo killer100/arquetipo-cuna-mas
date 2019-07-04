@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
 import green from '@material-ui/core/colors/green'
 import amber from '@material-ui/core/colors/amber'

@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ModalFormContainer from "app/core/components/modal-form-container";
 import { buildAbogado } from "../../_store/_initial-state";
-import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { FORM_TYPE } from "app/core/enums/enums";
-
-
-const useStyles = makeStyles(theme => ({}));
 
 const ButtonSearchPerson = ({ show, onClickSearch, onClickRemove }) =>
   show ? (
@@ -34,7 +30,6 @@ const ButtonSearchPerson = ({ show, onClickSearch, onClickRemove }) =>
 const FormGestionAbogado = ({ modal, store }) => {
   const [foundPerson, setFoundPerson] = useState(false);
   const [form, setForm] = useState(buildAbogado());
-  const classes = useStyles();
 
   useEffect(() => {
     setFoundPerson(false);

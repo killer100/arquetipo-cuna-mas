@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import FormSearchContainer from "app/core/components/form-search-container";
 import GridToolbar from "app/core/components/grid-toolbar";
+import { buildFormBuscarAbogado } from "../../_store/_initial-state";
 
 const styles = theme => ({
   root: {
@@ -24,19 +25,12 @@ const styles = theme => ({
   }
 });
 
-const initialState = {
-  dniAbogado: "",
-  nombres: "",
-  primerApellido: "",
-  segundoApellido: ""
-};
-
 /**
  *
  * @param {{onSearch: () => void), onClear: () => void)}} param0
  */
 const FormBuscar = ({ classes, onSearch, onClear, onClickNew }) => {
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState(buildFormBuscarAbogado());
 
   return (
     <>
@@ -47,8 +41,8 @@ const FormBuscar = ({ classes, onSearch, onClear, onClickNew }) => {
               onSearch(state);
             }}
             onClear={() => {
-              setState(initialState);
-              onClear(initialState);
+              setState(buildFormBuscarAbogado());
+              onClear(buildFormBuscarAbogado());
             }}
           >
             <Grid item xs={12} sm={4} md={3}>

@@ -1,5 +1,12 @@
 import { FORM_TYPE } from 'app/core/enums/enums'
 
+export const buildFormBuscarAbogado = () => ({
+  dniAbogado: '',
+  nombres: '',
+  primerApellido: '',
+  segundoApellido: ''
+});
+
 export const buildAbogado = () => ({
   idAbogado: null,
   dniAbogado: '',
@@ -20,12 +27,7 @@ export const buildModalAbogado = () => ({
 export const buscadorAbogados = {
   loading: false,
 
-  filters: {
-    dniAbogado: '',
-    nombres: '',
-    primerApellido: '',
-    segundoApellido: ''
-  },
+  filters: buildFormBuscarAbogado(),
 
   tableDef: {
     columns: [
@@ -45,7 +47,7 @@ export const buscadorAbogados = {
   }
 }
 
-export const modalGestionAbogado = buildModalAbogado()
+export const modalGestionAbogado = buildModalAbogado();
 
 export const intialState = {
   buscadorAbogados,
