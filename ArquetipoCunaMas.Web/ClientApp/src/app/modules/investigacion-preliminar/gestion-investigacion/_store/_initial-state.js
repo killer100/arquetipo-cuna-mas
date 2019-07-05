@@ -5,8 +5,8 @@
  */
 
 export const buildFormBuscarInvestigacion = () => ({
-  idDependenciaDenunciante: "",
-  idAbogado: "",
+  idDependenciaDenunciante: null,
+  idAbogado: null,
   nombreInvestigado: "",
   idEstadoExpediente: "",
   fechaInicio: null,

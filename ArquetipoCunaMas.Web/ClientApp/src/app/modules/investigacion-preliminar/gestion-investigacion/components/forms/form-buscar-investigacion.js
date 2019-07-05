@@ -4,10 +4,11 @@ import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import MenuItem from "@material-ui/core/MenuItem";
 import FormSearchContainer from "app/core/components/form-search-container";
 import GridToolbar from "app/core/components/grid-toolbar";
 import { buildFormBuscarInvestigacion } from "../../_store/_initial-state";
+import SelectField from "app/core/components/select-field";
+//import { DatePicker } from "@material-ui/pickers";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -53,9 +54,8 @@ const FormBuscarInvestigacion = ({
             }}
           >
             <Grid item xs={12} sm={6} md={6}>
-              <TextField
+              <SelectField
                 fullWidth
-                select
                 label="Unidad orgánica"
                 value={state.idDependenciaDenunciante}
                 onChange={e => {
@@ -69,21 +69,15 @@ const FormBuscarInvestigacion = ({
                     className: classes.menu
                   }
                 }}
-              >
-                {filterLists.dependencias.value.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
+                options={filterLists.dependencias.value}
+              />
             </Grid>
 
             <Grid item xs={12} sm={6} md={6}>
-              <TextField
+              <SelectField
                 fullWidth
-                select
                 label="Abogado responsable del expediente"
-                value={state.idDependenciaDenunciante}
+                value={state.idAbogado}
                 onChange={e => {
                   setState({
                     ...state,
@@ -95,36 +89,56 @@ const FormBuscarInvestigacion = ({
                     className: classes.menu
                   }
                 }}
-              >
-                {filterLists.abogados.value.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </Grid>
-
-            <Grid item xs={12} sm={4} md={3}>
-              <TextField
-                label="Primer apellido"
-                value={state.primerApellido}
-                onChange={e =>
-                  setState({ ...state, primerApellido: e.target.value })
-                }
-                margin="normal"
+                options={filterLists.abogados.value}
               />
             </Grid>
 
-            <Grid item xs={12} sm={4} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <TextField
-                label="Segundo apellido"
+                fullWidth
+                label="Nombre del investigado"
+                value={state.nombreInvestigado}
+                onChange={e =>
+                  setState({ ...state, nombreInvestigado: e.target.value })
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
+              <SelectField
+                fullWidth
+                label="Estado del expediente"
+                value={state.idEstadoExpediente}
+                onChange={e => {
+                  setState({
+                    ...state,
+                    idEstadoExpediente: e.target.value
+                  });
+                }}
+                SelectProps={{
+                  MenuProps: {
+                    className: classes.menu
+                  }
+                }}
+                options={filterLists.estados.value}
+              />
+            </Grid>
+            <Grid>
+              {/* <DatePicker
+                emptyLabel="dd/mm/yyyy"
+                format={dateFormat}
+                autoOk
                 className={classes.textField}
-                value={state.segundoApellido}
-                onChange={e =>
-                  setState({ ...state, segundoApellido: e.target.value })
-                }
-                margin="normal"
-              />
+                clearable
+                label="Buscar desde"
+                value={filters.fecha_inicio}
+                onChange={onDateChange("fecha_inicio")}
+                animateYearScrolling={false}
+                disabled={loading}
+                fullWidth
+                cancelLabel="Cancelar"
+                disableFuture
+              /> */}
             </Grid>
           </FormSearchContainer>
         </CardContent>
