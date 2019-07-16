@@ -8,7 +8,8 @@ import FormSearchContainer from "app/core/components/form-search-container";
 import GridToolbar from "app/core/components/grid-toolbar";
 import { buildFormBuscarInvestigacion } from "../../_store/_initial-state";
 import SelectField from "app/core/components/select-field";
-//import { DatePicker } from "@material-ui/pickers";
+import DatePicker from "app/core/components/datepicker";
+import CheckboxControl from "app/core/components/checkbox-control";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,6 +20,10 @@ const useStyles = makeStyles(theme => ({
   },
   menu: {
     width: 200
+  },
+  formControlLabel: {
+    position: "relative",
+    top: 10
   }
 }));
 
@@ -34,7 +39,8 @@ const FormBuscarInvestigacion = ({
   onSearch,
   onClear,
   onClickNew,
-  filterLists
+  filterLists,
+  loading
 }) => {
   const [state, setState] = useState(buildFormBuscarInvestigacion());
 
@@ -55,6 +61,7 @@ const FormBuscarInvestigacion = ({
           >
             <Grid item xs={12} sm={6} md={6}>
               <SelectField
+                defaultOptionText="Todos"
                 fullWidth
                 label="Unidad orgánica"
                 value={state.idDependenciaDenunciante}
@@ -70,11 +77,13 @@ const FormBuscarInvestigacion = ({
                   }
                 }}
                 options={filterLists.dependencias.value}
+                loading={filterLists.dependencias.loading}
               />
             </Grid>
 
             <Grid item xs={12} sm={6} md={6}>
               <SelectField
+                defaultOptionText="Todos"
                 fullWidth
                 label="Abogado responsable del expediente"
                 value={state.idAbogado}
@@ -90,6 +99,7 @@ const FormBuscarInvestigacion = ({
                   }
                 }}
                 options={filterLists.abogados.value}
+                loading={filterLists.abogados.loading}
               />
             </Grid>
 
@@ -106,6 +116,7 @@ const FormBuscarInvestigacion = ({
 
             <Grid item xs={12} sm={6} md={3}>
               <SelectField
+                defaultOptionText="Todos"
                 fullWidth
                 label="Estado del expediente"
                 value={state.idEstadoExpediente}
@@ -121,24 +132,80 @@ const FormBuscarInvestigacion = ({
                   }
                 }}
                 options={filterLists.estados.value}
+                loading={filterLists.estados.loading}
               />
             </Grid>
-            <Grid>
-              {/* <DatePicker
-                emptyLabel="dd/mm/yyyy"
-                format={dateFormat}
-                autoOk
-                className={classes.textField}
-                clearable
-                label="Buscar desde"
-                value={filters.fecha_inicio}
-                onChange={onDateChange("fecha_inicio")}
-                animateYearScrolling={false}
+            <Grid item xs={12} sm={6} md={3}>
+              <DatePicker
+                label="Fecha inicio"
+                value={state.fechaInicio}
+                onChange={date => {
+                  setState({ ...state, fechaInicio: date });
+                }}
                 disabled={loading}
                 fullWidth
-                cancelLabel="Cancelar"
-                disableFuture
-              /> */}
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
+              <DatePicker
+                label="Fecha fin"
+                value={state.fechaFin}
+                onChange={date => {
+                  setState({ ...state, fechaFin: date });
+                }}
+                disabled={loading}
+                fullWidth
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                fullWidth
+                label="Nombre del denunciante"
+                value={state.nombreDenunciante}
+                onChange={e =>
+                  setState({ ...state, nombreDenunciante: e.target.value })
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
+              <CheckboxControl
+                className={classes.formControlLabel}
+                label="Expediente de corrupción"
+                checked={state.expedienteCorrupcion}
+                onChange={e =>
+                  setState({
+                    ...state,
+                    expedienteCorrupcion: e.target.checked
+                  })
+                }
+                value="checked"
+                color="primary"
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                fullWidth
+                label="Número del expediente"
+                value={state.numeroExpediente}
+                onChange={e =>
+                  setState({ ...state, numeroExpediente: e.target.value })
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                fullWidth
+                label="Número de hoja de trámite"
+                value={state.numeroHojaTramite}
+                onChange={e =>
+                  setState({ ...state, numeroHojaTramite: e.target.value })
+                }
+              />
             </Grid>
           </FormSearchContainer>
         </CardContent>
@@ -146,6 +213,10 @@ const FormBuscarInvestigacion = ({
       <GridToolbar onClickNew={onClickNew} />
     </>
   );
+};
+
+FormBuscarInvestigacion.defaultProps = {
+  loading: false
 };
 
 export default FormBuscarInvestigacion;

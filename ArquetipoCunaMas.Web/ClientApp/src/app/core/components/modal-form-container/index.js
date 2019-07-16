@@ -13,15 +13,18 @@ const ModalFormContainer = ({
   onExited,
   title,
   children,
-  loading
+  loading,
+  maxWidth,
+  fullWidth
 }) => {
   return (
     <Dialog
-      maxWidth="xs"
+      maxWidth={maxWidth}
       open={open}
       onClose={onClose}
       onExited={onExited}
       aria-labelledby="form-dialog-title"
+      fullWidth={fullWidth}
     >
       {loading && <LinearProgress />}
       <form
@@ -45,6 +48,11 @@ const ModalFormContainer = ({
       </form>
     </Dialog>
   );
+};
+
+ModalFormContainer.defaultProps = {
+  maxWidth: "xs",
+  fullWidth: false
 };
 
 export default ModalFormContainer;

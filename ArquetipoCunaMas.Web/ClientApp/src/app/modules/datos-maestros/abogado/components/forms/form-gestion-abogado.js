@@ -44,7 +44,7 @@ const FormGestionAbogado = ({ modal, store }) => {
 
   useEffect(() => setForm(modal.abogado), [modal.abogado]);
 
-  const removeDni = () => {
+  const removeDni = () => { 
     setFoundPerson(false);
     setForm(buildAbogado());
   };

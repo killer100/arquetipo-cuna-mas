@@ -29,7 +29,7 @@ namespace ArquetipoCunaMas.Web.Helpers
         }
         public static IHtmlString JsonFor<T>(this HtmlHelper helper, T obj)
         {
-            return helper.Raw(obj.ToJson());
+            return helper.Raw(obj.ToJson()); 
         }
     }
 }

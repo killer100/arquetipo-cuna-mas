@@ -1,5 +1,6 @@
 import { BuscadorInvestigacionActions } from "./actions/buscador-investigacion.action";
 import { BaseStore } from "app/core/store/base-store";
+import { ModalGestionInvestigacionActions } from "./actions/modal-gestion-investigacion.action";
 
 export class GestionInvestigacionStore extends BaseStore {
   /**
@@ -11,6 +12,11 @@ export class GestionInvestigacionStore extends BaseStore {
     this.buscadorInvestigacionActions = new BuscadorInvestigacionActions(
       this.buildScopedGetState("buscadorInvestigacion"),
       this.buildScopedSetState("buscadorInvestigacion")
+    );
+
+    this.modalGestionInvestigacionActions = new ModalGestionInvestigacionActions(
+      this.buildScopedGetState("modalGestionInvestigacion"),
+      this.buildScopedSetState("modalGestionInvestigacion")
     );
   }
 }

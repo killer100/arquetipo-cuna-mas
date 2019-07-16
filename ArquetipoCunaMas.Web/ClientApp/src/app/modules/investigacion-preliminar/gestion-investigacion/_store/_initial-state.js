@@ -1,7 +1,27 @@
+import { FORM_TYPE } from "app/core/enums/enums";
+
 /**
  * @typedef {{
  *    [prop:string]: {value: any[], loading: boolean}
  * }} IFilterList
+ *
+ * @typedef {{
+ *    fechaRecepcion: any,
+ *    tiempoPrescripcion: number,
+ *    fechaPrescripcion: any,
+ *    expedienteCorrupcion: boolean,
+ *    idAbogado: number,
+ *    amonestacionVerbal: boolean,
+ *    idTrabajadorDenunciante: number,
+ *    idDependenciaDenunciante: number,
+ *    esDenuncianteExterno: boolean,
+ *    externoDenunciante: string,
+ *    observacion: string,
+ *    externoDenuncianteDependencia: string,
+ *    expedientes: any[],
+ *    investigados: any[],
+ *    archivos: any[]
+ * }} IModalGestionInvestigacion
  */
 
 export const buildFormBuscarInvestigacion = () => ({
@@ -13,7 +33,8 @@ export const buildFormBuscarInvestigacion = () => ({
   fechaFin: null,
   nombreDenunciante: "",
   expedienteCorrupcion: false,
-  numeroExpediente: null
+  numeroExpediente: "",
+  numeroHojaTramite: ""
 });
 
 export const buscadorInvestigacion = {
@@ -33,16 +54,15 @@ export const buscadorInvestigacion = {
 
   tableDef: {
     columns: [
-      { label: "N° exp", property: "dniAbogado" },
-      { label: "N° Hoja ruta", property: "nombres" },
-      { label: "Fecha hoja ruta", property: "primerApellido" },
-      { label: "Recepción UGTH", property: "segundoApellido" },
-      { label: "Prescr. Investig.", property: "fechaRegistro" },
-      { label: "Denunciante", property: "fechaRegistro" },
-      { label: "Dependencia denunciante", property: "fechaRegistro" },
-      { label: "Abog. Responsable", property: "fechaRegistro" },
-      { label: "Estado Exp.", property: "fechaRegistro" },
-      { label: "Alerta", property: "fechaRegistro" }
+      { label: "N° exp", property: "numeroExpediente" },
+      { label: "N° Hoja ruta", property: "numeroExpedienteDocumentario" },
+      { label: "Fecha hoja ruta", property: "fechaTramiteDocumentario" },
+      { label: "Recepción UGTH", property: "fechaRecepcion" },
+      { label: "Prescr. Investig.", property: "fechaPrescripcion" },
+      { label: "Denunciante", property: "nombreDenunciante" },
+      { label: "Dependencia denunciante", property: "DependenciaDenunciante" },
+      { label: "Abog. Responsable", property: "nombreAbogado" },
+      { label: "Estado Exp.", property: "estadoExpediente" }
     ]
   },
 
@@ -54,9 +74,38 @@ export const buscadorInvestigacion = {
   }
 };
 
-//export const modalGestionAbogado = buildModalAbogado();
+export const buildExpedienteInvestigacion = () => ({
+  fechaRecepcion: null,
+  tiempoPrescripcion: 0,
+  fechaPrescripcion: null,
+  expedienteCorrupcion: false,
+  idAbogado: null,
+  amonestacionVerbal: false,
+  idTrabajadorDenunciante: null,
+  idDependenciaDenunciante: null,
+  esDenuncianteExterno: false,
+  externoDenunciante: "",
+  observacion: "",
+  externoDenuncianteDependencia: "",
+  expedientes: [],
+  investigados: [],
+  archivos: []
+});
+
+export const buildModalGestionInvestigacion = () => ({
+  open: false,
+  title: "Registro del Expediente de Denuncia",
+  formType: FORM_TYPE.REGISTRAR,
+  idExpedienteInvestigacion: null,
+  expedienteInvestigacion: buildExpedienteInvestigacion(),
+  loading: false,
+  gridArchivoDef: {},
+  gridInvestigadoDef: {}
+});
+
+export const modalGestionInvestigacion = buildModalGestionInvestigacion();
 
 export const intialState = {
-  buscadorInvestigacion
-  //modalGestionAbogado
+  buscadorInvestigacion,
+  modalGestionInvestigacion
 };
