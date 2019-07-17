@@ -11,11 +11,12 @@ import GridExpediente from "../grids/grid-expediente";
 import GridInvestigado from "../grids/grid-investigado";
 import GridArchivo from "../grids/grid-archivo";
 import FormExpediente from "./form-anexo-expediente";
+import FileUploader from "app/core/components/file-uploader";
 
 const useStyles = makeStyles(theme => ({
   tabContainer: {
-    marginTop: theme.spacing(3)
-  }
+    marginTop: theme.spacing(3),
+  },
 }));
 
 /**
@@ -79,6 +80,7 @@ const FormGestionInvestigacion = ({ modal, store }) => {
           )}
           {tab == 3 && <GridArchivo archivos={form.archivos} />}
         </div>
+        <FileUploader />
       </ModalFormContainer>
     </>
   );
