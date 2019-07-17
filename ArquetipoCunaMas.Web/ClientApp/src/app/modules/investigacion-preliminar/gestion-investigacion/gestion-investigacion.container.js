@@ -5,6 +5,8 @@ import { GestionInvestigacionStore } from "./_store/gestion-investigacion.store"
 import Card from "@material-ui/core/Card";
 import DataTable from "app/core/components/datatable";
 import FormGestionInvestigacion from "./components/forms/form-gestion-investigacion";
+import FormAnexoExpediente from "./components/forms/form-anexo-expediente";
+import FormInvestigado from "./components/forms/form-investigado";
 
 class GestionInvestigacionContainer extends React.Component {
   state = { ...intialState };
@@ -55,7 +57,11 @@ class GestionInvestigacionContainer extends React.Component {
       tableDef,
       pagination
     } = this.state.buscadorInvestigacion;
-    const { modalGestionInvestigacion } = this.state;
+    const {
+      modalGestionInvestigacion,
+      modalFormAnexoExpediente,
+      modalFormInvestigado
+    } = this.state;
     return (
       <>
         <FormBuscarInvestigacion
@@ -76,7 +82,13 @@ class GestionInvestigacionContainer extends React.Component {
           modal={modalGestionInvestigacion}
           store={this.store}
         />
-        >
+
+        <FormAnexoExpediente
+          store={this.store}
+          modal={modalFormAnexoExpediente}
+        />
+
+        <FormInvestigado store={this.store} modal={modalFormInvestigado} />
       </>
     );
   }

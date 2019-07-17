@@ -1,6 +1,8 @@
 import { BuscadorInvestigacionActions } from "./actions/buscador-investigacion.action";
 import { BaseStore } from "app/core/store/base-store";
 import { ModalGestionInvestigacionActions } from "./actions/modal-gestion-investigacion.action";
+import { ModalFormAnexoExpedienteActions } from "./actions/modal-form-anexo-expediente.action";
+import { ModalFormInvestigacionActions } from "./actions/modal-form-investigado.action";
 
 export class GestionInvestigacionStore extends BaseStore {
   /**
@@ -17,6 +19,16 @@ export class GestionInvestigacionStore extends BaseStore {
     this.modalGestionInvestigacionActions = new ModalGestionInvestigacionActions(
       this.buildScopedGetState("modalGestionInvestigacion"),
       this.buildScopedSetState("modalGestionInvestigacion")
+    );
+
+    this.modalFormAnexoExpedienteActions = new ModalFormAnexoExpedienteActions(
+      this.buildScopedGetState("modalFormAnexoExpediente"),
+      this.buildScopedSetState("modalFormAnexoExpediente")
+    );
+
+    this.modalFormInvestigacionActions = new ModalFormInvestigacionActions(
+      this.buildScopedGetState("modalFormInvestigado"),
+      this.buildScopedSetState("modalFormInvestigado")
     );
   }
 }

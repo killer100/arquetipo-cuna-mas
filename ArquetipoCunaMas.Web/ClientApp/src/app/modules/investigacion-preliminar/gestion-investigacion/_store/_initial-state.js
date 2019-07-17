@@ -105,7 +105,49 @@ export const buildModalGestionInvestigacion = () => ({
 
 export const modalGestionInvestigacion = buildModalGestionInvestigacion();
 
+export const buildAnexoExpediente = () => ({
+  idAnexoExpediente: null,
+  numeroExpedienteAnexo: "",
+  fechaExpedienteDocumentario: null,
+  folioExpediente: 0,
+  remitente: "",
+  descripcion: ""
+});
+
+export const buildModalFormAnexoExpediente = () => ({
+  open: false,
+  title: "Agregar Expediente de Hoja de Trámite",
+  idAnexoExpediente: null,
+  expediente: buildAnexoExpediente(),
+  formType: FORM_TYPE.REGISTRAR,
+  loading: false
+});
+
+export const modalFormAnexoExpediente = buildModalFormAnexoExpediente();
+
+export const buildInvestigado = () =>({
+  idInvestigado: null,
+  dniInvestigado: "",
+  nombres: "",
+  primerApellido: "",
+  segundoApellido: "",
+  idDependencia: null
+});
+
+export const buildModalFormInvestigado = () => ({
+  open: false,
+  title: "Agregar Investigado",
+  idInvestigado: null,
+  investigado: buildInvestigado(),
+  formType: FORM_TYPE.REGISTRAR,
+  loading: false
+});
+
+export const modalFormInvestigado = buildModalFormInvestigado();
+
 export const intialState = {
   buscadorInvestigacion,
-  modalGestionInvestigacion
+  modalGestionInvestigacion,
+  modalFormAnexoExpediente,
+  modalFormInvestigado
 };

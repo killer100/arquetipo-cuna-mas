@@ -5,8 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import { FORM_TYPE } from "app/core/enums/enums";
+import ButtonIconInputSearch from "app/core/components/buttons/button-icon-input-search";
 
 const ButtonSearchPerson = ({ show, onClickSearch, onClickRemove }) =>
   show ? (
@@ -44,7 +44,7 @@ const FormGestionAbogado = ({ modal, store }) => {
 
   useEffect(() => setForm(modal.abogado), [modal.abogado]);
 
-  const removeDni = () => { 
+  const removeDni = () => {
     setFoundPerson(false);
     setForm(buildAbogado());
   };
@@ -76,15 +76,14 @@ const FormGestionAbogado = ({ modal, store }) => {
             }}
             InputProps={{
               endAdornment: modal.formType != FORM_TYPE.CONSULTAR && (
-                <InputAdornment position="end">
-                  <ButtonSearchPerson
-                    show={foundPerson}
-                    onClickSearch={() => {
-                      console.log("buscar dni");
-                    }}
-                    onClickRemove={removeDni}
-                  />
-                </InputAdornment>
+                <ButtonIconInputSearch
+                  disabled={modal.loading}
+                  found={foundPerson}
+                  onClickSearch={() => {
+                    console.log("buscar dni");
+                  }}
+                  onClickRemove={removeDni}
+                />
               )
             }}
           />

@@ -15,7 +15,8 @@ const ModalFormContainer = ({
   children,
   loading,
   maxWidth,
-  fullWidth
+  fullWidth,
+  onEnter
 }) => {
   return (
     <Dialog
@@ -25,6 +26,7 @@ const ModalFormContainer = ({
       onExited={onExited}
       aria-labelledby="form-dialog-title"
       fullWidth={fullWidth}
+      onEnter={onEnter}
     >
       {loading && <LinearProgress />}
       <form

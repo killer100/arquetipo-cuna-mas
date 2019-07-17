@@ -31,7 +31,7 @@ const gridInvestigadosDef = {
   ]
 };
 
-const GridInvestigado = ({ investigados }) => {
+const GridInvestigado = ({ investigados, onClickNew }) => {
   const classes = useStyles();
   const [gridDef, setGridDef] = useState(gridInvestigadosDef);
 
@@ -60,6 +60,7 @@ const GridInvestigado = ({ investigados }) => {
             variant="contained"
             color="primary"
             className={classes.button}
+            onClick={onClickNew}
           >
             <Icon>add_circle</Icon>
             Agregar

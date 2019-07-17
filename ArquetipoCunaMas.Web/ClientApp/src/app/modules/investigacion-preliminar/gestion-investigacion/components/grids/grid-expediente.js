@@ -31,7 +31,7 @@ const gridExpedientesDef = {
   ]
 };
 
-const GridExpediente = ({ expedientes }) => {
+const GridExpediente = ({ expedientes, onClickNew }) => {
   const classes = useStyles();
   const [gridDef, setGridDef] = useState(gridExpedientesDef);
 
@@ -60,6 +60,7 @@ const GridExpediente = ({ expedientes }) => {
             variant="contained"
             color="primary"
             className={classes.button}
+            onClick={onClickNew}
           >
             <Icon>add_circle</Icon>
             Agregar
