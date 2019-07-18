@@ -6266,6 +6266,9 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["
   dropzone: {
     minHeight: 150,
     height: 150
+  },
+  hide: {
+    display: "none"
   }
 }));
 /**
@@ -6304,7 +6307,7 @@ const FormArchivo = ({
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 34
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -6312,7 +6315,7 @@ const FormArchivo = ({
     spacing: 2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 46
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -6320,7 +6323,7 @@ const FormArchivo = ({
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 47
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -6330,7 +6333,7 @@ const FormArchivo = ({
     value: modal.tipoArchivo.descripcion,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 48
     },
     __self: undefined
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -6338,7 +6341,7 @@ const FormArchivo = ({
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 56
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -6350,31 +6353,32 @@ const FormArchivo = ({
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 57
     },
     __self: undefined
-  })), files.length < MAX_LOAD_FILES && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     item: true,
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 67
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_dropzone__WEBPACK_IMPORTED_MODULE_5__["DropzoneArea"], {
-    dropzoneClass: classes.dropzone,
+    dropzoneClass: "".concat(classes.dropzone, " ").concat(files.length >= MAX_LOAD_FILES ? classes.hide : ""),
     dropzoneText: "Arrastre un archivo o click aqu\xED",
     onDrop: fileDroped => {
-      console.log("---", fileDroped);
-      setFiles([...files, fileDroped]);
+      if (files.length < MAX_LOAD_FILES) {
+        setFiles([...files, fileDroped]);
+      }
     },
     showAlerts: false,
     showPreviewsInDropzone: false,
     showPreviews: false,
-    filesLimit: MAX_LOAD_FILES,
+    filesLimit: 10000,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 68
     },
     __self: undefined
   })), files.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -6382,7 +6386,7 @@ const FormArchivo = ({
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 86
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_lists_list_files__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -6395,7 +6399,7 @@ const FormArchivo = ({
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 87
     },
     __self: undefined
   }))));
@@ -8432,5 +8436,5 @@ module.exports = __webpack_require__(/*! C:\Users\Mario\source\repos\ArquetipoCu
 
 /***/ })
 
-},[[0,"runtime~main",1]]]);
+},[[0,"runtime~main",0]]]);
 //# sourceMappingURL=main.chunk.js.map

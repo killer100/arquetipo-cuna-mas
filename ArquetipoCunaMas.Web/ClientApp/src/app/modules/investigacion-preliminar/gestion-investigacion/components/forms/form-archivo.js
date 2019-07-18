@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
   dropzone: {
     minHeight: 150,
     height: 150
+  },
+  hide: {
+    display: "none"
   }
 }));
 
@@ -61,22 +64,23 @@ const FormArchivo = ({ modal, store }) => {
           />
         </Grid>
 
-        {files.length < MAX_LOAD_FILES && (
-          <Grid item xs={12}>
-            <DropzoneArea
-              dropzoneClass={classes.dropzone}
-              dropzoneText="Arrastre un archivo o click aquí"
-              onDrop={fileDroped => {
-                console.log("---", fileDroped);
+        <Grid item xs={12}>
+          <DropzoneArea
+            dropzoneClass={`${classes.dropzone} ${
+              files.length >= MAX_LOAD_FILES ? classes.hide : ""
+            }`}
+            dropzoneText="Arrastre un archivo o click aquí"
+            onDrop={fileDroped => {
+              if (files.length < MAX_LOAD_FILES) {
                 setFiles([...files, fileDroped]);
-              }}
-              showAlerts={false}
-              showPreviewsInDropzone={false}
-              showPreviews={false}
-              filesLimit={MAX_LOAD_FILES}
-            />
-          </Grid>
-        )}
+              }
+            }}
+            showAlerts={false}
+            showPreviewsInDropzone={false}
+            showPreviews={false}
+            filesLimit={10000}
+          />
+        </Grid>
 
         {files.length > 0 && (
           <Grid item xs={12}>
