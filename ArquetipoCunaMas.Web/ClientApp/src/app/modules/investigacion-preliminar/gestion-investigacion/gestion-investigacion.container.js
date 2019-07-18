@@ -1,12 +1,13 @@
 import React from "react";
 import FormBuscarInvestigacion from "./components/forms/form-buscar-investigacion";
-import { intialState } from "./_store/_initial-state";
+import { intialState, modalFormArchivo } from "./_store/_initial-state";
 import { GestionInvestigacionStore } from "./_store/gestion-investigacion.store";
 import Card from "@material-ui/core/Card";
 import DataTable from "app/core/components/datatable";
 import FormGestionInvestigacion from "./components/forms/form-gestion-investigacion";
 import FormAnexoExpediente from "./components/forms/form-anexo-expediente";
 import FormInvestigado from "./components/forms/form-investigado";
+import FormArchivo from "./components/forms/form-archivo";
 
 class GestionInvestigacionContainer extends React.Component {
   state = { ...intialState };
@@ -60,7 +61,8 @@ class GestionInvestigacionContainer extends React.Component {
     const {
       modalGestionInvestigacion,
       modalFormAnexoExpediente,
-      modalFormInvestigado
+      modalFormInvestigado,
+      modalFormArchivo
     } = this.state;
     return (
       <>
@@ -89,6 +91,8 @@ class GestionInvestigacionContainer extends React.Component {
         />
 
         <FormInvestigado store={this.store} modal={modalFormInvestigado} />
+
+        <FormArchivo store={this.store} modal={modalFormArchivo} />
       </>
     );
   }

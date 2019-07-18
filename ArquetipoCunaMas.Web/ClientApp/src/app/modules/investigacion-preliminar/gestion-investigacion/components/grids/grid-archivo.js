@@ -7,12 +7,13 @@ import ButtonListAddArchivo from "../buttons/button-list-add-archivo";
 const gridArchivosDef = {
   columns: [
     { label: "Nro.", property: "nroArchivo" },
+    { label: "Descripción del Archivo", property: "descripcionArchivo" },
     { label: "Nombre del Archivo Adjunto", property: "nombreArchivo" },
     { label: "Tipo de Archivo", property: "tipoArchivo" }
   ]
 };
 
-const GridArchivo = ({ archivos }) => {
+const GridArchivo = ({ archivos, onClickUpload }) => {
   const [gridDef, setGridDef] = useState(gridArchivosDef);
 
   useEffect(() => {
@@ -32,7 +33,10 @@ const GridArchivo = ({ archivos }) => {
 
   return (
     <>
-      <GridToolbar hideNew rightSection={<ButtonListAddArchivo />} />
+      <GridToolbar
+        hideNew
+        rightSection={<ButtonListAddArchivo onClick={onClickUpload} />}
+      />
 
       <ListTable
         items={archivos}

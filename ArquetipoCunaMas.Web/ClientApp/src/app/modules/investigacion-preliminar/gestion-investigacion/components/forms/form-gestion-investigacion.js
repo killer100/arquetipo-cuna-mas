@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import ModalFormContainer from "app/core/components/modal-form-container";
-import Grid from "@material-ui/core/Grid";
-import { FORM_TYPE } from "app/core/enums/enums";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { buildExpedienteInvestigacion } from "../../_store/_initial-state";
@@ -10,13 +8,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridExpediente from "../grids/grid-expediente";
 import GridInvestigado from "../grids/grid-investigado";
 import GridArchivo from "../grids/grid-archivo";
-import FormExpediente from "./form-anexo-expediente";
-import FileUploader from "app/core/components/file-uploader";
 
 const useStyles = makeStyles(theme => ({
   tabContainer: {
-    marginTop: theme.spacing(3),
-  },
+    marginTop: theme.spacing(3)
+  }
 }));
 
 /**
@@ -78,9 +74,13 @@ const FormGestionInvestigacion = ({ modal, store }) => {
               onClickNew={store.modalFormInvestigacionActions.openModal}
             />
           )}
-          {tab == 3 && <GridArchivo archivos={form.archivos} />}
+          {tab == 3 && (
+            <GridArchivo
+              archivos={form.archivos}
+              onClickUpload={store.modalFormArchivoActions.openModal}
+            />
+          )}
         </div>
-        <FileUploader />
       </ModalFormContainer>
     </>
   );

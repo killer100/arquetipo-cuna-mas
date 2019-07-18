@@ -125,7 +125,7 @@ export const buildModalFormAnexoExpediente = () => ({
 
 export const modalFormAnexoExpediente = buildModalFormAnexoExpediente();
 
-export const buildInvestigado = () =>({
+export const buildInvestigado = () => ({
   idInvestigado: null,
   dniInvestigado: "",
   nombres: "",
@@ -145,9 +145,15 @@ export const buildModalFormInvestigado = () => ({
 
 export const modalFormInvestigado = buildModalFormInvestigado();
 
+export const modalFormArchivo = {
+  open: false,
+  tipoArchivo: { id: null, descripcion: "", icon: null }
+};
+
 export const intialState = {
   buscadorInvestigacion,
   modalGestionInvestigacion,
   modalFormAnexoExpediente,
-  modalFormInvestigado
+  modalFormInvestigado,
+  modalFormArchivo
 };
