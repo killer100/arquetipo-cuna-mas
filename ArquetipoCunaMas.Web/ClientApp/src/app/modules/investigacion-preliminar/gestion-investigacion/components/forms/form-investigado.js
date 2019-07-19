@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { buildInvestigado } from "../../_store/_initial-state";
-import ModalFormContainer from "app/core/components/modal-form-container";
+import ModalContainer from "app/core/components/modal-container";
 import Grid from "@material-ui/core/Grid";
 import { FORM_TYPE } from "app/core/enums/enums";
 import SelectField from "app/core/components/select-field";
@@ -10,7 +10,7 @@ import { FetchDependencias } from "app/core/api/maestros.api";
 
 const defaultListDependencias = {
   value: [],
-  loading: false
+  loading: false,
 };
 
 const loadDependencias = (list, setList) => () => {
@@ -29,7 +29,7 @@ const loadDependencias = (list, setList) => () => {
  */
 const FormInvestigado = ({ modal, store }) => {
   const [listDependencias, setListDependencias] = useState(
-    defaultListDependencias
+    defaultListDependencias,
   );
   const [foundInvestigado, setFoundInvestigado] = useState(false);
   const [form, setForm] = useState(buildInvestigado());
@@ -37,13 +37,16 @@ const FormInvestigado = ({ modal, store }) => {
   useEffect(() => setForm(modal.investigado), [modal.investigado]);
 
   return (
-    <ModalFormContainer
+    <ModalContainer
       open={modal.open}
       onClose={store.modalFormInvestigacionActions.closeModal}
       fullWidth
       title={modal.title}
       onExited={store.modalFormInvestigacionActions.resetModal}
       onEnter={loadDependencias(listDependencias, setListDependencias)}
+      onSave={() => {
+        console.log("guardar");
+      }}
     >
       <Grid container spacing={2}>
         <Grid item xs={12}>
@@ -54,7 +57,7 @@ const FormInvestigado = ({ modal, store }) => {
             onChange={e =>
               setForm({
                 ...form,
-                dniInvestigado: e.target.value
+                dniInvestigado: e.target.value,
               })
             }
             InputProps={{
@@ -69,7 +72,7 @@ const FormInvestigado = ({ modal, store }) => {
                     console.log("remover investigado");
                   }}
                 />
-              )
+              ),
             }}
           />
         </Grid>
@@ -109,7 +112,7 @@ const FormInvestigado = ({ modal, store }) => {
             onChange={e => {
               setForm({
                 ...form,
-                idDependencia: e.target.value
+                idDependencia: e.target.value,
               });
             }}
             options={listDependencias.value}
@@ -117,7 +120,7 @@ const FormInvestigado = ({ modal, store }) => {
           />
         </Grid>
       </Grid>
-    </ModalFormContainer>
+    </ModalContainer>
   );
 };
 

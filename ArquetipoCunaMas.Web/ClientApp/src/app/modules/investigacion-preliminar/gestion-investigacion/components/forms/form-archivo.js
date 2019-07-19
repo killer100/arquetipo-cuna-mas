@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import ModalFormContainer from "app/core/components/modal-form-container";
+import React, { useState } from "react";
+import ModalContainer from "app/core/components/modal-container";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { DropzoneArea } from "material-ui-dropzone";
@@ -8,20 +8,28 @@ import ListFiles from "../lists/list-files";
 import update from "immutability-helper";
 import { UploadTempFile } from "app/core/api/file-upload.api";
 import toast from "app/core/components/toast";
+import confirm from "app/core/components/confirm";
 
 const MAX_LOAD_FILES = 5;
 
 const useStyles = makeStyles(theme => ({
   dropzone: {
     minHeight: 150,
-    height: 150
+    height: 150,
   },
   hide: {
-    display: "none"
-  }
+    display: "none",
+  },
 }));
 
-const UploadFiles = () => {};
+const mapUploadedFiles = (files, descripcion) => {
+  return files.map(file => ({
+    ...file,
+    tipoArchivo: descripcion,
+    nombreArchivo: file.name,
+    descripcionArchivo: descripcion,
+  }));
+};
 
 /**
  *
@@ -30,49 +38,63 @@ const UploadFiles = () => {};
  *  store: import('../../_store/gestion-investigacion.store').GestionInvestigacionStore
  * }} param0
  */
-const FormArchivo = ({ modal, store }) => {
+const FormArchivo = ({ modal, store, onUploadFinish }) => {
   const [errorDescripcion, setErrorDescripcion] = useState(null);
   const [descripcion, setDescripcion] = useState("");
   const [files, setFiles] = useState([]);
   const classes = useStyles();
+
+  const handleClose = () => {
+    confirm("Va cerrar el formulario, ¿Continuar?").then(confirm => {
+      if (confirm) store.modalFormArchivoActions.closeModal();
+    });
+  };
+
+  const handleSave = () => {
+    setErrorDescripcion(null);
+
+    if (!descripcion) {
+      setErrorDescripcion("Debe ingresar la descripción");
+      return false;
+    }
+
+    confirm("Va a subir los archivos seleccionados, ¿Continuar?").then(
+      confirm => {
+        if (confirm) {
+          store.modalFormArchivoActions.setLoading(true);
+          UploadTempFile(files)
+            .then(resp => {
+              toast("Archivos subidos correctamente!", "success");
+              store.modalFormArchivoActions.setLoading(false);
+              onUploadFinish(
+                mapUploadedFiles(
+                  resp.data.files,
+                  modal.tipoArchivo.descripcion,
+                ),
+              );
+              store.modalFormArchivoActions.closeModal();
+            })
+            .catch(err => {
+              console.error(err);
+              toast("Hubo un error al subir los archivos", "error");
+              store.modalFormArchivoActions.setLoading(false);
+            });
+        }
+      },
+    );
+  };
+
   return (
-    <ModalFormContainer
+    <ModalContainer
       loading={modal.isLoading}
       open={modal.open}
-      onClose={store.modalFormArchivoActions.closeModal}
+      onClose={handleClose}
       onExited={() => {
         setFiles([]);
       }}
       fullWidth
       title="Agregar Archivo Adjunto"
-      onSubmit={() => {
-        setErrorDescripcion(null);
-        if (!descripcion) {
-          setErrorDescripcion("Debe ingresar la descripción");
-          return false;
-        }
-        store.modalFormArchivoActions.setLoading(true);
-        UploadTempFile(files)
-          .then(resp => {
-            toast("Archivos subidos correctamente!", "success");
-            const uploadedFiles = resp.data.files.map(f => ({
-              ...f,
-              tipoArchivo: modal.tipoArchivo.descripcion,
-              nombreArchivo: f.name,
-              descripcionArchivo: descripcion
-            }));
-            store.modalFormArchivoActions.setLoading(false);
-            store.modalGestionInvestigacionActions.addInvestigacionArchivos(
-              uploadedFiles
-            );
-            store.modalFormArchivoActions.closeModal();
-          })
-          .catch(err => {
-            console.error(err);
-            toast("Hubo un error al subir los archivos", "error");
-            store.modalFormArchivoActions.setLoading(false);
-          });
-      }}
+      onSave={handleSave}
     >
       <Grid container spacing={2}>
         <Grid item xs={12}>
@@ -129,7 +151,7 @@ const FormArchivo = ({ modal, store }) => {
           </Grid>
         )}
       </Grid>
-    </ModalFormContainer>
+    </ModalContainer>
   );
 };
 

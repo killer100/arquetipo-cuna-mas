@@ -5,15 +5,12 @@ import { GestionInvestigacionStore } from "./_store/gestion-investigacion.store"
 import Card from "@material-ui/core/Card";
 import DataTable from "app/core/components/datatable";
 import FormGestionInvestigacion from "./components/forms/form-gestion-investigacion";
-import FormAnexoExpediente from "./components/forms/form-anexo-expediente";
-import FormInvestigado from "./components/forms/form-investigado";
-import FormArchivo from "./components/forms/form-archivo";
 
 class GestionInvestigacionContainer extends React.Component {
   state = { ...intialState };
   store = new GestionInvestigacionStore(
     () => this.state,
-    this.setState.bind(this)
+    this.setState.bind(this),
   );
 
   componentDidMount() {
@@ -28,8 +25,8 @@ class GestionInvestigacionContainer extends React.Component {
       { label: "Alerta", render: (item, loading) => <div>alerta</div> },
       {
         label: "Acciones",
-        render: (item, loading) => <div>asdasd</div>
-      }
+        render: (item, loading) => <div>asdasd</div>,
+      },
     ];
 
     return this.store.buscadorInvestigacionActions.addColumns(columns);
@@ -38,7 +35,7 @@ class GestionInvestigacionContainer extends React.Component {
   handleLoadData = e => {
     this.store.buscadorInvestigacionActions.asyncFetchInvestigaciones(
       e.page,
-      e.pageSize
+      e.pageSize,
     );
   };
 
@@ -47,7 +44,7 @@ class GestionInvestigacionContainer extends React.Component {
     this.store.buscadorInvestigacionActions.asyncFetchInvestigaciones(
       1,
       pagination.pageSize,
-      form
+      form,
     );
   };
 
@@ -56,13 +53,13 @@ class GestionInvestigacionContainer extends React.Component {
       filterLists,
       loading,
       tableDef,
-      pagination
+      pagination,
     } = this.state.buscadorInvestigacion;
     const {
       modalGestionInvestigacion,
       modalFormAnexoExpediente,
       modalFormInvestigado,
-      modalFormArchivo
+      modalFormArchivo,
     } = this.state;
     return (
       <>
@@ -80,19 +77,14 @@ class GestionInvestigacionContainer extends React.Component {
             onLoadData={this.handleLoadData}
           />
         </Card>
+
         <FormGestionInvestigacion
+          modalFormAnexoExpediente={modalFormAnexoExpediente}
+          modalFormInvestigado={modalFormInvestigado}
+          modalFormArchivo={modalFormArchivo}
           modal={modalGestionInvestigacion}
           store={this.store}
         />
-
-        <FormAnexoExpediente
-          store={this.store}
-          modal={modalFormAnexoExpediente}
-        />
-
-        <FormInvestigado store={this.store} modal={modalFormInvestigado} />
-
-        <FormArchivo store={this.store} modal={modalFormArchivo} />
       </>
     );
   }

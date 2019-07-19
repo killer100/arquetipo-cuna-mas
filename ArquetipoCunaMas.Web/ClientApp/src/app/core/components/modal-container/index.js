@@ -6,9 +6,9 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Button from "@material-ui/core/Button";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-const ModalFormContainer = ({
+const ModalContainer = ({
   open,
-  onSubmit,
+  onSave,
   onClose,
   onExited,
   title,
@@ -33,34 +33,25 @@ const ModalFormContainer = ({
       disableEscapeKeyDown={disableEscapeKeyDown}
     >
       {loading && <LinearProgress />}
-      <form
-        noValidate
-        autoComplete="off"
-        onSubmit={e => {
-          e.preventDefault();
-          onSubmit();
-        }}
-      >
-        <DialogTitle>{title}</DialogTitle>
-        <DialogContent>{children}</DialogContent>
-        <DialogActions>
-          <Button type="button" onClick={onClose} color="default">
-            Cancelar
-          </Button>
-          <Button type="submit" color="primary">
-            Guardar
-          </Button>
-        </DialogActions>
-      </form>
+      <DialogTitle>{title}</DialogTitle>
+      <DialogContent>{children}</DialogContent>
+      <DialogActions>
+        <Button type="button" onClick={onClose} color="default">
+          Cancelar
+        </Button>
+        <Button type="button" color="primary" onClick={onSave}>
+          Guardar
+        </Button>
+      </DialogActions>
     </Dialog>
   );
 };
 
-ModalFormContainer.defaultProps = {
+ModalContainer.defaultProps = {
   maxWidth: "xs",
   fullWidth: false,
   disableBackdropClick: true,
-  disableEscapeKeyDown: true,
+  disableEscapeKeyDown: true
 };
 
-export default ModalFormContainer;
+export default ModalContainer;

@@ -9,13 +9,13 @@ const gridArchivosDef = {
     { label: "Nro.", property: "nroArchivo" },
     { label: "Descripción del Archivo", property: "descripcionArchivo" },
     { label: "Nombre del Archivo Adjunto", property: "nombreArchivo" },
-    { label: "Tipo de Archivo", property: "tipoArchivo" }
-  ]
+    { label: "Tipo de Archivo", property: "tipoArchivo" },
+  ],
 };
 
 const GridArchivo = ({ archivos, onClickUpload }) => {
   const [gridDef, setGridDef] = useState(gridArchivosDef);
-  console.log(archivos);
+
   useEffect(() => {
     setGridDef(
       update(gridDef, {
@@ -23,11 +23,11 @@ const GridArchivo = ({ archivos, onClickUpload }) => {
           $push: [
             {
               label: "Acciones",
-              render: () => <div>acciones</div>
-            }
-          ]
-        }
-      })
+              render: () => <div>acciones</div>,
+            },
+          ],
+        },
+      }),
     );
   }, []);
 
@@ -48,7 +48,7 @@ const GridArchivo = ({ archivos, onClickUpload }) => {
 };
 
 GridArchivo.defaultProps = {
-  archivos: []
+  archivos: [],
 };
 
 export default GridArchivo;
