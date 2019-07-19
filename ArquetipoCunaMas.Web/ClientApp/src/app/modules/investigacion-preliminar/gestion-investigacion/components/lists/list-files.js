@@ -24,8 +24,7 @@ function formatBytes(bytes, decimals) {
  *
  * @param {{files: any[]}} param0
  */
-const ListFiles = ({ files, icon, onRemove }) => {
-  console.log(files);
+const ListFiles = ({ files, icon, onRemove, disabled }) => {
   return (
     <>
       <div>Archivos a cargar: </div>
@@ -39,7 +38,12 @@ const ListFiles = ({ files, icon, onRemove }) => {
             </ListItemAvatar>
             <ListItemText primary={x.name} secondary={formatBytes(x.size, 2)} />
             <ListItemSecondaryAction>
-              <IconButton edge="end" aria-label="Delete" onClick={onRemove(i)}>
+              <IconButton
+                edge="end"
+                aria-label="Delete"
+                onClick={onRemove(i)}
+                disabled={disabled}
+              >
                 <Icon>delete</Icon>
               </IconButton>
             </ListItemSecondaryAction>

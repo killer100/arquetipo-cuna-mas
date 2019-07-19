@@ -15,7 +15,7 @@ const gridArchivosDef = {
 
 const GridArchivo = ({ archivos, onClickUpload }) => {
   const [gridDef, setGridDef] = useState(gridArchivosDef);
-
+  console.log(archivos);
   useEffect(() => {
     setGridDef(
       update(gridDef, {

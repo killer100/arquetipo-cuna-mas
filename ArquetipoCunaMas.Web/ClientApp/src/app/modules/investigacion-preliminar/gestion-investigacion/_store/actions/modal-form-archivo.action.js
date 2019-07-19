@@ -22,4 +22,8 @@ export class ModalFormArchivoActions {
       tipoArchivo: { id: null, descripcion: "", icon: null }
     });
   };
+
+  setLoading = loading => {
+    this.setState({ ...this.getState(), isLoading: loading });
+  };
 }

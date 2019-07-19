@@ -1,5 +1,5 @@
 import { buildModalGestionInvestigacion } from "../_initial-state";
-
+import update from "immutability-helper";
 /**
  * Acciones que gestionarán el contexto del buscador dentro del estado
  */
@@ -27,4 +27,15 @@ export class ModalGestionInvestigacionActions {
   resetModal = () => {
     this.setState(buildModalGestionInvestigacion());
   };
+
+  // addInvestigacionArchivos = files => {
+  //   const newState = update(this.getState(), {
+  //     expedienteInvestigacion: {
+  //       archivos: {
+  //         $push: files
+  //       }
+  //     }
+  //   });
+  //   this.setState(newState);
+  // };
 }

@@ -146,6 +146,7 @@ export const buildModalFormInvestigado = () => ({
 export const modalFormInvestigado = buildModalFormInvestigado();
 
 export const modalFormArchivo = {
+  isLoading: false,
   open: false,
   tipoArchivo: { id: null, descripcion: "", icon: null }
 };

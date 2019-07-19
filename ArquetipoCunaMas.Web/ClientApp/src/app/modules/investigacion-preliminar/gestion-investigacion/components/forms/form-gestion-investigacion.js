@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridExpediente from "../grids/grid-expediente";
 import GridInvestigado from "../grids/grid-investigado";
 import GridArchivo from "../grids/grid-archivo";
+import update from "immutability-helper";
 
 const useStyles = makeStyles(theme => ({
   tabContainer: {
@@ -78,6 +79,17 @@ const FormGestionInvestigacion = ({ modal, store }) => {
             <GridArchivo
               archivos={form.archivos}
               onClickUpload={store.modalFormArchivoActions.openModal}
+              onAddArchivo={files => {
+                setForm(
+                  update(form, {
+                    expedienteInvestigacion: {
+                      archivos: {
+                        $push: files
+                      }
+                    }
+                  })
+                );
+              }}
             />
           )}
         </div>

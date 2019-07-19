@@ -6,6 +6,8 @@ import { DropzoneArea } from "material-ui-dropzone";
 import { makeStyles } from "@material-ui/core/styles";
 import ListFiles from "../lists/list-files";
 import update from "immutability-helper";
+import { UploadTempFile } from "app/core/api/file-upload.api";
+import toast from "app/core/components/toast";
 
 const MAX_LOAD_FILES = 5;
 
@@ -19,6 +21,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const UploadFiles = () => {};
+
 /**
  *
  * @param {{
@@ -27,11 +31,13 @@ const useStyles = makeStyles(theme => ({
  * }} param0
  */
 const FormArchivo = ({ modal, store }) => {
-  const [descripcion, setDescripcion] = useState([]);
+  const [errorDescripcion, setErrorDescripcion] = useState(null);
+  const [descripcion, setDescripcion] = useState("");
   const [files, setFiles] = useState([]);
   const classes = useStyles();
   return (
     <ModalFormContainer
+      loading={modal.isLoading}
       open={modal.open}
       onClose={store.modalFormArchivoActions.closeModal}
       onExited={() => {
@@ -40,7 +46,32 @@ const FormArchivo = ({ modal, store }) => {
       fullWidth
       title="Agregar Archivo Adjunto"
       onSubmit={() => {
-        console.log(files);
+        setErrorDescripcion(null);
+        if (!descripcion) {
+          setErrorDescripcion("Debe ingresar la descripción");
+          return false;
+        }
+        store.modalFormArchivoActions.setLoading(true);
+        UploadTempFile(files)
+          .then(resp => {
+            toast("Archivos subidos correctamente!", "success");
+            const uploadedFiles = resp.data.files.map(f => ({
+              ...f,
+              tipoArchivo: modal.tipoArchivo.descripcion,
+              nombreArchivo: f.name,
+              descripcionArchivo: descripcion
+            }));
+            store.modalFormArchivoActions.setLoading(false);
+            store.modalGestionInvestigacionActions.addInvestigacionArchivos(
+              uploadedFiles
+            );
+            store.modalFormArchivoActions.closeModal();
+          })
+          .catch(err => {
+            console.error(err);
+            toast("Hubo un error al subir los archivos", "error");
+            store.modalFormArchivoActions.setLoading(false);
+          });
       }}
     >
       <Grid container spacing={2}>
@@ -61,6 +92,9 @@ const FormArchivo = ({ modal, store }) => {
             onChange={e => {
               setDescripcion(e.target.value);
             }}
+            helperText={errorDescripcion}
+            error={errorDescripcion != null}
+            disabled={modal.isLoading}
           />
         </Grid>
 
@@ -85,6 +119,7 @@ const FormArchivo = ({ modal, store }) => {
         {files.length > 0 && (
           <Grid item xs={12}>
             <ListFiles
+              disabled={modal.isLoading}
               files={files}
               icon={modal.tipoArchivo.icon}
               onRemove={i => () => {

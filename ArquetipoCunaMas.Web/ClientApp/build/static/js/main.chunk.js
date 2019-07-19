@@ -160,6 +160,41 @@ function App({
 
 /***/ }),
 
+/***/ "./src/app/core/api/file-upload.api.js":
+/*!*********************************************!*\
+  !*** ./src/app/core/api/file-upload.api.js ***!
+  \*********************************************/
+/*! exports provided: UploadTempFile */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadTempFile", function() { return UploadTempFile; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ *
+ * @param {any[]} files
+ */
+
+const UploadTempFile = files => {
+  const formData = new FormData();
+  files.forEach((file, i) => {
+    formData.append("files", file);
+  });
+  const headers = {
+    "Content-Type": "multipart/form-data"
+  };
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/file/upload", formData, {
+    headers
+  }).then(response => response.data).catch(err => {
+    throw err.response;
+  });
+};
+
+/***/ }),
+
 /***/ "./src/app/core/api/maestros.api.js":
 /*!******************************************!*\
   !*** ./src/app/core/api/maestros.api.js ***!
@@ -5318,6 +5353,7 @@ const buildModalFormInvestigado = () => ({
 });
 const modalFormInvestigado = buildModalFormInvestigado();
 const modalFormArchivo = {
+  isLoading: false,
   open: false,
   tipoArchivo: {
     id: null,
@@ -5590,6 +5626,12 @@ class ModalFormArchivoActions {
       }));
     };
 
+    this.setLoading = loading => {
+      this.setState(Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        isLoading: loading
+      }));
+    };
+
     this.getState = getState;
     this.setState = setState;
   }
@@ -5658,6 +5700,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalGestionInvestigacionActions", function() { return ModalGestionInvestigacionActions; });
 /* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
 /* harmony import */ var _initial_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_initial-state */ "./src/app/modules/investigacion-preliminar/gestion-investigacion/_store/_initial-state.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 /**
@@ -5688,7 +5733,17 @@ class ModalGestionInvestigacionActions {
 
     this.getState = getState;
     this.setState = setState;
-  }
+  } // addInvestigacionArchivos = files => {
+  //   const newState = update(this.getState(), {
+  //     expedienteInvestigacion: {
+  //       archivos: {
+  //         $push: files
+  //       }
+  //     }
+  //   });
+  //   this.setState(newState);
+  // };
+
 
 }
 
@@ -6240,17 +6295,21 @@ const FormAnexoExpediente = ({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/core/components/modal-form-container */ "./src/app/core/components/modal-form-container/index.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
-/* harmony import */ var material_ui_dropzone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! material-ui-dropzone */ "./node_modules/material-ui-dropzone/dist/index.es.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var _lists_list_files__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../lists/list-files */ "./src/app/modules/investigacion-preliminar/gestion-investigacion/components/lists/list-files.js");
-/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
-/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/core/components/modal-form-container */ "./src/app/core/components/modal-form-container/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var material_ui_dropzone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! material-ui-dropzone */ "./node_modules/material-ui-dropzone/dist/index.es.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _lists_list_files__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../lists/list-files */ "./src/app/modules/investigacion-preliminar/gestion-investigacion/components/lists/list-files.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var app_core_api_file_upload_api__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/core/api/file-upload.api */ "./src/app/core/api/file-upload.api.js");
+/* harmony import */ var app_core_components_toast__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! app/core/components/toast */ "./src/app/core/components/toast/index.js");
+
 
 var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\investigacion-preliminar\\gestion-investigacion\\components\\forms\\form-archivo.js";
 
@@ -6261,8 +6320,10 @@ var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\Arquetipo
 
 
 
+
+
 const MAX_LOAD_FILES = 5;
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["makeStyles"])(theme => ({
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__["makeStyles"])(theme => ({
   dropzone: {
     minHeight: 150,
     height: 150
@@ -6271,6 +6332,8 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["
     display: "none"
   }
 }));
+
+const UploadFiles = () => {};
 /**
  *
  * @param {{
@@ -6279,22 +6342,29 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["
  * }} param0
  */
 
+
 const FormArchivo = ({
   modal,
   store
 }) => {
-  const _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
-        _useState2 = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-        descripcion = _useState2[0],
-        setDescripcion = _useState2[1];
+  const _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(null),
+        _useState2 = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
+        errorDescripcion = _useState2[0],
+        setErrorDescripcion = _useState2[1];
 
-  const _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
-        _useState4 = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
-        files = _useState4[0],
-        setFiles = _useState4[1];
+  const _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(""),
+        _useState4 = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState3, 2),
+        descripcion = _useState4[0],
+        setDescripcion = _useState4[1];
+
+  const _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
+        _useState6 = Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState5, 2),
+        files = _useState6[0],
+        setFiles = _useState6[1];
 
   const classes = useStyles();
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    loading: modal.isLoading,
     open: modal.open,
     onClose: store.modalFormArchivoActions.closeModal,
     onExited: () => {
@@ -6303,68 +6373,93 @@ const FormArchivo = ({
     fullWidth: true,
     title: "Agregar Archivo Adjunto",
     onSubmit: () => {
-      console.log(files);
+      setErrorDescripcion(null);
+
+      if (!descripcion) {
+        setErrorDescripcion("Debe ingresar la descripción");
+        return false;
+      }
+
+      store.modalFormArchivoActions.setLoading(true);
+      Object(app_core_api_file_upload_api__WEBPACK_IMPORTED_MODULE_10__["UploadTempFile"])(files).then(resp => {
+        Object(app_core_components_toast__WEBPACK_IMPORTED_MODULE_11__["default"])("Archivos subidos correctamente!", "success");
+        const uploadedFiles = resp.data.files.map(f => Object(C_Users_Mario_source_repos_ArquetipoCunaMas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, f, {
+          tipoArchivo: modal.tipoArchivo.descripcion,
+          nombreArchivo: f.name,
+          descripcionArchivo: descripcion
+        }));
+        store.modalFormArchivoActions.setLoading(false);
+        store.modalGestionInvestigacionActions.addInvestigacionArchivos(uploadedFiles);
+        store.modalFormArchivoActions.closeModal();
+      }).catch(err => {
+        console.error(err);
+        Object(app_core_components_toast__WEBPACK_IMPORTED_MODULE_11__["default"])("Hubo un error al subir los archivos", "error");
+        store.modalFormArchivoActions.setLoading(false);
+      });
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 39
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
     container: true,
     spacing: 2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 77
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
     item: true,
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 78
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
     disabled: true,
     fullWidth: true,
     label: "Tipo de Archivo",
     value: modal.tipoArchivo.descripcion,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 79
     },
     __self: undefined
-  })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
     item: true,
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 87
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
     fullWidth: true,
     label: "Descripci\xF3n del Archivo",
     value: descripcion,
     onChange: e => {
       setDescripcion(e.target.value);
     },
+    helperText: errorDescripcion,
+    error: errorDescripcion != null,
+    disabled: modal.isLoading,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 88
     },
     __self: undefined
-  })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
     item: true,
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67
+      lineNumber: 101
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(material_ui_dropzone__WEBPACK_IMPORTED_MODULE_5__["DropzoneArea"], {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(material_ui_dropzone__WEBPACK_IMPORTED_MODULE_6__["DropzoneArea"], {
     dropzoneClass: "".concat(classes.dropzone, " ").concat(files.length >= MAX_LOAD_FILES ? classes.hide : ""),
     dropzoneText: "Arrastre un archivo o click aqu\xED",
     onDrop: fileDroped => {
@@ -6378,28 +6473,29 @@ const FormArchivo = ({
     filesLimit: 10000,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 102
     },
     __self: undefined
-  })), files.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  })), files.length > 0 && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
     item: true,
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 120
     },
     __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_lists_list_files__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_lists_list_files__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    disabled: modal.isLoading,
     files: files,
     icon: modal.tipoArchivo.icon,
     onRemove: i => () => {
-      setFiles(immutability_helper__WEBPACK_IMPORTED_MODULE_8___default()(files, {
+      setFiles(immutability_helper__WEBPACK_IMPORTED_MODULE_9___default()(files, {
         $splice: [[i, 1]]
       }));
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87
+      lineNumber: 121
     },
     __self: undefined
   }))));
@@ -7172,8 +7268,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _grids_grid_expediente__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../grids/grid-expediente */ "./src/app/modules/investigacion-preliminar/gestion-investigacion/components/grids/grid-expediente.js");
 /* harmony import */ var _grids_grid_investigado__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../grids/grid-investigado */ "./src/app/modules/investigacion-preliminar/gestion-investigacion/components/grids/grid-investigado.js");
 /* harmony import */ var _grids_grid_archivo__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../grids/grid-archivo */ "./src/app/modules/investigacion-preliminar/gestion-investigacion/components/grids/grid-archivo.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_11__);
 
 var _jsxFileName = "C:\\Users\\Mario\\source\\repos\\ArquetipoCunaMas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\investigacion-preliminar\\gestion-investigacion\\components\\forms\\form-gestion-investigacion.js";
+
 
 
 
@@ -7231,7 +7330,7 @@ const FormGestionInvestigacion = ({
     fullWidth: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 39
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tabs__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -7241,42 +7340,42 @@ const FormGestionInvestigacion = ({
     onChange: (e, value) => setTab(value),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 51
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "Datos Generales",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 57
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "Datos de la Hoja de Tr\xE1mite",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 58
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "Datos del investigado(a)",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 59
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tab__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "Archivos Adjuntos",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 60
     },
     __self: undefined
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: classes.tabContainer,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 62
     },
     __self: undefined
   }, tab == 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_form_datos_generales__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -7284,13 +7383,13 @@ const FormGestionInvestigacion = ({
     setForm: setForm,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 63
     },
     __self: undefined
   }), tab == 1 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 65
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grids_grid_expediente__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -7298,7 +7397,7 @@ const FormGestionInvestigacion = ({
     onClickNew: store.modalFormAnexoExpedienteActions.openModal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 66
     },
     __self: undefined
   })), tab == 2 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grids_grid_investigado__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -7306,15 +7405,24 @@ const FormGestionInvestigacion = ({
     onClickNew: store.modalFormInvestigacionActions.openModal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 73
     },
     __self: undefined
   }), tab == 3 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grids_grid_archivo__WEBPACK_IMPORTED_MODULE_10__["default"], {
     archivos: form.archivos,
     onClickUpload: store.modalFormArchivoActions.openModal,
+    onAddArchivo: files => {
+      setForm(immutability_helper__WEBPACK_IMPORTED_MODULE_11___default()(form, {
+        expedienteInvestigacion: {
+          archivos: {
+            $push: files
+          }
+        }
+      }));
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 79
     },
     __self: undefined
   }))));
@@ -7593,6 +7701,7 @@ const GridArchivo = ({
         gridDef = _useState2[0],
         setGridDef = _useState2[1];
 
+  console.log(archivos);
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
     setGridDef(immutability_helper__WEBPACK_IMPORTED_MODULE_3___default()(gridDef, {
       columns: {
@@ -7957,44 +8066,44 @@ function formatBytes(bytes, decimals) {
 const ListFiles = ({
   files,
   icon,
-  onRemove
+  onRemove,
+  disabled
 }) => {
-  console.log(files);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 30
     },
     __self: undefined
   }, "Archivos a cargar: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 31
     },
     __self: undefined
   }, files.map((x, i) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_2__["default"], {
     key: i,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 33
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 34
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 35
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 36
     },
     __self: undefined
   }, icon))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -8002,28 +8111,29 @@ const ListFiles = ({
     secondary: formatBytes(x.size, 2),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 39
     },
     __self: undefined
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemSecondaryAction__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 40
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
     edge: "end",
     "aria-label": "Delete",
     onClick: onRemove(i),
+    disabled: disabled,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 41
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 47
     },
     __self: undefined
   }, "delete")))))));
@@ -8436,5 +8546,5 @@ module.exports = __webpack_require__(/*! C:\Users\Mario\source\repos\ArquetipoCu
 
 /***/ })
 
-},[[0,"runtime~main",0]]]);
+},[[0,"runtime~main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
