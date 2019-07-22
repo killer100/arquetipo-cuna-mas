@@ -1,16 +1,21 @@
 import React from "react";
 import FormBuscarInvestigacion from "./components/forms/form-buscar-investigacion";
-import { intialState, modalFormArchivo } from "./_store/_initial-state";
+import { initialState, modalFormArchivo } from "./_store/_initial-state";
 import { GestionInvestigacionStore } from "./_store/gestion-investigacion.store";
 import Card from "@material-ui/core/Card";
 import DataTable from "app/core/components/datatable";
 import FormGestionInvestigacion from "./components/forms/form-gestion-investigacion";
+import { buildStore } from "app/core/store/base-store";
 
 class GestionInvestigacionContainer extends React.Component {
-  state = { ...intialState };
-  store = new GestionInvestigacionStore(
+  state = { ...initialState };
+  /**
+   * @type GestionInvestigacionStore
+   */
+  store = buildStore(
     () => this.state,
     this.setState.bind(this),
+    GestionInvestigacionStore
   );
 
   componentDidMount() {
@@ -25,8 +30,8 @@ class GestionInvestigacionContainer extends React.Component {
       { label: "Alerta", render: (item, loading) => <div>alerta</div> },
       {
         label: "Acciones",
-        render: (item, loading) => <div>asdasd</div>,
-      },
+        render: (item, loading) => <div>asdasd</div>
+      }
     ];
 
     return this.store.buscadorInvestigacionActions.addColumns(columns);
@@ -35,7 +40,7 @@ class GestionInvestigacionContainer extends React.Component {
   handleLoadData = e => {
     this.store.buscadorInvestigacionActions.asyncFetchInvestigaciones(
       e.page,
-      e.pageSize,
+      e.pageSize
     );
   };
 
@@ -44,7 +49,7 @@ class GestionInvestigacionContainer extends React.Component {
     this.store.buscadorInvestigacionActions.asyncFetchInvestigaciones(
       1,
       pagination.pageSize,
-      form,
+      form
     );
   };
 
@@ -53,13 +58,13 @@ class GestionInvestigacionContainer extends React.Component {
       filterLists,
       loading,
       tableDef,
-      pagination,
+      pagination
     } = this.state.buscadorInvestigacion;
     const {
       modalGestionInvestigacion,
       modalFormAnexoExpediente,
       modalFormInvestigado,
-      modalFormArchivo,
+      modalFormArchivo
     } = this.state;
     return (
       <>

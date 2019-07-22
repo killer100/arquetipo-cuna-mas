@@ -27,12 +27,29 @@ function App({ classes }) {
           {
             text: "Mantenimiento",
             icon: "settings",
-            children: [{ text: "Abogado", url: "/datos-maestros/abogado", icon: "accessibility" }]
+            children: [
+              {
+                text: "Abogados",
+                url: "/datos-maestros/abogados",
+                icon: "accessibility"
+              },
+              {
+                text: "Normas",
+                url: "/datos-maestros/normas",
+                icon: "list"
+              }
+            ]
           },
           {
             text: "Investigacion",
             icon: "pageview",
-            children: [{ text: "Bandeja Principal", url: "/investigacion", icon: "inbox" }]
+            children: [
+              {
+                text: "Bandeja Principal",
+                url: "/investigacion",
+                icon: "inbox"
+              }
+            ]
           }
         ]}
       >

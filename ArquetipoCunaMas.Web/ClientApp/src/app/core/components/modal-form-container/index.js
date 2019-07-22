@@ -19,6 +19,7 @@ const ModalFormContainer = ({
   onEnter,
   disableBackdropClick,
   disableEscapeKeyDown,
+  showSubmitButton
 }) => {
   return (
     <Dialog
@@ -45,11 +46,13 @@ const ModalFormContainer = ({
         <DialogContent>{children}</DialogContent>
         <DialogActions>
           <Button type="button" onClick={onClose} color="default">
-            Cancelar
+            {showSubmitButton ? "Cancelar" : "Retornar"}
           </Button>
-          <Button type="submit" color="primary">
-            Guardar
-          </Button>
+          {showSubmitButton && (
+            <Button type="submit" color="primary">
+              Guardar
+            </Button>
+          )}
         </DialogActions>
       </form>
     </Dialog>
@@ -61,6 +64,7 @@ ModalFormContainer.defaultProps = {
   fullWidth: false,
   disableBackdropClick: true,
   disableEscapeKeyDown: true,
+  showSubmitButton: true
 };
 
 export default ModalFormContainer;

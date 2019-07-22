@@ -18,7 +18,11 @@ export class BaseStore {
    * @param {string} prop
    */
   buildScopedSetState = prop => (newState, callback) => {
-	 //this.setState({ [prop]: newState }, callback);
-	 this.setState({ [prop]: newState });
+    //this.setState({ [prop]: newState }, callback);
+    this.setState({ [prop]: newState }, callback);
   };
 }
+
+export const buildStore = (getState, setState, StoreClass) => {
+  return new StoreClass(getState, setState);
+};

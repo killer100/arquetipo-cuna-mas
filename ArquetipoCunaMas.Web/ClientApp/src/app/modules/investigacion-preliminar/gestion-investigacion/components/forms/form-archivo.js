@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ModalContainer from "app/core/components/modal-container";
+import ModalFormContainer from "app/core/components/modal-form-container";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { DropzoneArea } from "material-ui-dropzone";
@@ -15,11 +15,11 @@ const MAX_LOAD_FILES = 5;
 const useStyles = makeStyles(theme => ({
   dropzone: {
     minHeight: 150,
-    height: 150,
+    height: 150
   },
   hide: {
-    display: "none",
-  },
+    display: "none"
+  }
 }));
 
 const mapUploadedFiles = (files, descripcion) => {
@@ -27,7 +27,7 @@ const mapUploadedFiles = (files, descripcion) => {
     ...file,
     tipoArchivo: descripcion,
     nombreArchivo: file.name,
-    descripcionArchivo: descripcion,
+    descripcionArchivo: descripcion
   }));
 };
 
@@ -67,10 +67,7 @@ const FormArchivo = ({ modal, store, onUploadFinish }) => {
               toast("Archivos subidos correctamente!", "success");
               store.modalFormArchivoActions.setLoading(false);
               onUploadFinish(
-                mapUploadedFiles(
-                  resp.data.files,
-                  modal.tipoArchivo.descripcion,
-                ),
+                mapUploadedFiles(resp.data.files, modal.tipoArchivo.descripcion)
               );
               store.modalFormArchivoActions.closeModal();
             })
@@ -80,21 +77,22 @@ const FormArchivo = ({ modal, store, onUploadFinish }) => {
               store.modalFormArchivoActions.setLoading(false);
             });
         }
-      },
+      }
     );
   };
 
   return (
-    <ModalContainer
+    <ModalFormContainer
       loading={modal.isLoading}
       open={modal.open}
       onClose={handleClose}
       onExited={() => {
         setFiles([]);
+        setDescripcion("");
       }}
       fullWidth
       title="Agregar Archivo Adjunto"
-      onSave={handleSave}
+      onSubmit={handleSave}
     >
       <Grid container spacing={2}>
         <Grid item xs={12}>
@@ -151,7 +149,7 @@ const FormArchivo = ({ modal, store, onUploadFinish }) => {
           </Grid>
         )}
       </Grid>
-    </ModalContainer>
+    </ModalFormContainer>
   );
 };
 

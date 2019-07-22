@@ -7,19 +7,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import DatePicker from "app/core/components/datepicker";
 import SelectField from "app/core/components/select-field";
 import CheckboxControl from "app/core/components/checkbox-control";
-import Divider from "@material-ui/core/Divider";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import { changeInputAction } from "./form-gestion-investigacion";
-
-const useStyles = makeStyles(theme => ({
-  typography: {
-    marginTop: theme.spacing(3),
-  },
-  dividerTitle: {
-    marginBottom: theme.spacing(3),
-  },
-}));
+import DividerTitle from "app/core/components/divider-title";
 
 /**
  *
@@ -29,7 +18,6 @@ const useStyles = makeStyles(theme => ({
  * }} param0
  */
 const FormDatosGenerales = ({ form, setInput, loading, filterLists }) => {
-  const classes = useStyles();
   return (
     <>
       <Grid container spacing={1}>
@@ -94,11 +82,7 @@ const FormDatosGenerales = ({ form, setInput, loading, filterLists }) => {
           />
         </Grid>
       </Grid>
-
-      <Typography variant="body1" className={classes.typography} gutterBottom>
-        Datos del Denunciante
-      </Typography>
-      <Divider className={classes.dividerTitle} />
+      <DividerTitle title="Datos del Denunciante" />
       <Grid container spacing={1}>
         <Grid item xs={12} md={6}>
           <SelectField
@@ -158,17 +142,17 @@ FormDatosGenerales.defaultProps = {
   filterLists: {
     tiempoPrescripcion: {
       loading: false,
-      value: [],
+      value: []
     },
     abogado: {
       loading: false,
-      value: [],
+      value: []
     },
     trabajador: {
       loading: false,
-      value: [],
-    },
-  },
+      value: []
+    }
+  }
 };
 
 export default FormDatosGenerales;

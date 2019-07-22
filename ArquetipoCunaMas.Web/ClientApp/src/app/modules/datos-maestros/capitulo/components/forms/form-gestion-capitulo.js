@@ -1,0 +1,120 @@
+import React, { useState, useEffect } from "react";
+import ModalFormContainer from "app/core/components/modal-form-container";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import { FORM_TYPE } from "app/core/enums/enums";
+import confirm from "app/core/components/confirm";
+import { buildCapitulo } from "../../_store/_initial-state";
+import DividerTitle from "app/core/components/divider-title";
+
+const handleClose = (formType, close) => () => {
+  if (formType == FORM_TYPE.CONSULTAR) {
+    close();
+  } else {
+    confirm("Va a cerrar el Formulario. ¿Continuar?").then(confirm => {
+      if (confirm) close();
+    });
+  }
+};
+
+/**
+ *
+ * @param {{
+ *  modal: import('../../_store/_initial-state').modalGestionCapitulo,
+ *  store: import('../../_store/gestion-capitulo.store').GestionCapituloStore,
+ *  tituloData: import('../../_store/_initial-state').tituloData
+ * }} param0
+ */
+const FormGestionCapitulo = ({ modal, store, tituloData }) => {
+  const [form, setForm] = useState(buildCapitulo());
+
+  return (
+    <ModalFormContainer
+      open={modal.open}
+      onClose={handleClose(
+        modal.formType,
+        store.modalGestionCapituloActions.closeModal
+      )}
+      title={modal.title}
+      onExited={() => {
+        store.modalGestionCapituloActions.resetModal();
+      }}
+      onSubmit={() => {
+        console.log(form);
+      }}
+      loading={modal.loading}
+      showSubmitButton={modal.formType != FORM_TYPE.CONSULTAR}
+    >
+      {tituloData.titulo && (
+        <>
+          <DividerTitle title="Datos de la Norma Legal" marginTop={false} />
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <TextField
+                label="Número de la Norma"
+                value={tituloData.titulo.norma.numeroNorma}
+                fullWidth
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                label="Descripción de la Norma Legal"
+                value={tituloData.titulo.norma.descripcion}
+                fullWidth
+              />
+            </Grid>
+          </Grid>
+
+          <DividerTitle
+            title="Datos de Título de la Norma Legal"
+            marginTop={false}
+          />
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <TextField
+                label="Número del Título"
+                value={tituloData.titulo.numeroTitulo}
+                fullWidth
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                label="Descripción del Título"
+                value={tituloData.titulo.descripcion}
+                fullWidth
+              />
+            </Grid>
+          </Grid>
+        </>
+      )}
+
+      <DividerTitle title="Datos de Capítulo de la Norma Legal" />
+
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <TextField
+            value={form.numeroCapitulo}
+            fullWidth
+            label="Número del Capítulo"
+            disabled={modal.loading || modal.formType == FORM_TYPE.CONSULTAR}
+            onChange={e => setForm({ ...form, numeroCapitulo: e.target.value })}
+          />
+        </Grid>
+
+        <Grid item xs={12}>
+          <TextField
+            value={form.descripcion}
+            fullWidth
+            label="Descripción del Capítulo"
+            disabled={modal.loading || modal.formType == FORM_TYPE.CONSULTAR}
+            onChange={e => setForm({ ...form, descripcion: e.target.value })}
+          />
+        </Grid>
+      </Grid>
+    </ModalFormContainer>
+  );
+};
+
+export default FormGestionCapitulo;

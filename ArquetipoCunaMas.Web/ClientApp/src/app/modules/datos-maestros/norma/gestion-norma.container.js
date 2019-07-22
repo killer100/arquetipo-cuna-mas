@@ -3,56 +3,76 @@ import Card from "@material-ui/core/Card";
 import DataTable from "app/core/components/datatable";
 import { GestionNormaStore } from "./_store/gestion-norma.store";
 import { initialState } from "./_store/_initial-state";
-import { useStore } from "app/core/hooks/use-store.hook";
-import update from "immutability-helper";
+import { buildStore } from "app/core/store/base-store";
+import FormBuscarNorma from "./components/forms/form-buscar-norma";
+import FormGestionNorma from "./components/forms/form-gestion-norma";
+import GridActionButtons from "./components/buttons/grid-action-buttons";
+import confirm from "app/core/components/confirm";
 
-const gridDefinition = {
-  columns: [
-    { label: "Nro. Norma", property: "numeroNorma" },
-    {
-      label: "Descripción de la Norma",
-      property: "descripcion",
-    },
-    { label: "Fecha de Registro", property: "fechaRegistro", isDate: true },
-  ],
-};
-
-const GestionNormaContainer = ({}) => {
-  const [gridDef, setGridDef] = useState(gridDefinition);
-  const [state, setState] = useState(initialState);
+class GestionNormaContainer extends React.Component {
+  state = { ...initialState };
   /**
-   * @type {[GestionNormaStore]}
+   * @type GestionNormaStore
    */
-  const [store] = useStore(state, setState, GestionNormaStore);
-
-  const { loading, pagination } = state.buscadorNorma;
-
-  useEffect(() => {
-    setGridDef(
-      update(gridDef, {
-        columns: {
-          $push: [{ label: "Acciones", render: (item, loading) => "Acciones" }],
-        },
-      }),
-    );
-  }, []);
-
-  useEffect(() => {
-    if (store) store.buscadorNormaActions.asyncFetchNormas();
-  }, [store]);
-
-  return (
-    <>
-      <Card elevation={8}>
-        <DataTable
-          loading={loading}
-          tableDef={gridDef}
-          pagination={pagination}
-          onLoadData={() => {}}
-        />
-      </Card>
-    </>
+  store = buildStore(
+    () => this.state,
+    this.setState.bind(this),
+    GestionNormaStore
   );
-};
+
+  componentDidMount() {
+    this.addColumns().then(() => {
+      this.store.buscadorNormaActions.asyncFetchNormas();
+    });
+  }
+
+  addColumns = () => {
+    const newColumns = [
+      {
+        label: "Acciones",
+        render: (item, loading) => (
+          <GridActionButtons
+            item={item}
+            disabled={loading}
+            onClickShow={this.store.modalGestionNormaActions.openModalShow}
+            onClickEdit={this.store.modalGestionNormaActions.openModalEdit}
+            onClickDelete={this.handleDelete}
+            onClickTitulos={this.handleClickTitulos}
+          />
+        )
+      }
+    ];
+    return this.store.buscadorNormaActions.addColumns(newColumns);
+  };
+
+  handleDelete = () => {
+    confirm("Va a eliminar la Norma, Continuar?").then(confirm => {
+      if (confirm) console.log("delete");
+    });
+  };
+
+  handleClickTitulos = id => {
+    this.props.history.push(`titulos?idNorma=${id}`);
+  };
+
+  render() {
+    const { modalGestionNorma } = this.state;
+    const { loading, pagination, gridDefinition } = this.state.buscadorNorma;
+    return (
+      <>
+        <FormBuscarNorma store={this.store} pagination={pagination} />
+        <Card elevation={8}>
+          <DataTable
+            loading={loading}
+            tableDef={gridDefinition}
+            pagination={pagination}
+            onLoadData={() => {}}
+          />
+        </Card>
+        <FormGestionNorma modal={modalGestionNorma} store={this.store} />
+      </>
+    );
+  }
+}
 
 export default GestionNormaContainer;

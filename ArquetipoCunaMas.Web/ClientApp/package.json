@@ -13,6 +13,7 @@
     "immutability-helper": "^3.0.1",
     "material-ui-dropzone": "^2.4.0",
     "moment": "^2.24.0",
+    "query-string": "^6.8.1",
     "react": "^16.8.6",
     "react-autosuggest": "^9.4.3",
     "react-dom": "^16.8.6",

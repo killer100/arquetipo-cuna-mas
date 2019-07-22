@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ModalContainer from "app/core/components/modal-container";
+import ModalFormContainer from "app/core/components/modal-form-container";
 import Grid from "@material-ui/core/Grid";
 import { buildAnexoExpediente } from "../../_store/_initial-state";
 import DatePicker from "app/core/components/datepicker";
@@ -37,14 +37,14 @@ const FormAnexoExpediente = ({ modal, store, OnSaveAnexoExpediente }) => {
 
   return (
     <>
-      <ModalContainer
+      <ModalFormContainer
         open={modal.open}
         onClose={handleClose}
         onExited={store.modalFormAnexoExpedienteActions.resetModal}
         fullWidth
         maxWidth="md"
         title={modal.title}
-        onSave={handleSave}
+        onSubmit={handleSave}
       >
         <Grid container spacing={2}>
           <Grid item xs={12} md={3}>
@@ -112,7 +112,7 @@ const FormAnexoExpediente = ({ modal, store, OnSaveAnexoExpediente }) => {
             />
           </Grid>
         </Grid>
-      </ModalContainer>
+      </ModalFormContainer>
     </>
   );
 };

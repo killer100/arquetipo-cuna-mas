@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { buildInvestigado } from "../../_store/_initial-state";
-import ModalContainer from "app/core/components/modal-container";
+import ModalFormContainer from "app/core/components/modal-form-container";
 import Grid from "@material-ui/core/Grid";
 import { FORM_TYPE } from "app/core/enums/enums";
 import SelectField from "app/core/components/select-field";
@@ -37,14 +37,14 @@ const FormInvestigado = ({ modal, store }) => {
   useEffect(() => setForm(modal.investigado), [modal.investigado]);
 
   return (
-    <ModalContainer
+    <ModalFormContainer
       open={modal.open}
       onClose={store.modalFormInvestigacionActions.closeModal}
       fullWidth
       title={modal.title}
       onExited={store.modalFormInvestigacionActions.resetModal}
       onEnter={loadDependencias(listDependencias, setListDependencias)}
-      onSave={() => {
+      onSubmit={() => {
         console.log("guardar");
       }}
     >
@@ -120,7 +120,7 @@ const FormInvestigado = ({ modal, store }) => {
           />
         </Grid>
       </Grid>
-    </ModalContainer>
+    </ModalFormContainer>
   );
 };
 

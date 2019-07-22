@@ -201,7 +201,7 @@ export const modalFormArchivo = {
 	}
 };
 
-export const intialState = {
+export const initialState = {
 	buscadorInvestigacion,
 	modalGestionInvestigacion,
 	modalFormAnexoExpediente,

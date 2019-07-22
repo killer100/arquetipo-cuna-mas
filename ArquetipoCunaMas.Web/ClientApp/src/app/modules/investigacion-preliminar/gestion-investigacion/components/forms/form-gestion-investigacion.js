@@ -15,8 +15,8 @@ import FormInvestigado from "./form-investigado";
 
 const useStyles = makeStyles(theme => ({
   tabContainer: {
-    marginTop: theme.spacing(3),
-  },
+    marginTop: theme.spacing(3)
+  }
 }));
 
 /**
@@ -31,20 +31,20 @@ const FormGestionInvestigacionReducer = (form, action) => {
     case "PUSH-FILES":
       return update(form, {
         archivos: {
-          $push: action.payload.files,
-        },
+          $push: action.payload.files
+        }
       });
     case "PUSH-INVESTIGADO":
       return update(form, {
         investigados: {
-          $push: [action.payload.investigado],
-        },
+          $push: [action.payload.investigado]
+        }
       });
     case "PUSH-ANEXO-EXPEDIENTE":
       return update(form, {
         expedientes: {
-          $push: [action.payload.expediente],
-        },
+          $push: [action.payload.expediente]
+        }
       });
   }
 };
@@ -64,13 +64,13 @@ const FormGestionInvestigacion = ({
   store,
   modalFormArchivo,
   modalFormAnexoExpediente,
-  modalFormInvestigado,
+  modalFormInvestigado
 }) => {
   const [tab, setTab] = useState(0);
 
   const [form, dispatch] = useReducer(
     FormGestionInvestigacionReducer,
-    buildExpedienteInvestigacion(),
+    buildExpedienteInvestigacion()
   );
 
   const classes = useStyles();
@@ -113,7 +113,7 @@ const FormGestionInvestigacion = ({
               setInput={(prop, value) => {
                 dispatch({
                   type: "CHANGE-INPUT",
-                  payload: { prop, value },
+                  payload: { prop, value }
                 });
               }}
             />
@@ -139,37 +139,37 @@ const FormGestionInvestigacion = ({
             />
           )}
         </div>
-
-        <FormAnexoExpediente
-          store={store}
-          modal={modalFormAnexoExpediente}
-          OnSaveAnexoExpediente={expediente =>
-            dispatch({
-              type: "PUSH-ANEXO-EXPEDIENTE",
-              payload: { expediente },
-            })
-          }
-        />
-
-        <FormInvestigado
-          store={store}
-          modal={modalFormInvestigado}
-          OnSaveInvestigado={investigado =>
-            dispatch({
-              type: "PUSH-INVESTIGADO",
-              payload: { investigado },
-            })
-          }
-        />
-
-        <FormArchivo
-          store={store}
-          modal={modalFormArchivo}
-          onUploadFinish={files =>
-            dispatch({ type: "PUSH-FILES", payload: { files } })
-          }
-        />
       </ModalFormContainer>
+
+      <FormAnexoExpediente
+        store={store}
+        modal={modalFormAnexoExpediente}
+        OnSaveAnexoExpediente={expediente =>
+          dispatch({
+            type: "PUSH-ANEXO-EXPEDIENTE",
+            payload: { expediente }
+          })
+        }
+      />
+
+      <FormInvestigado
+        store={store}
+        modal={modalFormInvestigado}
+        OnSaveInvestigado={investigado =>
+          dispatch({
+            type: "PUSH-INVESTIGADO",
+            payload: { investigado }
+          })
+        }
+      />
+
+      <FormArchivo
+        store={store}
+        modal={modalFormArchivo}
+        onUploadFinish={files =>
+          dispatch({ type: "PUSH-FILES", payload: { files } })
+        }
+      />
     </>
   );
 };

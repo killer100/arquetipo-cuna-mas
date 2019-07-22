@@ -23,9 +23,7 @@ export class BuscadorInvestigacionActions {
     this.setState = setState;
   }
 
-  loadFirstAsyncData = () => {
-    
-  }
+  loadFirstAsyncData = () => {};
 
   /**
    * @param {any[]} newColumns
