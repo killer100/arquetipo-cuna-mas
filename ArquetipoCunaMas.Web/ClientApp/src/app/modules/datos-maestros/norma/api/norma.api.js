@@ -27,7 +27,7 @@ export const GetPageNorma = (page, pageSize, filter = null) => {
       fechaRegistro: fechaRegistro
     },
     {
-      numeidNorma: 4,
+      idNorma: 4,
       numeroNorma: "wef",
       descripcion: "dfgdgdfgd",
       fechaRegistro: fechaRegistro

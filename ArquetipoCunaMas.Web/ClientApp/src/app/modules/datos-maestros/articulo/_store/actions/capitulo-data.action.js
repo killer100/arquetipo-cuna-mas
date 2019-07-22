@@ -3,21 +3,21 @@ import update from "immutability-helper";
 /**
  * Acciones que gestionarán el contexto del buscador dentro del estado
  */
-export class TituloDataActions {
+export class CapituloDataActions {
   /**
-   * @param {() => import('../_initial-state').tituloData} getState
-   * @param {(state:import('../_initial-state').tituloData ) => void} setState
+   * @param {() => import('../_initial-state').capituloData} getState
+   * @param {(state:import('../_initial-state').capituloData ) => void} setState
    */
   constructor(getState, setState) {
     this.getState = getState;
     this.setState = setState;
   }
 
-  setIdTitulo = idTitulo => {
-    this.setState({ ...this.getState(), idTitulo });
+  setIdCapitulo = idCapitulo => {
+    this.setState({ ...this.getState(), idCapitulo });
   };
 
-  setTitulo = titulo => {
-    this.setState({ ...this.getState(), titulo });
+  setCapitulo = capitulo => {
+    this.setState({ ...this.getState(), capitulo });
   };
 }

@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 const GridActionButtons = ({
   item,
   disabled,
-  onClickArticulos,
+  onClickFaltas,
   onClickShow,
   onClickEdit,
   onClickDelete
@@ -28,7 +28,7 @@ const GridActionButtons = ({
           aria-label="Show"
           disabled={disabled}
           className={classes.margin}
-          onClick={() => onClickArticulos(item.idCapitulo)}
+          onClick={() => onClickFaltas(item.idArticulo)}
         >
           <Icon fontSize="small">list</Icon>
         </IconButton>
@@ -38,7 +38,7 @@ const GridActionButtons = ({
           aria-label="Show"
           disabled={disabled}
           className={classes.margin}
-          onClick={() => onClickShow(item.idCapitulo)}
+          onClick={() => onClickShow(item.idArticulo)}
         >
           <Icon fontSize="small">remove_red_eye</Icon>
         </IconButton>
@@ -48,7 +48,7 @@ const GridActionButtons = ({
           aria-label="Edit"
           disabled={disabled}
           className={classes.margin}
-          onClick={() => onClickEdit(item.idCapitulo)}
+          onClick={() => onClickEdit(item.idArticulo)}
         >
           <Icon fontSize="small">edit</Icon>
         </IconButton>
@@ -58,7 +58,7 @@ const GridActionButtons = ({
           aria-label="Delete"
           disabled={disabled}
           className={classes.margin}
-          onClick={() => onClickDelete(item.idCapitulo)}
+          onClick={() => onClickDelete(item.idArticulo)}
         >
           <Icon fontSize="small">delete</Icon>
         </IconButton>

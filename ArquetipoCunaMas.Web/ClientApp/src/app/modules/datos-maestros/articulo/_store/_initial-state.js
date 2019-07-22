@@ -1,31 +1,33 @@
-import { FORM_TYPE } from "app/core/enums/enums";
+import {
+	FORM_TYPE
+} from "app/core/enums/enums";
 
 //===============================
-// MODAL GESTION CAPITULO
+// MODAL GESTION ARTICULO
 //===============================
 /**
  * @type {{
- *  idCapitulo: number,
- *  capitulo: {
- *    idCapitulo: number,
- *    numeroCapitulo: string,
- *    descripcion: string
- *    titulo: {
- *      idTitulo: number,
- *      numeroTitulo: string,
- *      descripcion: string,
- *      norma: {
- *        idNorma: number,
- *        numeroNorma: string,
- *        descripcion: string
- *      }
- *    }
- *  }
+ * 	idCapitulo: number,
+ *  	capitulo: {
+ *  	  idCapitulo: number,
+ *  	  numeroCapitulo: string,
+ *  	  descripcion: string
+ *  	  titulo: {
+ *  	    idTitulo: number,
+ *  	    numeroTitulo: string,
+ *  	    descripcion: string,
+ *  	    norma: {
+ *  	      idNorma: number,
+ *  	      numeroNorma: string,
+ *  	      descripcion: string
+ *  	    }
+ *  	  }
+ *  	}
  * }}
  */
 export const capituloData = {
-  idCapitulo: null,
-  capitulo: null
+	idCapitulo: null,
+	capitulo: null
 };
 
 //===============================
@@ -34,63 +36,69 @@ export const capituloData = {
 
 /**
  * @typedef {{
- * 	 idArticulo: number;
+ *   idArticulo: number;
  *   numeroArticulo: string;
  *   descripcion: string;
  * }} IArticulo
  */
 
 export const buildArticulo = () => ({
-  idCapitulo: null,
-  idArticulo: null,
-  numeroArticulo: "",
-  descripcion: ""
+	idCapitulo: null,
+	idArticulo: null,
+	numeroArticulo: "",
+	descripcion: ""
 });
 
-export const buildModalGestionCapitulo = () => ({
-  open: false,
-  loading: false,
-  title: "Registro de Capítulo de la Norma Legal",
-  idCapitulo: null,
-  formType: FORM_TYPE.REGISTRAR,
-  /**
-   * @type ICapitulo
-   */
-  capitulo: buildCapitulo()
+export const buildModalGestionArticulo = () => ({
+	open: false,
+	loading: false,
+	title: "Registro del Artículo de la Norma Legal",
+	idArticulo: null,
+	formType: FORM_TYPE.REGISTRAR,
+	/**
+	 * @type IArticulo
+	 */
+	articulo: buildArticulo()
 });
 
-export const modalGestionCapitulo = buildModalGestionCapitulo();
+export const modalGestionArticulo = buildModalGestionArticulo();
 
 //===============================
-// FORMULARIO BUSCAR CAPITULO
+// FORMULARIO BUSCAR ARTICULO
 //===============================
 
-export const buildFormBuscarCapitulo = () => ({
-  numeroCapitulo: "",
-  descripcion: ""
+export const buildFormBuscarArticulo = () => ({
+	numeroArticulo: "",
+	descripcion: ""
 });
 
-export const buscadorCapitulo = {
-  loading: false,
-  pagination: {
-    page: 1,
-    pageSize: 10,
-    total: 0,
-    items: []
-  },
+export const buscadorArticulo = {
+	loading: false,
+	pagination: {
+		page: 1,
+		pageSize: 10,
+		total: 0,
+		items: []
+	},
 
-  filters: buildFormBuscarCapitulo(),
+	filters: buildFormBuscarArticulo(),
 
-  gridDefinition: {
-    columns: [
-      { label: "Nro. del Capítulo", property: "numeroCapitulo" },
-      {
-        label: "Descripción del Capítulo",
-        property: "descripcion"
-      },
-      { label: "Fecha de Registro", property: "fechaRegistro", isDate: true }
-    ]
-  }
+	gridDefinition: {
+		columns: [{
+				label: "Nro. del Artículo",
+				property: "numeroArticulo"
+			},
+			{
+				label: "Descripción del Artículo",
+				property: "descripcion"
+			},
+			{
+				label: "Fecha de Registro",
+				property: "fechaRegistro",
+				isDate: true
+			}
+		]
+	}
 };
 
 //===============================
@@ -98,7 +106,7 @@ export const buscadorCapitulo = {
 //===============================
 
 export const initialState = {
-  buscadorCapitulo,
-  modalGestionCapitulo,
-  tituloData
+	buscadorArticulo,
+	modalGestionArticulo,
+	capituloData
 };

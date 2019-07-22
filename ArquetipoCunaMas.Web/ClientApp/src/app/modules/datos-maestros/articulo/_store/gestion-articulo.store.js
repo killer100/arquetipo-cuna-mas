@@ -1,28 +1,28 @@
 import { BaseStore } from "app/core/store/base-store";
-import { BuscadorCapituloActions } from "./actions/buscador-articulo.action";
-import { TituloDataActions } from "./actions/capitulo-data.action";
-import { ModalGestionCapituloActions } from "./actions/modal-gestion-articulo.action";
+import { BuscadorArticuloActions } from "./actions/buscador-articulo.action";
+import { CapituloDataActions } from "./actions/capitulo-data.action";
+import { ModalGestionArticuloActions } from "./actions/modal-gestion-articulo.action";
 
-export class GestionCapituloStore extends BaseStore {
+export class GestionArticuloStore extends BaseStore {
   /**
    * @param {() => import('./_initial-state').initialState} getState
    * @param {(state:import('./_initial-state').initialState, callback?: () => void ) => void} setState
    */
   constructor(getState, setState) {
     super(getState, setState);
-    this.buscadorCapituloActions = new BuscadorCapituloActions(
-      this.buildScopedGetState("buscadorCapitulo"),
-      this.buildScopedSetState("buscadorCapitulo")
+    this.buscadorArticuloActions = new BuscadorArticuloActions(
+      this.buildScopedGetState("buscadorArticulo"),
+      this.buildScopedSetState("buscadorArticulo")
     );
 
-    this.modalGestionCapituloActions = new ModalGestionCapituloActions(
-      this.buildScopedGetState("modalGestionCapitulo"),
-      this.buildScopedSetState("modalGestionCapitulo")
+    this.modalGestionArticuloActions = new ModalGestionArticuloActions(
+      this.buildScopedGetState("modalGestionArticulo"),
+      this.buildScopedSetState("modalGestionArticulo")
     );
 
-    this.tituloDataActions = new TituloDataActions(
-      this.buildScopedGetState("tituloData"),
-      this.buildScopedSetState("tituloData")
+    this.capituloDataActions = new CapituloDataActions(
+      this.buildScopedGetState("capituloData"),
+      this.buildScopedSetState("capituloData")
     );
   }
 }
