@@ -5718,7 +5718,7 @@ const GridActionButtons = ({
 }) => {
   const classes = useStyles();
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    title: "Ver Art\xEDculos",
+    title: "Ver Faltas",
     "aria-label": "Add",
     placement: "top",
     __source: {
@@ -7487,6 +7487,1165 @@ class GestionCapituloContainer extends react__WEBPACK_IMPORTED_MODULE_1___defaul
 
 /***/ }),
 
+/***/ "./src/app/modules/datos-maestros/falta/_store/_initial-state.js":
+/*!***********************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/_store/_initial-state.js ***!
+  \***********************************************************************/
+/*! exports provided: articuloData, buildFalta, buildModalGestionFalta, modalGestionFalta, buildFormBuscarFalta, buscadorFalta, initialState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articuloData", function() { return articuloData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildFalta", function() { return buildFalta; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildModalGestionFalta", function() { return buildModalGestionFalta; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modalGestionFalta", function() { return modalGestionFalta; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildFormBuscarFalta", function() { return buildFormBuscarFalta; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buscadorFalta", function() { return buscadorFalta; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony import */ var app_core_enums_enums__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/core/enums/enums */ "./src/app/core/enums/enums.js");
+
+/**
+ * @type {{
+ * 	idArticulo: number,
+ * 	articulo: {
+ * 		idArticulo: number,
+ * 		numeroArticulo: string,
+ * 		descripcion: string,
+ *  		capitulo: {
+ *  		  idCapitulo: number,
+ *  		  numeroCapitulo: string,
+ *  		  descripcion: string
+ *  		  titulo: {
+ *  		    idTitulo: number,
+ *  		    numeroTitulo: string,
+ *  		    descripcion: string,
+ *  		    norma: {
+ *  		      idNorma: number,
+ *  		      numeroNorma: string,
+ *  		      descripcion: string
+ *  		    }
+ *  		  }
+ *  		}
+ * 	}
+ * }}
+ */
+
+const articuloData = {
+  idArticulo: null,
+  articulo: null
+}; //===============================
+// MODAL GESTION FALTA
+//===============================
+
+/**
+ * @typedef {{
+ *   idFalta: number;
+ *   numeroFalta: string;
+ *   descripcion: string;
+ * }} IFalta
+ */
+
+const buildFalta = () => ({
+  idArticulo: null,
+  idFalta: null,
+  numeroFalta: "",
+  descripcion: ""
+});
+const buildModalGestionFalta = () => ({
+  open: false,
+  loading: false,
+  title: "Registro de la Falta de la Norma Legal",
+  idFalta: null,
+  formType: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_0__["FORM_TYPE"].REGISTRAR,
+
+  /**
+   * @type IFalta
+   */
+  falta: buildFalta()
+});
+const modalGestionFalta = buildModalGestionFalta(); //===============================
+// FORMULARIO BUSCAR FALTA
+//===============================
+
+const buildFormBuscarFalta = () => ({
+  numeroFalta: "",
+  descripcion: ""
+});
+const buscadorFalta = {
+  loading: false,
+  pagination: {
+    page: 1,
+    pageSize: 10,
+    total: 0,
+    items: []
+  },
+  filters: buildFormBuscarFalta(),
+  gridDefinition: {
+    columns: [{
+      label: "Literal de la Falta",
+      property: "numeroFalta"
+    }, {
+      label: "Descripción de la falta",
+      property: "descripcion"
+    }, {
+      label: "Fecha de Registro",
+      property: "fechaRegistro",
+      isDate: true
+    }]
+  }
+}; //===============================
+// INITIAL STATE
+//===============================
+
+const initialState = {
+  buscadorFalta,
+  modalGestionFalta,
+  articuloData
+};
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/falta/_store/actions/articulo-data.action.js":
+/*!*************************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/_store/actions/articulo-data.action.js ***!
+  \*************************************************************************************/
+/*! exports provided: ArticuloDataActions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArticuloDataActions", function() { return ArticuloDataActions; });
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * Acciones que gestionarán el contexto del buscador dentro del estado
+ */
+
+class ArticuloDataActions {
+  /**
+   * @param {() => import('../_initial-state').articuloData} getState
+   * @param {(state:import('../_initial-state').articuloData ) => void} setState
+   */
+  constructor(getState, setState) {
+    this.setIdArticulo = idArticulo => {
+      this.setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        idArticulo
+      }));
+    };
+
+    this.setArticulo = articulo => {
+      this.setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        articulo
+      }));
+    };
+
+    this.getState = getState;
+    this.setState = setState;
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/falta/_store/actions/buscador-falta.action.js":
+/*!**************************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/_store/actions/buscador-falta.action.js ***!
+  \**************************************************************************************/
+/*! exports provided: BuscadorFaltaActions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BuscadorFaltaActions", function() { return BuscadorFaltaActions; });
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _api_falta_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/falta.api */ "./src/app/modules/datos-maestros/falta/api/falta.api.js");
+
+
+
+/**
+ * Acciones que gestionarán el contexto del buscador dentro del estado
+ */
+
+class BuscadorFaltaActions {
+  /**
+   * @param {() => import('../_initial-state').buscadorFalta} getState
+   * @param {(state:import('../_initial-state').buscadorFalta ) => void} setState
+   */
+  constructor(getState, setState) {
+    this.addColumns = newColumns => {
+      return new Promise(resolve => {
+        this.setState(immutability_helper__WEBPACK_IMPORTED_MODULE_1___default()(this.getState(), {
+          gridDefinition: {
+            columns: {
+              $push: newColumns
+            }
+          }
+        }), () => resolve());
+      });
+    };
+
+    this.fetchFaltasBegin = () => {
+      this.setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        loading: true
+      }));
+    };
+
+    this.fetchFaltasSuccess = (items, total, page, pageSize) => {
+      const newState = immutability_helper__WEBPACK_IMPORTED_MODULE_1___default()(this.getState(), {
+        loading: {
+          $set: false
+        },
+        pagination: {
+          $set: {
+            items: items,
+            page: page,
+            pageSize: pageSize,
+            total: total
+          }
+        }
+      });
+      this.setState(newState);
+    };
+
+    this.asyncFetchFaltas = (idArticulo, page = null, pageSize = null, filters = null) => {
+      const state = this.getState();
+      if (!page) page = state.pagination.page;
+      if (!pageSize) pageSize = state.pagination.pageSize;
+      if (!filters) filters = state.filters;
+      this.fetchFaltasBegin();
+      Object(_api_falta_api__WEBPACK_IMPORTED_MODULE_2__["GetPageFalta"])(idArticulo, page, pageSize, filters).then(response => {
+        const _response$data = response.data,
+              items = _response$data.items,
+              total = _response$data.total;
+        this.fetchFaltasSuccess(items, total, page, pageSize);
+      });
+    };
+
+    this.getState = getState;
+    this.setState = setState;
+  } // asyncDeleteInvestigacion = id => {
+  // 	this.deleteInvestigacionBegin();
+  // 	return DeleteInvestigacion(id).then(response => {
+  // 		this.deleteInvestigacionSuccess();
+  // 		return response;
+  // 	});
+  // };
+
+
+}
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/falta/_store/actions/modal-gestion-falta.action.js":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/_store/actions/modal-gestion-falta.action.js ***!
+  \*******************************************************************************************/
+/*! exports provided: ModalGestionFaltaActions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalGestionFaltaActions", function() { return ModalGestionFaltaActions; });
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
+/* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _initial_state__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_initial-state */ "./src/app/modules/datos-maestros/falta/_store/_initial-state.js");
+/* harmony import */ var app_core_enums_enums__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/core/enums/enums */ "./src/app/core/enums/enums.js");
+
+
+
+
+/**
+ * Acciones que gestionarán el contexto del buscador dentro del estado
+ */
+
+class ModalGestionFaltaActions {
+  /**
+   * @param {() => import('../_initial-state').modalGestionFalta} getState
+   * @param {(state:import('../_initial-state').modalGestionFalta ) => void} setState
+   */
+  constructor(getState, setState) {
+    this.openModalNew = () => {
+      this.setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        open: true
+      }));
+    };
+
+    this.openModalShow = idFalta => {
+      this.setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        open: true,
+        idFalta,
+        formType: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_3__["FORM_TYPE"].CONSULTAR,
+        title: "Ver Falta"
+      }));
+    };
+
+    this.openModalEdit = idFalta => {
+      this.setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        open: true,
+        idFalta,
+        formType: app_core_enums_enums__WEBPACK_IMPORTED_MODULE_3__["FORM_TYPE"].EDITAR,
+        title: "Editar Falta"
+      }));
+    };
+
+    this.closeModal = () => {
+      this.setState(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.getState(), {
+        open: false
+      }));
+    };
+
+    this.resetModal = () => {
+      this.setState(Object(_initial_state__WEBPACK_IMPORTED_MODULE_2__["buildModalGestionFalta"])());
+    };
+
+    this.getState = getState;
+    this.setState = setState;
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/falta/_store/gestion-falta.store.js":
+/*!****************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/_store/gestion-falta.store.js ***!
+  \****************************************************************************/
+/*! exports provided: GestionFaltaStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GestionFaltaStore", function() { return GestionFaltaStore; });
+/* harmony import */ var app_core_store_base_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/core/store/base-store */ "./src/app/core/store/base-store.js");
+/* harmony import */ var _actions_buscador_falta_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions/buscador-falta.action */ "./src/app/modules/datos-maestros/falta/_store/actions/buscador-falta.action.js");
+/* harmony import */ var _actions_articulo_data_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions/articulo-data.action */ "./src/app/modules/datos-maestros/falta/_store/actions/articulo-data.action.js");
+/* harmony import */ var _actions_modal_gestion_falta_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions/modal-gestion-falta.action */ "./src/app/modules/datos-maestros/falta/_store/actions/modal-gestion-falta.action.js");
+
+
+
+
+class GestionFaltaStore extends app_core_store_base_store__WEBPACK_IMPORTED_MODULE_0__["BaseStore"] {
+  /**
+   * @param {() => import('./_initial-state').initialState} getState
+   * @param {(state:import('./_initial-state').initialState, callback?: () => void ) => void} setState
+   */
+  constructor(getState, setState) {
+    super(getState, setState);
+    this.buscadorFaltaActions = new _actions_buscador_falta_action__WEBPACK_IMPORTED_MODULE_1__["BuscadorFaltaActions"](this.buildScopedGetState("buscadorFalta"), this.buildScopedSetState("buscadorFalta"));
+    this.modalGestionFaltaActions = new _actions_modal_gestion_falta_action__WEBPACK_IMPORTED_MODULE_3__["ModalGestionFaltaActions"](this.buildScopedGetState("modalGestionFalta"), this.buildScopedSetState("modalGestionFalta"));
+    this.articuloDataActions = new _actions_articulo_data_action__WEBPACK_IMPORTED_MODULE_2__["ArticuloDataActions"](this.buildScopedGetState("articuloData"), this.buildScopedSetState("articuloData"));
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/falta/api/falta.api.js":
+/*!***************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/api/falta.api.js ***!
+  \***************************************************************/
+/*! exports provided: GetPageFalta */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetPageFalta", function() { return GetPageFalta; });
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const fechaRegistro = moment__WEBPACK_IMPORTED_MODULE_1___default()();
+const GetPageFalta = (idArticulo, page, pageSize, filter = null) => {
+  console.log("idArticulo", idArticulo, "filtros Articulo", filter);
+
+  const filters = Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, filter);
+
+  const source = [{
+    idFalta: 1,
+    numeroFalta: "ads",
+    descripcion: "asdds",
+    fechaRegistro: fechaRegistro
+  }, {
+    idFalta: 2,
+    numeroFalta: "afafas",
+    descripcion: "sfsdf",
+    fechaRegistro: fechaRegistro
+  }, {
+    idFalta: 3,
+    numeroFalta: "sfs",
+    descripcion: "wrwefw",
+    fechaRegistro: fechaRegistro
+  }, {
+    idFalta: 4,
+    numeroFalta: "wef",
+    descripcion: "dfgdgdfgd",
+    fechaRegistro: fechaRegistro
+  }];
+  const items = source.slice((page - 1) * pageSize).slice(0, pageSize);
+  const total = source.length;
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({
+        data: {
+          items,
+          total
+        }
+      });
+    }, 500);
+  });
+};
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/falta/components/buttons/grid-action-buttons.js":
+/*!****************************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/components/buttons/grid-action-buttons.js ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/IconButton */ "./node_modules/@material-ui/core/esm/IconButton/index.js");
+/* harmony import */ var _material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Icon */ "./node_modules/@material-ui/core/esm/Icon/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Tooltip */ "./node_modules/@material-ui/core/esm/Tooltip/index.js");
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\falta\\components\\buttons\\grid-action-buttons.js";
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(theme => ({
+  margin: {
+    margin: theme.spacing(0),
+    padding: 2
+  }
+}));
+
+const GridActionButtons = ({
+  item,
+  disabled,
+  onClickShow,
+  onClickEdit,
+  onClickDelete
+}) => {
+  const classes = useStyles();
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    title: "Ver",
+    "aria-label": "Add",
+    placement: "top",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    "aria-label": "Show",
+    disabled: disabled,
+    className: classes.margin,
+    onClick: () => onClickShow(item.idFalta),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fontSize: "small",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: undefined
+  }, "remove_red_eye"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    title: "Editar",
+    "aria-label": "Add",
+    placement: "top",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    "aria-label": "Edit",
+    disabled: disabled,
+    className: classes.margin,
+    onClick: () => onClickEdit(item.idFalta),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fontSize: "small",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42
+    },
+    __self: undefined
+  }, "edit"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    title: "Eliminar",
+    "aria-label": "Add",
+    placement: "top",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    "aria-label": "Delete",
+    disabled: disabled,
+    className: classes.margin,
+    onClick: () => onClickDelete(item.idFalta),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fontSize: "small",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, "delete"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (GridActionButtons);
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/falta/components/forms/form-buscar-falta.js":
+/*!************************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/components/forms/form-buscar-falta.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
+/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var app_core_components_form_search_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/core/components/form-search-container */ "./src/app/core/components/form-search-container/index.js");
+/* harmony import */ var app_core_components_grid_toolbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/core/components/grid-toolbar */ "./src/app/core/components/grid-toolbar/index.js");
+/* harmony import */ var _store_initial_state__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../_store/_initial-state */ "./src/app/modules/datos-maestros/falta/_store/_initial-state.js");
+
+
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\falta\\components\\forms\\form-buscar-falta.js";
+
+
+
+
+
+
+
+
+
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["makeStyles"])(theme => ({
+  root: {
+    marginBottom: theme.spacing(2)
+  }
+}));
+/**
+ *
+ * @param {{
+ *  store: import('../../_store/gestion-falta.store').GestionFaltaStore
+ *  idArticulo: number
+ * }} param0
+ */
+
+const FormBuscarFalta = ({
+  store,
+  pageSize,
+  idArticulo
+}) => {
+  const _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(Object(_store_initial_state__WEBPACK_IMPORTED_MODULE_10__["buildFormBuscarFalta"])()),
+        _useState2 = Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
+        form = _useState2[0],
+        setForm = _useState2[1];
+
+  const classes = useStyles();
+
+  const handleSearch = () => {
+    store.buscadorFaltaActions.asyncFetchFaltas(idArticulo, 1, pageSize, form);
+  };
+
+  const handleClear = () => {
+    const newForm = Object(_store_initial_state__WEBPACK_IMPORTED_MODULE_10__["buildFormBuscarFalta"])();
+    setForm(newForm);
+    store.buscadorFaltaActions.asyncFetchFaltas(idArticulo, 1, pageSize, newForm);
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_form_search_container__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onSearch: handleSearch,
+    onClear: handleClear,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    item: true,
+    xs: 12,
+    sm: 4,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: "Literal de la Falta",
+    value: form.numeroFalta,
+    fullWidth: true,
+    onChange: e => setForm(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, form, {
+      numeroFalta: e.target.value
+    })),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    item: true,
+    xs: 12,
+    sm: 8,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: "Descripci\xF3n de la Falta",
+    value: form.descripcion,
+    fullWidth: true,
+    onChange: e => setForm(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, form, {
+      descripcion: e.target.value
+    })),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: undefined
+  }))))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_grid_toolbar__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    onClickNew: store.modalGestionFaltaActions.openModalNew,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76
+    },
+    __self: undefined
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FormBuscarFalta);
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/falta/components/forms/form-gestion-falta.js":
+/*!*************************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/components/forms/form-gestion-falta.js ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/core/components/modal-form-container */ "./src/app/core/components/modal-form-container/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var app_core_enums_enums__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/core/enums/enums */ "./src/app/core/enums/enums.js");
+/* harmony import */ var app_core_components_confirm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/core/components/confirm */ "./src/app/core/components/confirm/index.js");
+/* harmony import */ var _store_initial_state__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../_store/_initial-state */ "./src/app/modules/datos-maestros/falta/_store/_initial-state.js");
+/* harmony import */ var app_core_components_divider_title__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/core/components/divider-title */ "./src/app/core/components/divider-title/index.js");
+
+
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\falta\\components\\forms\\form-gestion-falta.js";
+
+
+
+
+
+
+
+
+
+const handleClose = (formType, close) => () => {
+  if (formType == app_core_enums_enums__WEBPACK_IMPORTED_MODULE_6__["FORM_TYPE"].CONSULTAR) {
+    close();
+  } else {
+    Object(app_core_components_confirm__WEBPACK_IMPORTED_MODULE_7__["default"])("Va a cerrar el Formulario. ¿Continuar?").then(confirm => {
+      if (confirm) close();
+    });
+  }
+};
+/**
+ *
+ * @param {{
+ *  modal: import('../../_store/_initial-state').modalGestionFalta,
+ *  store: import('../../_store/gestion-falta.store').GestionFaltaStore,
+ *  articuloData: import('../../_store/_initial-state').articuloData
+ * }} param0
+ */
+
+
+const FormGestionFalta = ({
+  modal,
+  store,
+  articuloData
+}) => {
+  const _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(Object(_store_initial_state__WEBPACK_IMPORTED_MODULE_8__["buildFalta"])()),
+        _useState2 = Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
+        form = _useState2[0],
+        setForm = _useState2[1];
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_modal_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    open: modal.open,
+    onClose: handleClose(modal.formType, store.modalGestionFaltaActions.closeModal),
+    title: modal.title,
+    onExited: () => {
+      store.modalGestionFaltaActions.resetModal();
+    },
+    onSubmit: () => {
+      console.log(form);
+    },
+    loading: modal.loading,
+    showSubmitButton: modal.formType != app_core_enums_enums__WEBPACK_IMPORTED_MODULE_6__["FORM_TYPE"].CONSULTAR,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: undefined
+  }, articuloData.articulo && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_divider_title__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    title: "Datos de la Norma Legal",
+    marginTop: false,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: undefined
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    container: true,
+    spacing: 1,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: "N\xFAmero de la Norma",
+    value: articuloData.articulo.capitulo.titulo.norma.numeroNorma,
+    fullWidth: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: "Descripci\xF3n de la Norma Legal",
+    value: articuloData.articulo.capitulo.titulo.norma.descripcion,
+    fullWidth: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: undefined
+  }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_divider_title__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    title: "Datos del T\xEDtulo de la Norma Legal",
+    marginTop: false,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69
+    },
+    __self: undefined
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    container: true,
+    spacing: 1,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: "N\xFAmero del T\xEDtulo",
+    value: articuloData.articulo.capitulo.titulo.numeroTitulo,
+    fullWidth: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75
+    },
+    __self: undefined
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: "Descripci\xF3n del T\xEDtulo",
+    value: articuloData.articulo.capitulo.titulo.descripcion,
+    fullWidth: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83
+    },
+    __self: undefined
+  }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_divider_title__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    title: "Datos del Cap\xEDtulo de la Norma Legal",
+    marginTop: false,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91
+    },
+    __self: undefined
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    container: true,
+    spacing: 1,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: "N\xFAmero del Cap\xEDtulo",
+    value: articuloData.articulo.capitulo.numeroCapitulo,
+    fullWidth: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97
+    },
+    __self: undefined
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: "Descripci\xF3n del Cap\xEDtulo",
+    value: articuloData.articulo.capitulo.descripcion,
+    fullWidth: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105
+    },
+    __self: undefined
+  }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_divider_title__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    title: "Datos del Art\xEDculo de la Norma Legal",
+    marginTop: false,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113
+    },
+    __self: undefined
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    container: true,
+    spacing: 1,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: "N\xFAmero / Literal del Art\xEDculo",
+    value: articuloData.articulo.numeroArticulo,
+    fullWidth: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119
+    },
+    __self: undefined
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    label: "Descripci\xF3n del Art\xEDculo",
+    value: articuloData.articulo.descripcion,
+    fullWidth: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127
+    },
+    __self: undefined
+  })))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(app_core_components_divider_title__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    title: "Datos de la Falta de la Norma Legal",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137
+    },
+    __self: undefined
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    container: true,
+    spacing: 1,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 139
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 140
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    value: form.numeroFalta,
+    fullWidth: true,
+    label: "Literal de la Falta",
+    disabled: modal.loading || modal.formType == app_core_enums_enums__WEBPACK_IMPORTED_MODULE_6__["FORM_TYPE"].CONSULTAR,
+    onChange: e => setForm(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, form, {
+      numeroFalta: e.target.value
+    })),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 141
+    },
+    __self: undefined
+  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    item: true,
+    xs: 12,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 150
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    value: form.descripcion,
+    fullWidth: true,
+    label: "Descripci\xF3n de la Falta",
+    disabled: modal.loading || modal.formType == app_core_enums_enums__WEBPACK_IMPORTED_MODULE_6__["FORM_TYPE"].CONSULTAR,
+    onChange: e => setForm(Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, form, {
+      descripcion: e.target.value
+    })),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 151
+    },
+    __self: undefined
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FormGestionFalta);
+
+/***/ }),
+
+/***/ "./src/app/modules/datos-maestros/falta/gestion-falta.container.js":
+/*!*************************************************************************!*\
+  !*** ./src/app/modules/datos-maestros/falta/gestion-falta.container.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread */ "./node_modules/@babel/runtime/helpers/esm/objectSpread.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
+/* harmony import */ var app_core_components_datatable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/core/components/datatable */ "./src/app/core/components/datatable/index.js");
+/* harmony import */ var _store_initial_state__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_store/_initial-state */ "./src/app/modules/datos-maestros/falta/_store/_initial-state.js");
+/* harmony import */ var app_core_store_base_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/core/store/base-store */ "./src/app/core/store/base-store.js");
+/* harmony import */ var app_core_components_confirm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/core/components/confirm */ "./src/app/core/components/confirm/index.js");
+/* harmony import */ var _store_gestion_falta_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_store/gestion-falta.store */ "./src/app/modules/datos-maestros/falta/_store/gestion-falta.store.js");
+/* harmony import */ var _components_buttons_grid_action_buttons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/buttons/grid-action-buttons */ "./src/app/modules/datos-maestros/falta/components/buttons/grid-action-buttons.js");
+/* harmony import */ var app_core_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/core/helpers */ "./src/app/core/helpers/index.js");
+/* harmony import */ var _components_forms_form_buscar_falta__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/forms/form-buscar-falta */ "./src/app/modules/datos-maestros/falta/components/forms/form-buscar-falta.js");
+/* harmony import */ var _components_forms_form_gestion_falta__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/forms/form-gestion-falta */ "./src/app/modules/datos-maestros/falta/components/forms/form-gestion-falta.js");
+
+var _jsxFileName = "D:\\_proyectos\\React\\arquetipo-cuna-mas\\ArquetipoCunaMas.Web\\ClientApp\\src\\app\\modules\\datos-maestros\\falta\\gestion-falta.container.js";
+
+
+
+
+
+
+
+
+
+
+
+
+class GestionFaltaContainer extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
+  constructor(...args) {
+    super(...args);
+    this.state = Object(D_proyectos_React_arquetipo_cuna_mas_ArquetipoCunaMas_Web_ClientApp_node_modules_babel_runtime_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _store_initial_state__WEBPACK_IMPORTED_MODULE_4__["initialState"]);
+    this.store = Object(app_core_store_base_store__WEBPACK_IMPORTED_MODULE_5__["buildStore"])(() => this.state, this.setState.bind(this), _store_gestion_falta_store__WEBPACK_IMPORTED_MODULE_7__["GestionFaltaStore"]);
+
+    this.addColumns = () => {
+      const newColumns = [{
+        label: "Acciones",
+        render: (item, loading) => react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_buttons_grid_action_buttons__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          item: item,
+          disabled: loading,
+          onClickShow: this.store.modalGestionFaltaActions.openModalShow,
+          onClickEdit: this.store.modalGestionFaltaActions.openModalEdit,
+          onClickDelete: this.handleDelete,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 42
+          },
+          __self: this
+        })
+      }];
+      return this.store.buscadorFaltaActions.addColumns(newColumns);
+    };
+
+    this.handleDelete = () => {
+      Object(app_core_components_confirm__WEBPACK_IMPORTED_MODULE_6__["default"])("Va a eliminar la Falta, ¿Continuar?").then(confirm => {
+        if (confirm) console.log("delete");
+      });
+    };
+  }
+
+  componentDidMount() {
+    const idArticulo = Object(app_core_helpers__WEBPACK_IMPORTED_MODULE_9__["getValueFromQs"])(this.props.location.search, "idArticulo");
+
+    if (!idArticulo) {
+      console.log("no hay idArticulo");
+    }
+
+    this.store.articuloDataActions.setIdArticulo(idArticulo);
+    this.addColumns().then(() => {
+      this.store.buscadorFaltaActions.asyncFetchFaltas(idArticulo);
+    });
+  }
+
+  render() {
+    const _this$state = this.state,
+          modalGestionFalta = _this$state.modalGestionFalta,
+          articuloData = _this$state.articuloData;
+    const _this$state$buscadorF = this.state.buscadorFalta,
+          loading = _this$state$buscadorF.loading,
+          pagination = _this$state$buscadorF.pagination,
+          gridDefinition = _this$state$buscadorF.gridDefinition;
+    return articuloData.idArticulo && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_forms_form_buscar_falta__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      store: this.store,
+      pagination: pagination,
+      idArticulo: articuloData.idArticulo,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 67
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      elevation: 8,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 72
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(app_core_components_datatable__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      loading: loading,
+      tableDef: gridDefinition,
+      pagination: pagination,
+      onLoadData: () => {},
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 73
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_forms_form_gestion_falta__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      modal: modalGestionFalta,
+      store: this.store,
+      articuloData: articuloData,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 80
+      },
+      __self: this
+    }));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (GestionFaltaContainer);
+
+/***/ }),
+
 /***/ "./src/app/modules/datos-maestros/norma/_store/_initial-state.js":
 /*!***********************************************************************!*\
   !*** ./src/app/modules/datos-maestros/norma/_store/_initial-state.js ***!
@@ -8383,6 +9542,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _capitulo_gestion_capitulo_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./capitulo/gestion-capitulo.container */ "./src/app/modules/datos-maestros/capitulo/gestion-capitulo.container.js");
 /* harmony import */ var _norma_gestion_norma_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./norma/gestion-norma.container */ "./src/app/modules/datos-maestros/norma/gestion-norma.container.js");
 /* harmony import */ var _titulo_gestion_titulo_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./titulo/gestion-titulo.container */ "./src/app/modules/datos-maestros/titulo/gestion-titulo.container.js");
+/* harmony import */ var _falta_gestion_falta_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./falta/gestion-falta.container */ "./src/app/modules/datos-maestros/falta/gestion-falta.container.js");
+
 
 
 
@@ -8404,6 +9565,9 @@ const datosMaestroRoutes = [{
 }, {
   path: "".concat(parentRoute, "/articulos"),
   component: _articulo_gestion_articulo_container__WEBPACK_IMPORTED_MODULE_1__["default"]
+}, {
+  path: "".concat(parentRoute, "/faltas"),
+  component: _falta_gestion_falta_container__WEBPACK_IMPORTED_MODULE_5__["default"]
 }];
 
 /***/ }),
@@ -12871,5 +14035,5 @@ module.exports = __webpack_require__(/*! D:\_proyectos\React\arquetipo-cuna-mas\
 
 /***/ })
 
-},[[0,"runtime~main",1]]]);
+},[[0,"runtime~main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
