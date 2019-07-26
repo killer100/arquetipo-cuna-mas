@@ -1,15 +1,15 @@
 import update from "immutability-helper";
 import {
-	GetPageArticulo
-} from "../../api/articulo.api";
+	GetPageFalta
+} from "../../api/falta.api";
 
 /**
  * Acciones que gestionarán el contexto del buscador dentro del estado
  */
-export class BuscadorArticuloActions {
+export class BuscadorFaltaActions {
 	/**
-	 * @param {() => import('../_initial-state').buscadorArticulo} getState
-	 * @param {(state:import('../_initial-state').buscadorArticulo ) => void} setState
+	 * @param {() => import('../_initial-state').buscadorFalta} getState
+	 * @param {(state:import('../_initial-state').buscadorFalta ) => void} setState
 	 */
 	constructor(getState, setState) {
 		this.getState = getState;
@@ -35,14 +35,14 @@ export class BuscadorArticuloActions {
 	// Acciones asincronas
 	//= ============================================
 
-	fetchArticulosBegin = () => {
+	fetchFaltasBegin = () => {
 		this.setState({
 			...this.getState(),
 			loading: true
 		});
 	};
 
-	fetchArticulosSuccess = (items, total, page, pageSize) => {
+	fetchFaltasSuccess = (items, total, page, pageSize) => {
 		const newState = update(this.getState(), {
 			loading: {
 				$set: false
@@ -60,8 +60,8 @@ export class BuscadorArticuloActions {
 		this.setState(newState);
 	};
 
-	asyncFetchArticulos = (
-		idCapitulo,
+	asyncFetchFaltas = (
+		idArticulo,
 		page = null,
 		pageSize = null,
 		filters = null
@@ -71,14 +71,14 @@ export class BuscadorArticuloActions {
 		if (!pageSize) pageSize = state.pagination.pageSize;
 		if (!filters) filters = state.filters;
 
-		this.fetchArticulosBegin();
+		this.fetchFaltasBegin();
 
-		GetPageArticulo(idCapitulo, page, pageSize, filters).then(response => {
+		GetPageFalta(idArticulo, page, pageSize, filters).then(response => {
 			const {
 				items,
 				total
 			} = response.data;
-			this.fetchArticulosSuccess(items, total, page, pageSize);
+			this.fetchFaltasSuccess(items, total, page, pageSize);
 		});
 	};
 

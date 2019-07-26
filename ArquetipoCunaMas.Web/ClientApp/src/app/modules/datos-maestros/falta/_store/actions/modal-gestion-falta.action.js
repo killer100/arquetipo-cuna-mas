@@ -1,6 +1,6 @@
 import update from "immutability-helper";
 import {
-	buildModalGestionArticulo
+	buildModalGestionFalta
 } from "../_initial-state";
 import {
 	FORM_TYPE
@@ -9,10 +9,10 @@ import {
 /**
  * Acciones que gestionarán el contexto del buscador dentro del estado
  */
-export class ModalGestionArticuloActions {
+export class ModalGestionFaltaActions {
 	/**
-	 * @param {() => import('../_initial-state').modalGestionArticulo} getState
-	 * @param {(state:import('../_initial-state').modalGestionArticulo ) => void} setState
+	 * @param {() => import('../_initial-state').modalGestionFalta} getState
+	 * @param {(state:import('../_initial-state').modalGestionFalta ) => void} setState
 	 */
 	constructor(getState, setState) {
 		this.getState = getState;
@@ -26,23 +26,23 @@ export class ModalGestionArticuloActions {
 		});
 	};
 
-	openModalShow = idArticulo => {
+	openModalShow = idFalta => {
 		this.setState({
 			...this.getState(),
 			open: true,
-			idArticulo,
+			idFalta,
 			formType: FORM_TYPE.CONSULTAR,
-			title: "Ver Artículo"
+			title: "Ver Falta"
 		});
 	};
 
-	openModalEdit = idArticulo => {
+	openModalEdit = idFalta => {
 		this.setState({
 			...this.getState(),
 			open: true,
-			idArticulo,
+			idFalta,
 			formType: FORM_TYPE.EDITAR,
-			title: "Editar Artículo"
+			title: "Editar Falta"
 		});
 	};
 
@@ -54,6 +54,6 @@ export class ModalGestionArticuloActions {
 	};
 
 	resetModal = () => {
-		this.setState(buildModalGestionArticulo());
+		this.setState(buildModalGestionFalta());
 	};
 }

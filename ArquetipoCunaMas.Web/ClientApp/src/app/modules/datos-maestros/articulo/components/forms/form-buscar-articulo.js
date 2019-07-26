@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import FormSearchContainer from "app/core/components/form-search-container";
 import GridToolbar from "app/core/components/grid-toolbar";
-import { buildFormBuscarCapitulo } from "../../_store/_initial-state";
+import { buildFormBuscarArticulo } from "../../_store/_initial-state";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,17 +16,17 @@ const useStyles = makeStyles(theme => ({
 /**
  *
  * @param {{
- *  store: import('../../_store/gestion-articulo.store').GestionCapituloStore
- *  idTitulo: number
+ *  store: import('../../_store/gestion-articulo.store').GestionArticuloStore
+ *  idCapitulo: number
  * }} param0
  */
-const FormBuscarCapitulo = ({ store, pageSize, idTitulo }) => {
-  const [form, setForm] = useState(buildFormBuscarCapitulo());
+const FormBuscarArticulo = ({ store, pageSize, idCapitulo }) => {
+  const [form, setForm] = useState(buildFormBuscarArticulo());
   const classes = useStyles();
 
   const handleSearch = () => {
-    store.buscadorCapituloActions.asyncFetchCapitulos(
-      idTitulo,
+    store.buscadorArticuloActions.asyncFetchArticulos(
+      idCapitulo,
       1,
       pageSize,
       form
@@ -34,10 +34,10 @@ const FormBuscarCapitulo = ({ store, pageSize, idTitulo }) => {
   };
 
   const handleClear = () => {
-    const newForm = buildFormBuscarCapitulo();
+    const newForm = buildFormBuscarArticulo();
     setForm(newForm);
-    store.buscadorCapituloActions.asyncFetchCapitulos(
-      idTitulo,
+    store.buscadorArticuloActions.asyncFetchArticulos(
+      idCapitulo,
       1,
       pageSize,
       newForm
@@ -51,18 +51,18 @@ const FormBuscarCapitulo = ({ store, pageSize, idTitulo }) => {
           <FormSearchContainer onSearch={handleSearch} onClear={handleClear}>
             <Grid item xs={12} sm={4}>
               <TextField
-                label="Número del Capítulo"
-                value={form.numeroCapitulo}
+                label="Número del Artículo"
+                value={form.numeroArticulo}
                 fullWidth
                 onChange={e =>
-                  setForm({ ...form, numeroCapitulo: e.target.value })
+                  setForm({ ...form, numeroArticulo: e.target.value })
                 }
               />
             </Grid>
 
             <Grid item xs={12} sm={8}>
               <TextField
-                label="Descripción del Capítulo"
+                label="Descripción del Artículo"
                 value={form.descripcion}
                 fullWidth
                 onChange={e =>
@@ -74,10 +74,10 @@ const FormBuscarCapitulo = ({ store, pageSize, idTitulo }) => {
         </CardContent>
       </Card>
       <GridToolbar
-        onClickNew={store.modalGestionCapituloActions.openModalNew}
+        onClickNew={store.modalGestionArticuloActions.openModalNew}
       />
     </>
   );
 };
 
-export default FormBuscarCapitulo;
+export default FormBuscarArticulo;

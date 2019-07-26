@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
 const GridActionButtons = ({
   item,
   disabled,
-  onClickFaltas,
   onClickShow,
   onClickEdit,
   onClickDelete
@@ -22,23 +21,13 @@ const GridActionButtons = ({
   const classes = useStyles();
 
   return (
-    <>
-      <Tooltip title="Ver Faltas" aria-label="Add" placement="top">
-        <IconButton
-          aria-label="Show"
-          disabled={disabled}
-          className={classes.margin}
-          onClick={() => onClickFaltas(item.idArticulo)}
-        >
-          <Icon fontSize="small">list</Icon>
-        </IconButton>
-      </Tooltip>
+    <>  
       <Tooltip title="Ver" aria-label="Add" placement="top">
         <IconButton
           aria-label="Show"
           disabled={disabled}
           className={classes.margin}
-          onClick={() => onClickShow(item.idArticulo)}
+          onClick={() => onClickShow(item.idFalta)}
         >
           <Icon fontSize="small">remove_red_eye</Icon>
         </IconButton>
@@ -48,7 +37,7 @@ const GridActionButtons = ({
           aria-label="Edit"
           disabled={disabled}
           className={classes.margin}
-          onClick={() => onClickEdit(item.idArticulo)}
+          onClick={() => onClickEdit(item.idFalta)}
         >
           <Icon fontSize="small">edit</Icon>
         </IconButton>
@@ -58,7 +47,7 @@ const GridActionButtons = ({
           aria-label="Delete"
           disabled={disabled}
           className={classes.margin}
-          onClick={() => onClickDelete(item.idArticulo)}
+          onClick={() => onClickDelete(item.idFalta)}
         >
           <Icon fontSize="small">delete</Icon>
         </IconButton>
