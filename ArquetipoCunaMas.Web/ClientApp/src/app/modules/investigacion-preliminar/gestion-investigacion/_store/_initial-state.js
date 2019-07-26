@@ -22,7 +22,8 @@ import {
  *    externoDenuncianteDependencia: string,
  *    expedientes: any[],
  *    investigados: any[],
- *    archivos: any[]
+ *    archivos: any[],
+ *    requerimientos: any[]
  * }} IFormGestionInvestigacion
  * 
  * @typedef {{
@@ -135,7 +136,8 @@ export const buildExpedienteInvestigacion = () => ({
 	externoDenuncianteDependencia: "",
 	expedientes: [],
 	investigados: [],
-	archivos: []
+	archivos: [],
+	requerimientos: []
 });
 
 export const buildModalGestionInvestigacion = () => ({
@@ -201,10 +203,16 @@ export const modalFormArchivo = {
 	}
 };
 
+export const modalFormRequerimiento = {
+	isLoading: false,
+	open: false
+};
+
 export const initialState = {
 	buscadorInvestigacion,
 	modalGestionInvestigacion,
 	modalFormAnexoExpediente,
 	modalFormInvestigado,
-	modalFormArchivo
+	modalFormArchivo,
+	modalFormRequerimiento
 };

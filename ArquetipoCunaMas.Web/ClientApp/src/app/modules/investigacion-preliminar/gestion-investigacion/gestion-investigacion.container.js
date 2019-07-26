@@ -64,7 +64,8 @@ class GestionInvestigacionContainer extends React.Component {
       modalGestionInvestigacion,
       modalFormAnexoExpediente,
       modalFormInvestigado,
-      modalFormArchivo
+      modalFormArchivo,
+      modalFormRequerimiento
     } = this.state;
     return (
       <>
@@ -87,6 +88,7 @@ class GestionInvestigacionContainer extends React.Component {
           modalFormAnexoExpediente={modalFormAnexoExpediente}
           modalFormInvestigado={modalFormInvestigado}
           modalFormArchivo={modalFormArchivo}
+          modalFormRequerimiento={modalFormRequerimiento}
           modal={modalGestionInvestigacion}
           store={this.store}
         />

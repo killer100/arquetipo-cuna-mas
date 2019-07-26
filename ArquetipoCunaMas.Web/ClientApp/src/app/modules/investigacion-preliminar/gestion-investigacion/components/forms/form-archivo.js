@@ -22,10 +22,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const mapUploadedFiles = (files, descripcion) => {
+const mapUploadedFiles = (files, idTipoArchivo, tipoArchivo, descripcion) => {
   return files.map(file => ({
     ...file,
-    tipoArchivo: descripcion,
+    idTipoArchivo: idTipoArchivo,
+    tipoArchivo: tipoArchivo,
     nombreArchivo: file.name,
     descripcionArchivo: descripcion
   }));
@@ -67,7 +68,12 @@ const FormArchivo = ({ modal, store, onUploadFinish }) => {
               toast("Archivos subidos correctamente!", "success");
               store.modalFormArchivoActions.setLoading(false);
               onUploadFinish(
-                mapUploadedFiles(resp.data.files, modal.tipoArchivo.descripcion)
+                mapUploadedFiles(
+                  resp.data.files,
+                  modal.tipoArchivo.id,
+                  modal.tipoArchivo.descripcion,
+                  descripcion
+                )
               );
               store.modalFormArchivoActions.closeModal();
             })

@@ -12,6 +12,20 @@ import update from "immutability-helper";
 import FormArchivo from "./form-archivo";
 import FormAnexoExpediente from "./form-anexo-expediente";
 import FormInvestigado from "./form-investigado";
+import GridRequerimiento from "../grids/grid-requerimiento";
+import { FORM_TYPE } from "app/core/enums/enums";
+import confirm from "app/core/components/confirm";
+import FormRequerimiento from "./form-requerimiento";
+
+const handleClose = (formType, close) => () => {
+  if (formType == FORM_TYPE.CONSULTAR) {
+    close();
+  } else {
+    confirm("Va a cerrar el Formulario. ¿Continuar?").then(confirm => {
+      if (confirm) close();
+    });
+  }
+};
 
 const useStyles = makeStyles(theme => ({
   tabContainer: {
@@ -46,6 +60,12 @@ const FormGestionInvestigacionReducer = (form, action) => {
           $push: [action.payload.expediente]
         }
       });
+    case "PUSH-REQUERIMIENTO":
+      return update(form, {
+        requerimientos: {
+          $push: [action.payload.requerimiento]
+        }
+      });
   }
 };
 
@@ -56,7 +76,8 @@ const FormGestionInvestigacionReducer = (form, action) => {
  *  store: import('../../_store/gestion-investigacion.store').GestionInvestigacionStore,
  *  modalFormArchivo: import('../../_store/_initial-state').modalFormArchivo,
  *  modalFormAnexoExpediente: import('../../_store/_initial-state').modalFormAnexoExpediente,
- *  modalFormInvestigado: import('../../_store/_initial-state').modalFormInvestigado
+ *  modalFormInvestigado: import('../../_store/_initial-state').modalFormInvestigado,
+ *  modalFormRequerimiento: import('../../_store/_initial-state').modalFormRequerimiento
  * }} param0
  */
 const FormGestionInvestigacion = ({
@@ -64,7 +85,8 @@ const FormGestionInvestigacion = ({
   store,
   modalFormArchivo,
   modalFormAnexoExpediente,
-  modalFormInvestigado
+  modalFormInvestigado,
+  modalFormRequerimiento
 }) => {
   const [tab, setTab] = useState(0);
 
@@ -85,7 +107,10 @@ const FormGestionInvestigacion = ({
     <>
       <ModalFormContainer
         open={modal.open}
-        onClose={store.modalGestionInvestigacionActions.closeModal}
+        onClose={handleClose(
+          modal.formType,
+          store.modalGestionInvestigacionActions.closeModal
+        )}
         title={modal.title}
         onExited={handleExited}
         onSubmit={form => {
@@ -94,6 +119,7 @@ const FormGestionInvestigacion = ({
         loading={modal.loading}
         maxWidth="lg"
         fullWidth
+        showSubmitButton={modal.formType != FORM_TYPE.CONSULTAR}
       >
         <Tabs
           value={tab}
@@ -105,6 +131,7 @@ const FormGestionInvestigacion = ({
           <Tab label="Datos de la Hoja de Trámite" />
           <Tab label="Datos del investigado(a)" />
           <Tab label="Archivos Adjuntos" />
+          <Tab label="Requerimientos" />
         </Tabs>
         <div className={classes.tabContainer}>
           {tab == 0 && (
@@ -138,6 +165,12 @@ const FormGestionInvestigacion = ({
               onClickUpload={store.modalFormArchivoActions.openModal}
             />
           )}
+          {tab == 4 && (
+            <GridRequerimiento
+              requerimientos={form.requerimientos}
+              onClickNew={store.modalFormRequerimientoActions.openModal}
+            />
+          )}
         </div>
       </ModalFormContainer>
 
@@ -168,6 +201,14 @@ const FormGestionInvestigacion = ({
         modal={modalFormArchivo}
         onUploadFinish={files =>
           dispatch({ type: "PUSH-FILES", payload: { files } })
+        }
+      />
+
+      <FormRequerimiento
+        store={store}
+        modal={modalFormRequerimiento}
+        onUploadFinish={requerimiento =>
+          dispatch({ type: "PUSH-REQUERIMIENTO", payload: { requerimiento } })
         }
       />
     </>

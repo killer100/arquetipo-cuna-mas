@@ -7,17 +7,17 @@ import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import { FORM_TYPE } from "app/core/enums/enums";
 import ButtonIconInputSearch from "app/core/components/buttons/button-icon-input-search";
+import confirm from "app/core/components/confirm";
 
-const ButtonSearchPerson = ({ show, onClickSearch, onClickRemove }) =>
-  show ? (
-    <IconButton onClick={onClickRemove}>
-      <Icon>delete</Icon>
-    </IconButton>
-  ) : (
-    <IconButton onClick={onClickSearch}>
-      <Icon>search</Icon>
-    </IconButton>
-  );
+const handleClose = (formType, close) => () => {
+  if (formType == FORM_TYPE.CONSULTAR) {
+    close();
+  } else {
+    confirm("Va a cerrar el Formulario. ¿Continuar?").then(confirm => {
+      if (confirm) close();
+    });
+  }
+};
 
 /**
  *
@@ -52,7 +52,10 @@ const FormGestionAbogado = ({ modal, store }) => {
   return (
     <ModalFormContainer
       open={modal.open}
-      onClose={store.modalGestionAbogadoActions.closeModal}
+      onClose={handleClose(
+        modal.formType,
+        store.modalGestionAbogadoActions.closeModal
+      )}
       title={modal.title}
       onExited={() => {
         store.modalGestionAbogadoActions.resetModal();
@@ -61,6 +64,7 @@ const FormGestionAbogado = ({ modal, store }) => {
         console.log(form);
       }}
       loading={modal.loading}
+      showSubmitButton={modal.formType != FORM_TYPE.CONSULTAR}
     >
       <Grid container spacing={1}>
         <Grid item xs={12}>

@@ -4,6 +4,7 @@ import { ModalGestionInvestigacionActions } from "./actions/modal-gestion-invest
 import { ModalFormAnexoExpedienteActions } from "./actions/modal-form-anexo-expediente.action";
 import { ModalFormInvestigacionActions } from "./actions/modal-form-investigado.action";
 import { ModalFormArchivoActions } from "./actions/modal-form-archivo.action";
+import { ModalFormRequerimientoActions } from "./actions/modal-form-requerimiento.action";
 
 export class GestionInvestigacionStore extends BaseStore {
   /**
@@ -35,6 +36,11 @@ export class GestionInvestigacionStore extends BaseStore {
     this.modalFormArchivoActions = new ModalFormArchivoActions(
       this.buildScopedGetState("modalFormArchivo"),
       this.buildScopedSetState("modalFormArchivo")
+    );
+
+    this.modalFormRequerimientoActions = new ModalFormRequerimientoActions(
+      this.buildScopedGetState("modalFormRequerimiento"),
+      this.buildScopedSetState("modalFormRequerimiento")
     );
   }
 }

@@ -74,7 +74,7 @@ export default class AbogadoContainer extends Component {
 
     return (
       <>
-        <PageTitle text={"Titulo"}>asdasd</PageTitle>
+        <PageTitle text={"Listado de Abogados"}></PageTitle>
 
         <FormBuscar
           onSearch={this.handleSearch}
